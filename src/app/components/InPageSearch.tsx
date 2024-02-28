@@ -10,6 +10,7 @@ import {
 } from "@aws-sdk/client-transcribe-streaming";
 import MicrophoneStream from "microphone-stream";
 import { Buffer } from "buffer";
+import { Input } from "@nextui-org/react";
 
 let microphoneStream: any = undefined;
 const language = "en-US";
@@ -107,6 +108,7 @@ const InPageSearch = () => {
   const [search, setSearch] = useState("");
   const imageInput: any = useRef(null);
 
+  //Image reader
   const convert = async (image: string) => {
     if (image) {
       const worker = await createWorker("eng");
@@ -129,6 +131,7 @@ const InPageSearch = () => {
     console.log("CameraIcon touched");
     imageInput.current?.click();
   };
+
   const handleMicrophoneIcon = () => {
     console.log("MicrophoneIcon touched");
     if (recording) {
@@ -181,30 +184,42 @@ const InPageSearch = () => {
       />
       <form
         onSubmit={handleSubmit}
-        className="bg-[#313B72] max-w-[609px] h-[408px] rounded-[30px] shadow-sm p-10 text-white [&>*]:py-4 sm:flex flex-col items-center hidden"
+        className="bg-primary max-w-[609px] min-h-[408px] rounded-[30px] shadow-sm m-4 sm:p-10 py-10 px-5 text-white [&>*]:py-4 sm:flex flex-col items-center "
       >
         <h2 className="font-bold text-[36px] leading-[56px]">{texts.title}</h2>
-        <div className="relative">
-          <MagnifyingGlassIcon
-            onClick={handleMagnifyingGlassIcon}
-            className="w-[36px] h-[36px] text-[#49454F] absolute left-[14px] bottom-10"
-          />
-          <input
-            type="text"
-            value={search}
-            onChange={handleSearch}
-            placeholder="Enter medication or brand name"
-            className="w-[562px] h-[84px] px-20 bg-white flex justify-center items-center rounded-[42px] text-[#49454F]"
-          />
-          <CameraIcon
-            onClick={handleCameraIcon}
-            className="w-[36px] h-[36px] text-[#49454F] absolute right-[80px] bottom-10 cursor-pointer"
-          />
-          <MicrophoneIcon
-            onClick={handleMicrophoneIcon}
-            className="w-[36px] h-[36px] text-[#49454F] absolute right-[30px] bottom-10"
-          />
-        </div>
+
+        <Input
+          type="search"
+          startContent={
+            <MagnifyingGlassIcon
+              width={36}
+              height={36}
+              onClick={handleMagnifyingGlassIcon}
+              className=" text-[#49454F] "
+            />
+          }
+          radius="full"
+          className="sm:w-[562px] h-[84px]"
+          value={search}
+          onChange={handleSearch}
+          placeholder="Enter medication or brand name"
+          endContent={
+            <div className="flex items-center [&>*]:mx-1">
+              <CameraIcon
+                width={36}
+                height={36}
+                onClick={handleCameraIcon}
+                className=" text-[#49454F] cursor-pointer"
+              />
+              <MicrophoneIcon
+                width={36}
+                height={36}
+                onClick={handleMicrophoneIcon}
+                className=" text-[#49454F]  cursor-pointer"
+              />
+            </div>
+          }
+        />
         <p className="">{texts.subTitle}</p>
       </form>
     </>

@@ -1,19 +1,33 @@
 import Link from "next/link";
-import { useState } from "react";
+import { Button } from "@nextui-org/react";
 
-const UserContainer = ({ handleSetIsLogged, loggedUser }: any) => {
+const UserContainer = ({
+  handleSetIsLogged,
+  loggedUser,
+  isLogged,
+  ...props
+}: any) => {
   return (
-    <div className=" flex items-center justify-between">
-      {!loggedUser ? (
+    <div {...props} className=" flex items-center justify-between [&>*]:mx-1">
+      {!isLogged ? (
         <>
-          <button className="text-[#486284] rounded-[50px] h-[48px] w-[86px] border-[1px] border-[#486284] sm:border-none">
+          <Button
+            variant="ghost"
+            radius="full"
+            className="text-[#486284] h-[48px] w-[86px] "
+          >
             Register
-          </button>
-          <Link onClick={handleSetIsLogged} href={"/dashboard"}>
-            <button className="bg-[#486284] text-white rounded-[50px] h-[48px] w-[86px]">
-              Log In
-            </button>
-          </Link>
+          </Button>
+
+          <Button
+            onClick={handleSetIsLogged}
+            variant="solid"
+            radius="full"
+            color="primary"
+            className=" h-[48px] w-[86px]"
+          >
+            Log In
+          </Button>
         </>
       ) : (
         <svg

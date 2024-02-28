@@ -8,6 +8,8 @@ import Accordions from "./Accordions";
 import { JumpToSection } from "./JumpToSection";
 import LatestsNews from "./LatestsNews";
 import LoadingSpinner from "../components/LoadingSpinner";
+import Text from "@/app/components/Text";
+import { Button } from "@nextui-org/react";
 
 const ProductDetails = ({ product }: { product: string }) => {
   const [productData, setProductData] = useState<any>({});
@@ -19,7 +21,7 @@ const ProductDetails = ({ product }: { product: string }) => {
     try {
       setLoading(true);
       const singleProduct = await fetch(
-        `https://7cc9-170-194-32-44.ngrok-free.app/v1/products/search?name=${product}`,
+        `https://ae6c-2a02-2f05-d31d-2000-9b0-a80c-b002-637d.ngrok-free.app/v1/products/search?name=${product}`,
         {
           headers: {
             Language: language || "en",
@@ -50,9 +52,7 @@ const ProductDetails = ({ product }: { product: string }) => {
         <div className="flex items-center justify-between flex-row-reverse">
           <AvailableCountries />
           <div>
-            <h1 className="text-[#344054] text-[32px] font-bold">
-              {productData.name}
-            </h1>
+            <Text>{productData.name}</Text>
             <p className="text-[#344054] font-[24px] ">
               {productData.activeIngredient}
             </p>
@@ -69,10 +69,15 @@ const ProductDetails = ({ product }: { product: string }) => {
         <LatestsNews />
       </div>
 
-      <div className="flex flex-col  [&>button]:my-8 [&>div]:my-8">
-        <button className="bg-[#D80027] text-white rounded-[50px] w-[221px] h-[48px] shadow-2xl">
+      <div className="flex flex-col sm:block hidden [&>div]:my-8">
+        <Button
+          variant="solid"
+          radius="full"
+          className="bg-[#D80027] text-white  w-[221px] h-[48px]"
+        >
           Report an averse event
-        </button>
+        </Button>
+
         <PrintOptions />
         <JumpToSection />
       </div>

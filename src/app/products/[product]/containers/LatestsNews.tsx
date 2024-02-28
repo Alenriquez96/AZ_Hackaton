@@ -1,4 +1,6 @@
 import Image from "next/image";
+import { Card, CardBody, CardHeader, CardFooter } from "@nextui-org/react";
+
 const LatestsNews = () => {
   return (
     <div className=" h-[511px] rounded-[8px] shadow-sm">
@@ -6,7 +8,7 @@ const LatestsNews = () => {
       <div className="flex items-center flex-wrap">
         {Array.from(Array(2)).map((i, x) => {
           return (
-            <div
+            <Card
               key={x}
               className="rounded-[8px] m-3 w-[300px] shadow-2xl cursor-pointer"
             >
@@ -18,11 +20,13 @@ const LatestsNews = () => {
                 width={300}
                 height={200}
               />
-              <p className="text-[12px] text-[#090914] font-semibold m-3">
+              <CardHeader className="text-[12px] text-[#090914] font-semibold m-3">
                 Most popular design systems to learn from in 2022
-              </p>
-              <p className="text-[#63A87D] m-3">Design Systems</p>
-            </div>
+              </CardHeader>
+              <CardFooter className="text-[#63A87D] m-3">
+                Design Systems
+              </CardFooter>
+            </Card>
           );
         })}
       </div>

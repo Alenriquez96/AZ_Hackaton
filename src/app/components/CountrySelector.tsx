@@ -1,3 +1,5 @@
+import { Button } from "@nextui-org/button";
+
 const countries = [
   { name: "United Kingdom", code: "GB" },
   { name: "Spain", code: "SP" },
@@ -5,12 +7,17 @@ const countries = [
   { name: "Portugal", code: "PT" },
 ];
 
-const CountrySelector = () => {
+const CountrySelector = ({ ...props }) => {
   return (
-    <button className="h-[56px]  rounded-[50px] border-[1px] border-[#486284] py-[12px] px-[20px] text-[#486284] text-[16px] sm:flex items-center justify-between  hidden [&>*]:mx-2">
+    <Button
+      variant="bordered"
+      radius="full"
+      {...props}
+      className="h-[56px]  sm:flex  hidden [&>*]:mx-2"
+      endContent={<BritishFlag />}
+    >
       {countries[0].name}
-      <BritishFlag />
-    </button>
+    </Button>
   );
 };
 

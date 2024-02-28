@@ -1,4 +1,5 @@
 import InPageSearch from "../components/InPageSearch";
+import Text from "../components/Text";
 import LatestsNews from "../products/[product]/containers/LatestsNews";
 import PrescriptionAlert from "./components/PrescriptionAlert";
 import HowFeeling from "./containers/HowFeeling";
@@ -8,7 +9,7 @@ export default function Dashboard() {
   return (
     <main className="flex justify-evenly flex-wrap [&>*]:mx-2">
       <div className="flex flex-col [&>*]:m-5 ">
-        <p className="text-[#49454F] text-[32px] font-bold">Welcome, Olivia!</p>
+        <Text>Welcome, Olivia!</Text>
         <PrescriptionAlert />
         <InPageSearch />
         <LatestsNews />
@@ -153,7 +154,7 @@ export default function Dashboard() {
               rx="3"
               fill="#F2F2F2"
               stroke="#67D7D1"
-              stroke-width="2"
+              strokeWidth="2"
             />
             <path
               d="M48.1749 180.29V171.806L46.5929 172.156V171.344L48.5669 170.49H49.3649V180.29H48.1749ZM51.2795 180.29V179.464C51.9421 178.941 52.5675 178.414 53.1555 177.882C53.7528 177.341 54.2801 176.809 54.7375 176.286C55.2041 175.763 55.5681 175.25 55.8295 174.746C56.1001 174.242 56.2355 173.757 56.2355 173.29C56.2355 172.945 56.1748 172.623 56.0535 172.324C55.9415 172.025 55.7548 171.787 55.4935 171.61C55.2321 171.423 54.8775 171.33 54.4295 171.33C54.0001 171.33 53.6408 171.428 53.3515 171.624C53.0621 171.811 52.8428 172.063 52.6935 172.38C52.5535 172.697 52.4835 173.038 52.4835 173.402H51.3495C51.3495 172.758 51.4848 172.207 51.7555 171.75C52.0261 171.283 52.3948 170.929 52.8615 170.686C53.3281 170.443 53.8555 170.322 54.4435 170.322C55.3115 170.322 56.0208 170.569 56.5715 171.064C57.1315 171.549 57.4115 172.277 57.4115 173.248C57.4115 173.827 57.2668 174.401 56.9775 174.97C56.6881 175.53 56.3195 176.076 55.8715 176.608C55.4235 177.131 54.9428 177.621 54.4295 178.078C53.9255 178.535 53.4541 178.946 53.0155 179.31H57.7475V180.29H51.2795Z"
@@ -251,13 +252,13 @@ export default function Dashboard() {
               height="59.1744"
               stroke="#F2F2F2"
             />
-            <g clip-path="url(#clip0_91_6676)">
+            <g clipPath="url(#clip0_91_6676)">
               <path
                 d="M46.3333 234.748V238.082M39.6667 234.748V238.082M35.5 241.415H50.5M37.1667 236.415H48.8333C49.7538 236.415 50.5 237.161 50.5 238.082V249.748C50.5 250.669 49.7538 251.415 48.8333 251.415H37.1667C36.2462 251.415 35.5 250.669 35.5 249.748V238.082C35.5 237.161 36.2462 236.415 37.1667 236.415Z"
                 stroke="black"
-                stroke-width="2"
-                stroke-linecap="round"
-                stroke-linejoin="round"
+                strokeWidth="2"
+                strokeLinecap="round"
+                strokeLinejoin="round"
               />
             </g>
             <path
@@ -277,9 +278,9 @@ export default function Dashboard() {
               width="384"
               height="291.169"
               filterUnits="userSpaceOnUse"
-              color-interpolation-filters="sRGB"
+              colorInterpolationFilters="sRGB"
             >
-              <feFlood flood-opacity="0" result="BackgroundImageFix" />
+              <feFlood floodOpacity="0" result="BackgroundImageFix" />
               <feColorMatrix
                 in="SourceAlpha"
                 type="matrix"

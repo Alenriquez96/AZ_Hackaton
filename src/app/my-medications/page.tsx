@@ -1,25 +1,109 @@
-import Alert from "./components/Alert";
+import { Card, CardHeader, CardBody, Button } from "@nextui-org/react";
+import { IconPill } from "@tabler/icons-react";
+import Text from "@/app/components/Text";
+import { IconFilter, IconArrowsSort } from "@tabler/icons-react";
+
+interface medications {
+  name: string;
+}
+
+const currentMedications: medications[] = [
+  {
+    name: "Atorvastatin",
+  },
+  {
+    name: "Insulin",
+  },
+  {
+    name: "Levothyroxine",
+  },
+];
+
+const pastMedications: medications[] = [
+  {
+    name: "Morphine",
+  },
+  {
+    name: "Aspirin",
+  },
+  {
+    name: "Sertraline",
+  },
+];
 
 function MyMedications() {
   return (
-    <main>
-      <div className="flex items-center">
-        <p className="font-bold text-[32px] leading-[76px] text-[#344054]">
-          My Medications
-        </p>
-        <button className="bg-[#63A87D] w-[193px] h-[48px] py-[12px] px-[20px] text-white rounded-[50px]">
-          + Add a medication
-        </button>
-      </div>
-      <Alert />
-      <div className="flex items-center">
-        <button className="h-[48px] w-[200px] rounded-[50px] bg-[#3F3D58]">
-          Manage Medications
-        </button>
-      </div>
-      <div>
-        <p>Current Medications</p>
-        <div className="flex flex-wrap"></div>
+    <main className="min-h-screen">
+      <div className="flex m-11 justify-evenly">
+        <section className="flex flex-col  justify-around">
+          <Text>My Medications</Text>
+          <Button
+            variant="solid"
+            color="secondary"
+            radius="full"
+            className="w-[202px] h-[50px]"
+          >
+            Manage Medications
+          </Button>
+          <div className="flex flex-col ">
+            <Text>
+              Current Medications ({currentMedications.length.toString()})
+            </Text>
+            <div className="flex items-center [&>*]:mr-8">
+              {currentMedications.map((med) => (
+                <Card
+                  isPressable
+                  className="min-h-[200px] min-w-[200px] bg-[#F1EFE9] "
+                >
+                  <CardBody>
+                    <IconPill size={50} />
+                  </CardBody>
+                  <CardHeader>{med.name}</CardHeader>
+                </Card>
+              ))}
+            </div>
+          </div>
+          <div>
+            <Text>Past Medications ({pastMedications.length.toString()})</Text>
+            <div className="flex items-center [&>*]:mr-8">
+              {pastMedications.map((med) => (
+                <Card
+                  isPressable
+                  className="min-h-[200px] min-w-[200px] bg-[#F1EFE9]"
+                >
+                  <CardBody>
+                    <IconPill size={50} />
+                  </CardBody>
+                  <CardHeader>{med.name}</CardHeader>
+                </Card>
+              ))}
+            </div>
+          </div>
+        </section>
+        <div className="flex flex-col">
+          <Button
+            className="bg-[#63A87D] text-white w-[202px] h-[50px]"
+            radius="full"
+          >
+            + Add a medication
+          </Button>
+          <div className="flex items-center justify-between my-2">
+            <Button
+              endContent={<IconFilter />}
+              variant="bordered"
+              radius="full"
+            >
+              Filter
+            </Button>
+            <Button
+              endContent={<IconArrowsSort />}
+              variant="bordered"
+              radius="full"
+            >
+              Sort
+            </Button>
+          </div>
+        </div>
       </div>
     </main>
   );

@@ -1,10 +1,11 @@
 import ProductDetails from "./containers/ProductDetails";
+import { notFound } from "next/navigation";
 
 //Get all posts
 const getProducts = async () => {
   try {
     const res = await fetch(
-      `https://7cc9-170-194-32-44.ngrok-free.app/v1/products`,
+      `https://ae6c-2a02-2f05-d31d-2000-9b0-a80c-b002-637d.ngrok-free.app/v1/products`,
       {
         cache: "no-cache",
       }
@@ -14,12 +15,21 @@ const getProducts = async () => {
     return products;
   } catch (error) {
     console.log({ error });
-    return [];
+    return [
+      {
+        name: "Insulin",
+      },
+    ];
   }
 };
 
 export async function generateStaticParams() {
   const products = await getProducts();
+
+  if (!products) {
+    notFound();
+  }
+
   return products?.map((product: { name: string }) => {
     return {
       product: product.name,

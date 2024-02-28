@@ -1,12 +1,21 @@
 "use client";
 import { useState } from "react";
+import useOutsideClick from "@/app/hooks/useClickOutside";
+import { useRef } from "react";
+import { Button } from "@nextui-org/react";
 
 const Chatbot = () => {
   const [openChatbot, setOpenChatbot] = useState(false);
+  const outerElement = useRef(null);
+
+  useOutsideClick(outerElement, () => setOpenChatbot(false));
 
   return (
     <>
-      <div className="bg-[#63A87D] text-white rounded-[16px] h-[74px] w-[380px] p-[24px] fixed bottom-[93px] right-36">
+      <div
+        ref={outerElement}
+        className="bg-[#63A87D] text-white rounded-[16px] h-[74px] w-[380px] p-[24px] hidden sm:fixed bottom-[93px] right-36"
+      >
         Hi - ask me about medication!
       </div>
       <button
@@ -14,11 +23,11 @@ const Chatbot = () => {
         className={`
       z-50 fixed bottom-20 right-6  animate-bounce-short transition-all hover:-translate-y-0.5 text-[40px] font-bold border-[2px] rounded-full p-4`}
       >
-        <span className="text-[#462255]">M</span>
+        <span className="text-primary">M</span>
         <span className="text-[#FC7853]">G</span>
       </button>
       <div
-        className={`right-32 bottom-0 z-50  ${
+        className={`right-0 sm:right-32 bottom-0 z-50  ${
           openChatbot ? "fixed" : "hidden"
         }`}
       >

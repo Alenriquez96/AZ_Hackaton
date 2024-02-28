@@ -1,32 +1,44 @@
 "use client";
 import { useState } from "react";
-
+import { Select, SelectItem } from "@nextui-org/react";
 const languages = ["EN", "ES", "PT", "FR"];
 
-const LanguageSelector = () => {
+const LanguageSelector = ({ ...props }) => {
   const [selectedLanguage, setSelectedLanguage] = useState("en");
   typeof document !== "undefined" &&
     localStorage.setItem("lan", JSON.stringify(selectedLanguage));
 
   return (
-    <div className="mx-4 sm:flex items-center  hidden">
-      <select
-        name="Language"
-        id="languageSelector"
-        onChange={(val) => setSelectedLanguage(val.target.value.toLowerCase())}
-      >
-        {languages.map((lan) => (
-          <option key={lan} value={lan}>
-            {lan}
-          </option>
-        ))}
-      </select>
-      <WorldLanguageIcon
-        onClick={() => {
-          document.getElementById("languageSelector")?.click();
-        }}
-      />
-    </div>
+    <Select
+      items={languages}
+      className="w-[90px] sm:block hidden"
+      endContent={<WorldLanguageIcon />}
+      onChange={(val) => setSelectedLanguage(val.target.value.toLowerCase())}
+    >
+      {languages.map((language, i) => (
+        <SelectItem showDivider key={language} value={language}>
+          {language}
+        </SelectItem>
+      ))}
+    </Select>
+    // <div {...props} className="mx-4 sm:flex items-center  hidden">
+    //   <select
+    //     name="Language"
+    //     id="languageSelector"
+    //     onChange={(val) => setSelectedLanguage(val.target.value.toLowerCase())}
+    //   >
+    //     {languages.map((lan) => (
+    //       <option key={lan} value={lan}>
+    //         {lan}
+    //       </option>
+    //     ))}
+    //   </select>
+    //   <WorldLanguageIcon
+    //     onClick={() => {
+    //       document.getElementById("languageSelector")?.click();
+    //     }}
+    //   />
+    // </div>
   );
 };
 

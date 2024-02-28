@@ -9,15 +9,11 @@ export default async function Home() {
   return (
     <main className="flex  flex-col items-center bg-[url('../assets/world.svg')]">
       <div className="flex min-h-[800px]">
-        <div className="flex flex-row-reverse items-center flex-wrap justify-center [&>*]:m-4 ">
+        <div className="flex sm:flex-row-reverse flex-col-reverse items-center flex-wrap justify-center my-20">
           <InPageSearch />
           <ProductInfo />
         </div>
-        {/* <FloatingMenu /> */}
       </div>
-      {/* <LatestsNews /> */}
-
-      {/* <BackToTop /> */}
       <Footer />
     </main>
   );

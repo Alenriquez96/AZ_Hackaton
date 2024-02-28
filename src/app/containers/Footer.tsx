@@ -43,7 +43,7 @@ const Footer = () => {
         })}
       </div>
       <div className="flex sm:justify-between justify-center sm:items-center border-t-[1px] w-[80%] mt-5 h-[100px] ">
-        <Logo />
+        <Logo className="my-6 sm:m-0" />
         <p className="text-[#98A2B3] text-[16px] hidden sm:block">
           © 2077 Untitled UI. All rights reserved.
         </p>

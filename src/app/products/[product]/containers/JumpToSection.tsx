@@ -1,4 +1,11 @@
 "use client";
+import {
+  Card,
+  CardHeader,
+  CardBody,
+  Listbox,
+  ListboxItem,
+} from "@nextui-org/react";
 import { sectionHeadings as sections } from "./Accordions";
 
 export const JumpToSection = () => {
@@ -7,19 +14,26 @@ export const JumpToSection = () => {
   };
 
   return (
-    <div className="w-[360px] rounded-[16px] bg-[#462255] opacity-75 text-white [&>*]:p-4 max-h-[482px] shadow-2xl">
-      <h2 className="text-[20px]">Jump to section</h2>
-      <ul className="[&>*]:p-4 list-disc">
-        {sections.map((sectionName, i) => (
-          <li
-            key={i}
-            onClick={() => handleJumpToSection(sectionName.title)}
-            className="ml-5 cursor-pointer"
-          >
-            {sectionName.title}
-          </li>
-        ))}
-      </ul>
-    </div>
+    <Card
+      radius="md"
+      shadow="lg"
+      className="w-[360px] rounded-[16px] bg-primary opacity-75 text-white [&>*]:p-4 max-h-[482px] shadow-2xl"
+    >
+      <CardHeader className="text-[24px]">Jump to section</CardHeader>
+
+      <CardBody>
+        <Listbox>
+          {sections.map((sectionName, i) => (
+            <ListboxItem
+              key={i}
+              style={{ padding: "16px 24px 16px 16px", borderRadius: "100px" }}
+              onClick={() => handleJumpToSection(sectionName.title)}
+            >
+              {sectionName.title}
+            </ListboxItem>
+          ))}
+        </Listbox>
+      </CardBody>
+    </Card>
   );
 };

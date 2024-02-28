@@ -4,6 +4,7 @@ import "./globals.css";
 import Header from "@/app/containers/Header";
 import Script from "next/script";
 import Chatbot from "./components/Chatbot";
+import { Providers } from "./providers";
 
 const dm_sans = DM_Sans({
   subsets: ["latin"],
@@ -40,9 +41,11 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={dm_sans.className}>
-        <Header />
-        {children}
-        <Chatbot />
+        <Providers>
+          <Header />
+          {children}
+          <Chatbot />
+        </Providers>
       </body>
     </html>
   );

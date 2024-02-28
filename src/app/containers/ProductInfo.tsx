@@ -1,3 +1,6 @@
+import Text from "@/app/components/Text";
+import { Button } from "@nextui-org/react";
+
 const productInfo = {
   name: "MediGuide",
   subTitle: "Your trusted health companion",
@@ -21,22 +24,20 @@ const productInfo = {
 
 const ProductInfo = () => {
   return (
-    <div className="p-10 [&>p]:py-3 [&>button]:my-3 max-w-[1000px] hidden sm:block">
+    <div className="p-5 sm:p-10 [&>p]:py-3 [&>button]:my-3 max-w-[1000px] ">
       <p className="font-medium text-[21px] leading-[22px] text-[#344054]">
         {productInfo.name}
       </p>
-      <p className="font-bold text-[60px] leading-[76px] text-[#344054]">
-        {productInfo.subTitle}
-      </p>
+      <Text style={{ fontSize: "60px" }}>{productInfo.subTitle}</Text>
       <p className="text-[#667085] font-normal text-[20px]">
         {productInfo.description}
       </p>
       {/* {productInfo.productInfo.map((info) => (
         <p>{info.info}</p>
       ))} */}
-      <button className="w-[132px] h-[48px] rounded-[50px] bg-[#313B72] py-[12px] px-[20px] text-white text-[16px]">
+      <Button color="primary" size="lg" radius="full" variant="solid">
         Get Started
-      </button>
+      </Button>
     </div>
   );
 };
