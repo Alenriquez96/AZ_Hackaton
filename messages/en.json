@@ -33,7 +33,9 @@
       "text": "Send via Text",
       "listen": "Listen to this section",
       "easy": "Easy to understand",
-      "difficult": "Difficult to understand"
+      "difficult": "Difficult to understand",
+      "textSize": "Text size",
+      "highlight": "Highlight Section"
     },
     "feedback": "Your feedback on this section",
     "jumpTo": "Jump to Section"

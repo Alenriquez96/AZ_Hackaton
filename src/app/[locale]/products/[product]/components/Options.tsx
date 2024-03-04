@@ -14,10 +14,27 @@ import {
 } from "@tabler/icons-react";
 import { useTranslations } from "next-intl";
 
-const PrintOptions = () => {
+const Options = () => {
   const t = useTranslations("product");
   return (
-    <div>
+    <div className="flex items-center">
+      <div className="flex flex-col items-center pr-3">
+        <p>{t("buttons.textSize")}:</p>
+        <div className="flex items-baseline">
+          {new Array(3).fill("A").map((letter, i) => (
+            <p
+              key={i}
+              style={{
+                fontWeight: 700,
+                fontSize: (i + 1) * 13,
+                padding: "0 2px",
+              }}
+            >
+              {letter}
+            </p>
+          ))}
+        </div>
+      </div>
       <Dropdown>
         <DropdownTrigger>
           <Button
@@ -53,4 +70,4 @@ const PrintOptions = () => {
   );
 };
 
-export default PrintOptions;
+export default Options;

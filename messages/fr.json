@@ -33,7 +33,8 @@
             "text": "Envoyer par SMS",
             "listen": "Écouter cette section",
             "easy": "Facile à comprendre",
-            "difficult": "Difficile à comprendre"
+            "difficult": "Difficile à comprendre",
+            "textSize": "Taille du texte"
         },
         "feedback": "Votre avis sur cette section",
         "jumpTo": "Aller à la section"

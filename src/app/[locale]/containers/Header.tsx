@@ -8,6 +8,7 @@ import Link from "next/link";
 import { Button } from "@nextui-org/react";
 import { usePathname } from "next/navigation";
 import { useTranslations } from "next-intl";
+import { ThemeSwitcher } from "../components/ThemeSwitcher";
 
 const Header = ({ locale }: { locale: string }) => {
   const t = useTranslations("header");
@@ -80,6 +81,7 @@ const Header = ({ locale }: { locale: string }) => {
           ))}
         <CountrySelector />
         <LanguageSelector />
+        <ThemeSwitcher />
         <UserContainer
           loggedUser={loggedUser}
           isLogged={isLogged}

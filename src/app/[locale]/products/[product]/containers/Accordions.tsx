@@ -1,11 +1,19 @@
 "use client";
 import { useState, useEffect } from "react";
-import { SpeakerWaveIcon } from "@heroicons/react/24/outline";
+import {
+  SpeakerWaveIcon,
+  ChatBubbleOvalLeftIcon,
+} from "@heroicons/react/24/outline";
 import { useSpeachSynthesisApi } from "@/app/[locale]/hooks/useSpeechSynthesis";
-import { ChatBubbleOvalLeftIcon } from "@heroicons/react/24/outline";
 import { Video } from "@/app/[locale]/components/Video";
 import { Accordion, AccordionItem, Card, Input } from "@nextui-org/react";
-import { IconThumbDown, IconThumbUp } from "@tabler/icons-react";
+import {
+  IconThumbDown,
+  IconThumbUp,
+  IconPencil,
+  IconDotsVertical,
+  IconMail,
+} from "@tabler/icons-react";
 import {
   Modal,
   ModalContent,
@@ -14,6 +22,10 @@ import {
   ModalFooter,
   Button,
   useDisclosure,
+  Dropdown,
+  DropdownItem,
+  DropdownTrigger,
+  DropdownMenu,
 } from "@nextui-org/react";
 import { Section, Product } from "@/interfaces";
 import { useTranslations } from "next-intl";
@@ -31,6 +43,25 @@ const Accordions = ({
   const [number, setNumber] = useState("");
   const { isOpen, onOpen, onOpenChange } = useDisclosure();
   const t = useTranslations("product");
+
+  const options: any[] = [
+    <Button variant="light" startContent={<IconMail width={24} height={24} />}>
+      {t("buttons.email")}
+    </Button>,
+    <Button
+      onClick={onOpen}
+      variant="light"
+      startContent={<ChatBubbleOvalLeftIcon width={24} height={24} />}
+    >
+      {t("buttons.text")}
+    </Button>,
+    <Button
+      variant="light"
+      startContent={<IconPencil width={24} height={24} />}
+    >
+      {t("buttons.highlight")}
+    </Button>,
+  ];
 
   const {
     text,
@@ -143,10 +174,21 @@ const Accordions = ({
                 >
                   <div className="flex justify-between items-center border-b-[1px] border-b[#DBDBDB] mb-3 pb-3 flex-row-reverse">
                     <div className="flex items-center">
-                      <ChatBubbleOvalLeftIcon width={24} height={24} />
-                      <button className="px-2" onClick={onOpen}>
-                        {t("buttons.shareBtn")}
-                      </button>
+                      <Dropdown>
+                        <DropdownTrigger className="cursor-pointer">
+                          <IconDotsVertical width={16} height={16} />
+                        </DropdownTrigger>
+                        <DropdownMenu>
+                          {options.map((option, i) => (
+                            <DropdownItem
+                              showDivider={i !== options.length - 1}
+                              key={i}
+                            >
+                              {option}
+                            </DropdownItem>
+                          ))}
+                        </DropdownMenu>
+                      </Dropdown>
                     </div>
                     <div
                       onClick={() => (isSpeaking ? cancel() : speak())}

@@ -1,8 +1,7 @@
 "use client";
 
 import { useState, useEffect } from "react";
-import AvailableCountries from "../components/AvailableCountries";
-import PrintOptions from "../components/PrintOptions";
+import Options from "../components/Options";
 import SearchThisPage from "../components/SearchThisPage";
 import Accordions from "./Accordions";
 import { JumpToSection } from "./JumpToSection";
@@ -22,9 +21,9 @@ const ProductDetails = ({ product }: { product: string }) => {
   const [productId, setProductId] = useState<string>("");
   const [sectionHeadings, setSectionHeadings] = useState<Section[]>([]);
 
+  const language =
+    typeof document !== "undefined" && localStorage.getItem("lan");
   const getProductData = async (product: string) => {
-    const language =
-      typeof document !== "undefined" && localStorage.getItem("lan");
     try {
       setLoading(true);
       const singleProduct = await fetch(
@@ -53,7 +52,7 @@ const ProductDetails = ({ product }: { product: string }) => {
         `https://mediguide-api-latest.onrender.com/v1/users/labels?productId=${id}`,
         {
           headers: {
-            Language: "en",
+            Language: language || "en",
           },
         }
       );
@@ -83,16 +82,13 @@ const ProductDetails = ({ product }: { product: string }) => {
     if (error.error) notFound();
   }, [error]);
 
-  console.log({ loading });
-
   return (
     <div className="p-11 flex justify-evenly flex-wrap">
       <div className="flex flex-col [&>*]:p-4 max-w-[700px]">
         <div className="flex items-center justify-between">
           <SearchThisPage />
         </div>
-        <div className="flex items-center justify-between flex-row-reverse">
-          <AvailableCountries />
+        <div className="flex items-center justify-between flex-row">
           <div>
             <Text>{productData.name}</Text>
             <p className="text-[#344054] font-[24px] ">
@@ -122,8 +118,7 @@ const ProductDetails = ({ product }: { product: string }) => {
         >
           {t("buttons.report_event")}
         </Button>
-
-        <PrintOptions />
+        <Options />
         {sectionHeadings && <JumpToSection sectionHeadings={sectionHeadings} />}
       </div>
     </div>

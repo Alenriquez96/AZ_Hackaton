@@ -33,7 +33,8 @@
             "text": "Trimiteți prin text",
             "listen": "Ascultați această secțiune",
             "easy": "Ușor de înțeles",
-            "difficult": "Dificil de înțeles"
+            "difficult": "Dificil de înțeles",
+            "textSize": "Dimensiunea textului"
         },
         "feedback": "Opinia dvs. despre această secțiune",
         "jumpTo": "Săriți la secțiune"

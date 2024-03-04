@@ -33,7 +33,8 @@
             "text": "Enviar por mensaje de texto",
             "listen": "Escuchar esta sección",
             "easy": "Fácil de entender",
-            "difficult": "Difícil de entender"
+            "difficult": "Difícil de entender",
+            "textSize": "Tamaño del texto"
         },
         "feedback": "Tu opinión sobre esta sección",
         "jumpTo": "Ir a la sección"
