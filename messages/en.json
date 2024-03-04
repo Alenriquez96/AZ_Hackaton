@@ -1,0 +1,117 @@
+{
+  "header": {
+    "navigation_btns": {
+      "home": "Home",
+      "my_medications": "My Medications",
+      "calendar": "Calendar",
+      "communities": "Communities"
+    },
+    "login": "Login",
+    "register": "Register"
+  },
+  "home": {
+    "brand": "MediGuide",
+    "title": "Your trusted health companion",
+    "description": "MediGuide is committed to providing reliable and easy-to-understand health information to the global community, empowering individuals to make informed decisions about their well-being. With Mediguide, users can navigate their health journey with confidence and peace of mind, knowing that they have a trusted companion by their side.",
+    "btns": {
+      "get_started": "Get Started"
+    },
+    "searchComponent": {
+      "title": "Find product information for your medication",
+      "subtitle": "Search with text, voice or by holding up your medication to your mobile, desktop or tablet camera."
+    }
+  },
+  "dashboard": {
+    "welcomeText": "Welcome, ",
+    "reminders": "Reminders",
+    "alert": {
+      "title": "Prescription due soon",
+      "description": "Your prescription of Levothyroxine is due for renewal in 5 days"
+    },
+    "latestNews": {
+      "suggested": "Suggested for you",
+      "label": "Most popular design systems to learn from in 2022",
+      "footer": "Design Systems"
+    },
+    "trackStats": {
+      "title": "Track your stats",
+      "reminders": "Remember to log your blood sugar today",
+      "btns": {
+        "log": "Log result",
+        "trends": "View trends"
+      }
+    },
+    "feeling_component": {
+      "title": "How are you feeling today?",
+      "action": "Track your symptoms",
+      "btns": {
+        "headache": "Headache",
+        "nausea": "Nausea",
+        "dizziness": "Dizziness",
+        "shortness_of_breath": "Shortness of breath"
+      }
+    }
+  },
+  "My_medications": {
+    "title": "My Medications",
+    "btns": {
+      "mng_medication": "Manage Medications",
+      "add_medication": "Add a Medication",
+      "filter": "Filter",
+      "sort": "Sort"
+    },
+    "current_medications": "Current Medications",
+    "past_medications": "Past Medications"
+  },
+  "calendar": {
+    "title": "Calendar"
+  },
+  "communities": {
+    "title": "Communities"
+  },
+  "footer": {
+    "product": {
+      "title": "Product",
+      "overview": "Overview",
+      "features": "Features",
+      "solutions": "Solutions",
+      "releases": "Releases"
+    },
+    "company": {
+      "title": "Company",
+      "aboutUs": "About Us",
+      "careers": "Careers",
+      "press": "Press",
+      "news": "News",
+      "employeeLogIn": "Employee Log In"
+    },
+    "resources": {
+      "title": "Resources",
+      "blog": "Blog",
+      "helpCenter": "Help Centre",
+      "tutorials": "Tutorials",
+      "support": "Support"
+    },
+    "social": {
+      "title": "Social",
+      "facebook": "Facebook",
+      "x": "X",
+      "linkedIn": "LinkedIn",
+      "instagram": "Instagram"
+    },
+    "legal": {
+      "title": "Legal",
+      "terms": "Terms",
+      "privacy": "Privacy",
+      "cookies": "Cookies",
+      "licenses": "Licenses",
+      "settings": "Settings"
+    },
+    "all_rights_reserved": "© 2077 Untitled UI. All rights reserved."
+  },
+  "notFound": {
+    "title": "Not Found",
+    "description": "The page you are looking for does not exist. Please check the URL or click the button below to return to the homepage.",
+    "btn": "Return to Home"
+  }
+}

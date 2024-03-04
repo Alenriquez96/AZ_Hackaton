@@ -1,16 +1,18 @@
 "use client";
 import Link from "next/link";
-import Text from "./[locale]/components/Text";
+import Text from "./components/Text";
 import { Button } from "@nextui-org/react";
+import { useTranslations } from "next-intl";
 
 export default function NotFound() {
+  const t = useTranslations("notFound");
   return (
     <div className="min-h-screen grid place-content-center text-center [&>*]:my-3">
-      <Text>Not Found</Text>
-      <p>Could not find requested resource</p>
+      <Text>{t("title")}</Text>
+      <p className="text-wrap px-10">{t("description")}</p>
       <Link href="/">
         <Button variant="shadow" color="primary">
-          Return Home
+          {t("btn")}
         </Button>
       </Link>{" "}
     </div>

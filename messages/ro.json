@@ -1,0 +1,117 @@
+{
+    "header": {
+        "navigation_btns": {
+            "home": "Acasă",
+            "my_medications": "Medicațiile Mele",
+            "calendar": "Calendar",
+            "communities": "Comunități"
+        },
+        "login": "Autentificare",
+        "register": "Înregistrare"
+    },
+    "home": {
+        "brand": "MediGuide",
+        "title": "Însoțitorul tău de sănătate de încredere",
+        "description": "MediGuide se angajează să furnizeze informații de sănătate fiabile și ușor de înțeles comunității globale, împuternicind indivizii să ia decizii informate despre starea lor de bine. Cu Mediguide, utilizatorii își pot naviga călătoria de sănătate cu încredere și liniște, știind că au un însoțitor de încredere alături.",
+        "btns": {
+            "get_started": "Începeți"
+        },
+        "searchComponent": {
+            "title": "Găsiți informații despre medicamentul dumneavoastră",
+            "subtitle": "Căutați cu text, voce sau ținând medicamentul la camera mobilului, desktopului sau tabletei dumneavoastră."
+        }
+    },
+    "dashboard": {
+        "welcomeText": "Bun venit, ",
+        "reminders": "Memento-uri",
+        "alert": {
+            "title": "Prescripția se apropie de expirare",
+            "description": "Prescripția dumneavoastră de Levotiroxină trebuie reînnoită în 5 zile"
+        },
+        "latestNews": {
+            "suggested": "Sugerat pentru tine",
+            "label": "Cele mai populare sisteme de design de învățat în 2022",
+            "footer": "Sisteme de Design"
+        },
+        "trackStats": {
+            "title": "Urmăriți statisticile dumneavoastră",
+            "reminders": "Amintiți-vă să înregistrați nivelul de zahăr din sânge astăzi",
+            "btns": {
+                "log": "Înregistrați rezultatul",
+                "trends": "Vedeți tendințele"
+            }
+        },
+        "feeling_component": {
+            "title": "Cum vă simțiți astăzi?",
+            "action": "Urmăriți simptomele dumneavoastră",
+            "btns": {
+                "headache": "Durere de cap",
+                "nausea": "Grețuri",
+                "dizziness": "Ameeală",
+                "shortness_of_breath": "Dificultăți la respirație"
+            }
+        }
+    },
+    "My_medications": {
+        "title": "Medicațiile Mele",
+        "btns": {
+            "mng_medication": "Administrați Medicamentele",
+            "add_medication": "Adăugați un Medicament",
+            "filter": "Filtrare",
+            "sort": "Sortare"
+        },
+        "current_medications": "Medicații Curente",
+        "past_medications": "Medicații Anterioare"
+    },
+    "calendar": {
+        "title": "Calendar"
+    },
+    "communities": {
+        "title": "Comunități"
+    },
+    "footer": {
+        "product": {
+            "title": "Produs",
+            "overview": "Prezentare generală",
+            "features": "Caracteristici",
+            "solutions": "Soluții",
+            "releases": "Lansări"
+        },
+        "company": {
+            "title": "Companie",
+            "aboutUs": "Despre Noi",
+            "careers": "Cariere",
+            "press": "Presă",
+            "news": "Știri",
+            "employeeLogIn": "Autentificare Angajat"
+        },
+        "resources": {
+            "title": "Resurse",
+            "blog": "Blog",
+            "helpCenter": "Centru de Ajutor",
+            "tutorials": "Tutoriale",
+            "support": "Suport"
+        },
+        "social": {
+            "title": "Social",
+            "facebook": "Facebook",
+            "x": "X",
+            "linkedIn": "LinkedIn",
+            "instagram": "Instagram"
+        },
+        "legal": {
+            "title": "Juridic",
+            "terms": "Termeni",
+            "privacy": "Confidențialitate",
+            "cookies": "Cookie-uri",
+            "licenses": "Licențe",
+            "settings": "Setări"
+        },
+        "all_rights_reserved": "© 2077 Interfață de Utilizator Fără Titlu. Toate drepturile rezervate."
+    },
+    "notFound": {
+        "title": "Pagină negăsită",
+        "description": "Pagina pe care o căutați nu există. Vă rugăm să verificați URL-ul sau să faceți clic pe butonul de mai jos pentru a reveni la pagina de pornire.",
+        "btn": "Înapoi la Acasă"
+    }
+}

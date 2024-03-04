@@ -1,7 +1,10 @@
+// import createNextIntlPlugin from "next-intl/plugin";
+// const withNextIntl = createNextIntlPlugin();
 /** @type {import('next').NextConfig} */
 
 const nextConfig = {
   reactStrictMode: true,
+  // trailingSlash: true,
   output: "export",
   eslint: {
     // Warning: This allows production builds to successfully complete even if
@@ -21,11 +24,12 @@ const nextConfig = {
   },
 };
 
-const withPWA = require("next-pwa")({
-  dest: "public",
-  disable: process.env.NODE_ENV === "development",
-  register: true,
-  skipWaiting: true,
-});
+// const withPWA = require("next-pwa")({
+//   dest: "public",
+//   disable: process.env.NODE_ENV === "development",
+//   register: true,
+//   skipWaiting: true,
+// });
 
-module.exports = withPWA(nextConfig);
+// export default withNextIntl(nextConfig);
+module.exports = nextConfig;

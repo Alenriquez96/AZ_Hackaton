@@ -1,0 +1,117 @@
+{
+    "header": {
+        "navigation_btns": {
+            "home": "Inicio",
+            "my_medications": "Mis Medicamentos",
+            "calendar": "Calendario",
+            "communities": "Comunidades"
+        },
+        "login": "Iniciar sesión",
+        "register": "Registrarse"
+    },
+    "home": {
+        "brand": "MediGuide",
+        "title": "Tu compañero de salud de confianza",
+        "description": "MediGuide se compromete a proporcionar información de salud confiable y fácil de entender a la comunidad global, capacitando a las personas para tomar decisiones informadas sobre su bienestar. Con Mediguide, los usuarios pueden navegar por su viaje de salud con confianza y tranquilidad, sabiendo que tienen un compañero de confianza a su lado.",
+        "btns": {
+            "get_started": "Empezar"
+        },
+        "searchComponent": {
+            "title": "Encuentra información sobre tu medicamento",
+            "subtitle": "Busca con texto, voz o sosteniendo tu medicamento frente a la cámara de tu móvil, escritorio o tablet."
+        }
+    },
+    "dashboard": {
+        "welcomeText": "Bienvenido, ",
+        "reminders": "Recordatorios",
+        "alert": {
+            "title": "Prescripción próxima",
+            "description": "Tu prescripción de Levotiroxina debe renovarse en 5 días"
+        },
+        "latestNews": {
+            "suggested": "Sugerido para ti",
+            "label": "Los sistemas de diseño más populares para aprender en 2022",
+            "footer": "Sistemas de Diseño"
+        },
+        "trackStats": {
+            "title": "Sigue tus estadísticas",
+            "reminders": "Recuerda registrar tu nivel de azúcar en sangre hoy",
+            "btns": {
+                "log": "Registrar resultado",
+                "trends": "Ver tendencias"
+            }
+        },
+        "feeling_component": {
+            "title": "¿Cómo te sientes hoy?",
+            "action": "Registra tus síntomas",
+            "btns": {
+                "headache": "Dolor de cabeza",
+                "nausea": "Náuseas",
+                "dizziness": "Mareo",
+                "shortness_of_breath": "Falta de aire"
+            }
+        }
+    },
+    "My_medications": {
+        "title": "Mis Medicamentos",
+        "btns": {
+            "mng_medication": "Administrar Medicamentos",
+            "add_medication": "Agregar un Medicamento",
+            "filter": "Filtrar",
+            "sort": "Ordenar"
+        },
+        "current_medications": "Medicamentos Actuales",
+        "past_medications": "Medicamentos Anteriores"
+    },
+    "calendar": {
+        "title": "Calendario"
+    },
+    "communities": {
+        "title": "Comunidades"
+    },
+    "footer": {
+        "product": {
+            "title": "Producto",
+            "overview": "Resumen",
+            "features": "Características",
+            "solutions": "Soluciones",
+            "releases": "Versiones"
+        },
+        "company": {
+            "title": "Compañía",
+            "aboutUs": "Sobre Nosotros",
+            "careers": "Carreras",
+            "press": "Prensa",
+            "news": "Noticias",
+            "employeeLogIn": "Iniciar sesión de Empleado"
+        },
+        "resources": {
+            "title": "Recursos",
+            "blog": "Blog",
+            "helpCenter": "Centro de Ayuda",
+            "tutorials": "Tutoriales",
+            "support": "Soporte"
+        },
+        "social": {
+            "title": "Social",
+            "facebook": "Facebook",
+            "x": "X",
+            "linkedIn": "LinkedIn",
+            "instagram": "Instagram"
+        },
+        "legal": {
+            "title": "Legal",
+            "terms": "Términos",
+            "privacy": "Privacidad",
+            "cookies": "Cookies",
+            "licenses": "Licencias",
+            "settings": "Ajustes"
+        },
+        "all_rights_reserved": "© 2077 Interfaz de Usuario sin Título. Todos los derechos reservados."
+    },
+    "notFound": {
+        "title": "Página no encontrada",
+        "description": "La página que estás buscando no existe. Por favor, verifica la URL o haz clic en el botón a continuación para volver a la página de inicio.",
+        "btn": "Volver a Inicio"
+    }
+}

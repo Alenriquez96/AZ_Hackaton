@@ -1,0 +1,117 @@
+{
+    "header": {
+        "navigation_btns": {
+            "home": "Accueil",
+            "my_medications": "Mes Médicaments",
+            "calendar": "Calendrier",
+            "communities": "Communautés"
+        },
+        "login": "Se connecter",
+        "register": "S'inscrire"
+    },
+    "home": {
+        "brand": "MediGuide",
+        "title": "Votre compagnon de santé de confiance",
+        "description": "MediGuide s'engage à fournir des informations de santé fiables et faciles à comprendre à la communauté mondiale, permettant aux individus de prendre des décisions éclairées concernant leur bien-être. Avec MediGuide, les utilisateurs peuvent naviguer dans leur parcours de santé en toute confiance et sérénité, sachant qu'ils ont un compagnon de confiance à leurs côtés.",
+        "btns": {
+            "get_started": "Commencer"
+        },
+        "searchComponent": {
+            "title": "Trouvez des informations sur votre médicament",
+            "subtitle": "Recherchez avec du texte, de la voix ou en tenant votre médicament devant la caméra de votre mobile, de votre ordinateur de bureau ou de votre tablette."
+        }
+    },
+    "dashboard": {
+        "welcomeText": "Bienvenue, ",
+        "reminders": "Rappels",
+        "alert": {
+            "title": "Prescription bientôt expirée",
+            "description": "Votre prescription de lévothyroxine doit être renouvelée dans 5 jours"
+        },
+        "latestNews": {
+            "suggested": "Suggéré pour vous",
+            "label": "Les systèmes de conception les plus populaires à apprendre en 2022",
+            "footer": "Systèmes de Conception"
+        },
+        "trackStats": {
+            "title": "Suivez vos statistiques",
+            "reminders": "N'oubliez pas d'enregistrer votre taux de glycémie aujourd'hui",
+            "btns": {
+                "log": "Enregistrer le résultat",
+                "trends": "Voir les tendances"
+            }
+        },
+        "feeling_component": {
+            "title": "Comment vous sentez-vous aujourd'hui?",
+            "action": "Suivez vos symptômes",
+            "btns": {
+                "headache": "Mal de tête",
+                "nausea": "Nausée",
+                "dizziness": "Vertige",
+                "shortness_of_breath": "Essoufflement"
+            }
+        }
+    },
+    "My_medications": {
+        "title": "Mes Médicaments",
+        "btns": {
+            "mng_medication": "Gérer les Médicaments",
+            "add_medication": "Ajouter un Médicament",
+            "filter": "Filtrer",
+            "sort": "Trier"
+        },
+        "current_medications": "Médicaments Actuels",
+        "past_medications": "Médicaments Passés"
+    },
+    "calendar": {
+        "title": "Calendrier"
+    },
+    "communities": {
+        "title": "Communautés"
+    },
+    "footer": {
+        "product": {
+            "title": "Produit",
+            "overview": "Vue d'ensemble",
+            "features": "Fonctionnalités",
+            "solutions": "Solutions",
+            "releases": "Versions"
+        },
+        "company": {
+            "title": "Société",
+            "aboutUs": "À Propos de Nous",
+            "careers": "Carrières",
+            "press": "Presse",
+            "news": "Actualités",
+            "employeeLogIn": "Connexion Employé"
+        },
+        "resources": {
+            "title": "Ressources",
+            "blog": "Blog",
+            "helpCenter": "Centre d'Aide",
+            "tutorials": "Tutoriels",
+            "support": "Support"
+        },
+        "social": {
+            "title": "Social",
+            "facebook": "Facebook",
+            "x": "X",
+            "linkedIn": "LinkedIn",
+            "instagram": "Instagram"
+        },
+        "legal": {
+            "title": "Légal",
+            "terms": "Conditions",
+            "privacy": "Confidentialité",
+            "cookies": "Cookies",
+            "licenses": "Licences",
+            "settings": "Paramètres"
+        },
+        "all_rights_reserved": "© 2077 Interface Utilisateur Sans Titre. Tous droits réservés."
+    },
+    "notFound": {
+        "title": "Page non trouvée",
+        "description": "La page que vous recherchez n'existe pas. Veuillez vérifier l'URL ou cliquer sur le bouton ci-dessous pour revenir à la page d'accueil.",
+        "btn": "Retour à l'accueil"
+    }
+}
