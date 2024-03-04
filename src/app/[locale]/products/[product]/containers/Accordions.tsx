@@ -2,6 +2,7 @@
 import { useState, useEffect } from "react";
 import {
   SpeakerWaveIcon,
+  SpeakerXMarkIcon,
   ChatBubbleOvalLeftIcon,
 } from "@heroicons/react/24/outline";
 import { useSpeachSynthesisApi } from "@/app/[locale]/hooks/useSpeechSynthesis";
@@ -42,6 +43,7 @@ const Accordions = ({
   const [opened, setOpened] = useState<number | null>(null);
   const [number, setNumber] = useState("");
   const { isOpen, onOpen, onOpenChange } = useDisclosure();
+  const [textToSpeech, setTextToSpeech] = useState<string | null>(null);
   const t = useTranslations("product");
 
   const options: any[] = [
@@ -63,25 +65,17 @@ const Accordions = ({
     </Button>,
   ];
 
-  const {
-    text,
-    setText,
-    isSpeaking,
-    isPaused,
-    isResumed,
-    isEnded,
-    speak,
-    pause,
-    resume,
-    cancel,
-  } = useSpeachSynthesisApi();
+  // Get the locale from the local storage
+  const locale: string = localStorage.getItem("lan") || "en-GB";
+
+  const { setText, isSpeaking, speak, cancel } = useSpeachSynthesisApi(locale);
 
   useEffect(() => {
     cancel();
-    if (productData.description) {
-      setText(productData.description.slice(0, 100));
+    if (textToSpeech !== null) {
+      setText(textToSpeech);
     }
-  }, [productData.description]);
+  }, [textToSpeech]);
 
   const handleSubmitPhoneNumber = async (e: any) => {
     e.preventDefault();
@@ -109,6 +103,7 @@ const Accordions = ({
     }
   };
 
+  //Matches the sectionHeading.section to the productData[key] and returns the productData[key] value
   function choosePath(product: any, path: string) {
     const splitedPath: any = path.split(".");
     let current = product;
@@ -171,6 +166,9 @@ const Accordions = ({
                   className={section.title.replaceAll(" ", "").toLowerCase()}
                   key={i}
                   title={section.title}
+                  onPress={() =>
+                    setTextToSpeech(choosePath(productData, section.section))
+                  }
                 >
                   <div className="flex justify-between items-center border-b-[1px] border-b[#DBDBDB] mb-3 pb-3 flex-row-reverse">
                     <div className="flex items-center">
@@ -194,7 +192,19 @@ const Accordions = ({
                       onClick={() => (isSpeaking ? cancel() : speak())}
                       className="flex justify-end items-center [&>p]:px-2   cursor-pointer"
                     >
-                      <SpeakerWaveIcon height={20} width={20} color="#486284" />
+                      {isSpeaking ? (
+                        <SpeakerXMarkIcon
+                          height={20}
+                          width={20}
+                          color="#486284"
+                        />
+                      ) : (
+                        <SpeakerWaveIcon
+                          height={20}
+                          width={20}
+                          color="#486284"
+                        />
+                      )}
                       <p className="text-[#486284]">{t("buttons.listen")}</p>
                     </div>
                   </div>

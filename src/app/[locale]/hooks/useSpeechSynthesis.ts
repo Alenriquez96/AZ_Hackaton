@@ -1,7 +1,7 @@
 "use client";
 import { useCallback, useState } from "react";
 
-export const useSpeachSynthesisApi = () => {
+export const useSpeachSynthesisApi = (locale: string) => {
   const [text, setText] = useState<string>("");
   const [isSpeaking, setIsSpeaking] = useState<boolean>(false);
   const [isPaused, setIsPaused] = useState<boolean>(false);
@@ -15,9 +15,12 @@ export const useSpeachSynthesisApi = () => {
     var msg = new window.SpeechSynthesisUtterance();
 
     const voices = synthesis.getVoices();
-    const britishVoice = voices.find((voice) => voice.lang === "en-GB");
 
-    if (britishVoice) msg.voice = britishVoice;
+    const localizedVoice = voices.find((voice) => voice.lang.includes(locale));
+
+    if (localizedVoice) {
+      msg.voice = localizedVoice;
+    }
 
     msg.text = <string>text;
     function speak() {
