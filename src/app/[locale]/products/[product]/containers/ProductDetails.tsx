@@ -16,7 +16,7 @@ import { useTranslations } from "next-intl";
 const ProductDetails = ({ product }: { product: string }) => {
   const t = useTranslations("product");
   const [productData, setProductData] = useState<any>({});
-  const [loading, setLoading] = useState(true);
+  const [loading, setLoading] = useState(false);
   const [error, setError] = useState<any>({});
   const [productId, setProductId] = useState<string>("");
   const [sectionHeadings, setSectionHeadings] = useState<Section[]>([]);
@@ -32,7 +32,6 @@ const ProductDetails = ({ product }: { product: string }) => {
           headers: {
             Language: language || "en",
           },
-          cache: "no-cache",
         }
       );
       const data = await singleProduct.json();
@@ -75,7 +74,8 @@ const ProductDetails = ({ product }: { product: string }) => {
   }, [productId]);
 
   useEffect(() => {
-    productData && sectionHeadings && setLoading(false);
+    if (Object.keys(productData).length && sectionHeadings.length)
+      setLoading(false);
   }, [productData, sectionHeadings]);
 
   useEffect(() => {
@@ -99,7 +99,7 @@ const ProductDetails = ({ product }: { product: string }) => {
             </p>
           </div>
         </div>
-        {!productData && !sectionHeadings ? (
+        {loading ? (
           <LoadingSpinner />
         ) : (
           <Accordions
@@ -112,7 +112,7 @@ const ProductDetails = ({ product }: { product: string }) => {
 
       <div className=" flex-col sm:flex hidden [&>div]:my-8">
         <Button
-          variant="solid"
+          variant="shadow"
           radius="full"
           className="bg-[#D80027] text-white  w-[221px] h-[48px]"
         >

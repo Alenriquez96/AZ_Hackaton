@@ -17,7 +17,7 @@ import { useTranslations } from "next-intl";
 const Options = () => {
   const t = useTranslations("product");
   return (
-    <div className="flex items-center">
+    <div className="flex items-end">
       <div className="flex flex-col items-center pr-3">
         <p>{t("buttons.textSize")}:</p>
         <div className="flex items-baseline">

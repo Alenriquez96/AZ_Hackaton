@@ -55,7 +55,7 @@ const Footer = () => {
   ];
 
   return (
-    <footer className="bg-[#F9FAFB] w-full  p-6 flex flex-col items-center ">
+    <footer className="bg-[#F9FAFB] w-full  p-6 flex flex-col items-center dark:bg-black">
       <div className="w-[80%] sm:flex items-start justify-between hidden">
         {links.map((row, i) => {
           return (
