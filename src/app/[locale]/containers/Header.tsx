@@ -55,8 +55,6 @@ const Header = ({ locale }: { locale: string }) => {
     { title: t("navigation_btns.communities"), path: "/communities" },
   ];
 
-  console.log(pathName);
-
   return (
     <header className="h-24 flex justify-between content-center items-center border-b-[1px] border-b-[#DEE5ED] p-10">
       <div className="flex justify-start content-center">

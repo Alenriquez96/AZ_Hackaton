@@ -66,7 +66,8 @@ const Accordions = ({
   ];
 
   // Get the locale from the local storage
-  const locale: string = localStorage.getItem("lan") || "en-GB";
+  const locale: string =
+    (typeof window !== "undefined" && localStorage.getItem("lan")) || "en-GB";
 
   const { setText, isSpeaking, speak, cancel } = useSpeachSynthesisApi(locale);
 
