@@ -12,8 +12,10 @@ import {
   IconShare,
   IconPrinter,
 } from "@tabler/icons-react";
+import { useTranslations } from "next-intl";
 
 const PrintOptions = () => {
+  const t = useTranslations("product");
   return (
     <div>
       <Dropdown>
@@ -24,18 +26,18 @@ const PrintOptions = () => {
             radius="full"
             variant="bordered"
           >
-            Share
+            {t("buttons.shareBtn")}
           </Button>
         </DropdownTrigger>
         <DropdownMenu aria-label="Static Actions">
           <DropdownSection showDivider>
             <DropdownItem startContent={<IconMail />} key="new">
-              Send via Email
+              {t("buttons.email")}
             </DropdownItem>
           </DropdownSection>
 
           <DropdownItem startContent={<IconMessageCircle />} key="copy">
-            Send via Text
+            {t("buttons.text")}
           </DropdownItem>
         </DropdownMenu>
       </Dropdown>
@@ -45,7 +47,7 @@ const PrintOptions = () => {
         radius="full"
         variant="bordered"
       >
-        Print
+        {t("buttons.print")}
       </Button>
     </div>
   );

@@ -18,8 +18,25 @@
     },
     "searchComponent": {
       "title": "Find product information for your medication",
-      "subtitle": "Search with text, voice or by holding up your medication to your mobile, desktop or tablet camera."
+      "subtitle": "Search with text, voice or by holding up your medication to your mobile, desktop or tablet camera.",
+      "placeHolder": "Enter medication or brand name"
     }
+  },
+  "product": {
+    "search": "Search this page",
+    "manufacturedBy": "Manufactured by:",
+    "buttons": {
+      "report_event": "Report an adverse event",
+      "shareBtn": "Share",
+      "print": "Print",
+      "email": "Send via Email",
+      "text": "Send via Text",
+      "listen": "Listen to this section",
+      "easy": "Easy to understand",
+      "difficult": "Difficult to understand"
+    },
+    "feedback": "Your feedback on this section",
+    "jumpTo": "Jump to Section"
   },
   "dashboard": {
     "welcomeText": "Welcome, ",
@@ -113,5 +130,8 @@
     "title": "Not Found",
     "description": "The page you are looking for does not exist. Please check the URL or click the button below to return to the homepage.",
     "btn": "Return to Home"
+  },
+  "chatBot": {
+    "tooltip": "Hi - ask me about medication!"
   }
 }

@@ -1,12 +1,14 @@
 "use client";
 import { useState } from "react";
-import useOutsideClick from "@/app/[locale]/hooks/useClickOutside";
+import { useOutsideClick, useHover } from "@/app/[locale]/hooks";
 import { useRef } from "react";
-import { Button } from "@nextui-org/react";
+import { useTranslations } from "next-intl";
 
 const Chatbot = () => {
+  const t = useTranslations("chatBot");
   const [openChatbot, setOpenChatbot] = useState(false);
   const outerElement = useRef(null);
+  const [hoverRef, isHovered] = useHover();
 
   useOutsideClick(outerElement, () => setOpenChatbot(false));
 
@@ -14,11 +16,14 @@ const Chatbot = () => {
     <>
       <div
         ref={outerElement}
-        className="bg-[#63A87D] text-white rounded-[16px] h-[74px] w-[380px] p-[24px] hidden sm:fixed bottom-[93px] right-36"
+        className={`bg-[#63A87D] text-white rounded-[16px] h-[74px] w-[380px] p-[24px] ${
+          isHovered ? "fixed" : "hidden"
+        }  bottom-[93px] right-36`}
       >
-        Hi - ask me about medication!
+        {t("tooltip")}
       </div>
       <button
+        ref={hoverRef}
         onClick={() => setOpenChatbot(!openChatbot)}
         className={`
       z-50 fixed bottom-20 right-6 bg-white animate-bounce-short transition-all hover:-translate-y-0.5 text-[40px] font-bold border-[2px] rounded-full p-4`}

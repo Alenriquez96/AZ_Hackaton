@@ -18,8 +18,25 @@
         },
         "searchComponent": {
             "title": "Găsiți informații despre medicamentul dumneavoastră",
-            "subtitle": "Căutați cu text, voce sau ținând medicamentul la camera mobilului, desktopului sau tabletei dumneavoastră."
+            "subtitle": "Căutați cu text, voce sau ținând medicamentul la camera mobilului, desktopului sau tabletei dumneavoastră.",
+            "placeHolder": "Introduceți numele medicamentului sau al mărcii"
         }
+    },
+    "product": {
+        "search": "Căutați pe această pagină",
+        "manufacturedBy": "Fabricat de:",
+        "buttons": {
+            "report_event": "Raportați un eveniment advers",
+            "shareBtn": "Partajați",
+            "print": "Imprimați",
+            "email": "Trimiteți prin e-mail",
+            "text": "Trimiteți prin text",
+            "listen": "Ascultați această secțiune",
+            "easy": "Ușor de înțeles",
+            "difficult": "Dificil de înțeles"
+        },
+        "feedback": "Opinia dvs. despre această secțiune",
+        "jumpTo": "Săriți la secțiune"
     },
     "dashboard": {
         "welcomeText": "Bun venit, ",
@@ -113,5 +130,8 @@
         "title": "Pagină negăsită",
         "description": "Pagina pe care o căutați nu există. Vă rugăm să verificați URL-ul sau să faceți clic pe butonul de mai jos pentru a reveni la pagina de pornire.",
         "btn": "Înapoi la Acasă"
+    },
+    "chatBot": {
+        "tooltip": "Salut - întreabă-mă despre medicamente!"
     }
 }

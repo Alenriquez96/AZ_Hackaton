@@ -18,8 +18,25 @@
         },
         "searchComponent": {
             "title": "Encuentra información sobre tu medicamento",
-            "subtitle": "Busca con texto, voz o sosteniendo tu medicamento frente a la cámara de tu móvil, escritorio o tablet."
+            "subtitle": "Busca con texto, voz o sosteniendo tu medicamento frente a la cámara de tu móvil, escritorio o tablet.",
+            "placeHolder": "Ingrese el nombre del medicamento o de la marca"
         }
+    },
+    "product": {
+        "search": "Buscar en esta página",
+        "manufacturedBy": "Fabricado por:",
+        "buttons": {
+            "report_event": "Informar un evento adverso",
+            "shareBtn": "Compartir",
+            "print": "Imprimir",
+            "email": "Enviar por correo electrónico",
+            "text": "Enviar por mensaje de texto",
+            "listen": "Escuchar esta sección",
+            "easy": "Fácil de entender",
+            "difficult": "Difícil de entender"
+        },
+        "feedback": "Tu opinión sobre esta sección",
+        "jumpTo": "Ir a la sección"
     },
     "dashboard": {
         "welcomeText": "Bienvenido, ",
@@ -113,5 +130,8 @@
         "title": "Página no encontrada",
         "description": "La página que estás buscando no existe. Por favor, verifica la URL o haz clic en el botón a continuación para volver a la página de inicio.",
         "btn": "Volver a Inicio"
+    },
+    "chatBot": {
+        "tooltip": "¡Hola! ¡Pregúntame sobre medicamentos!"
     }
 }

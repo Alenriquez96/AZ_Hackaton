@@ -11,11 +11,16 @@ import LoadingSpinner from "../components/LoadingSpinner";
 import Text from "@/app/[locale]/components/Text";
 import { Button } from "@nextui-org/react";
 import { notFound } from "next/navigation";
+import { Product, Section } from "@/interfaces";
+import { useTranslations } from "next-intl";
 
 const ProductDetails = ({ product }: { product: string }) => {
+  const t = useTranslations("product");
   const [productData, setProductData] = useState<any>({});
-  const [loading, setLoading] = useState(false);
+  const [loading, setLoading] = useState(true);
   const [error, setError] = useState<any>({});
+  const [productId, setProductId] = useState<string>("");
+  const [sectionHeadings, setSectionHeadings] = useState<Section[]>([]);
 
   const getProductData = async (product: string) => {
     const language =
@@ -33,12 +38,32 @@ const ProductDetails = ({ product }: { product: string }) => {
       );
       const data = await singleProduct.json();
       setProductData(data);
-      setLoading(false);
+      setProductId(data.id);
     } catch (error) {
       console.log({ error });
-      setLoading(false);
       setProductData({});
       setError({ error });
+    }
+  };
+
+  const getSections = async (id: string) => {
+    try {
+      setLoading(true);
+      const sections = await fetch(
+        `https://mediguide-api-latest.onrender.com/v1/users/labels?productId=${id}`,
+        {
+          headers: {
+            Language: "en",
+          },
+        }
+      );
+
+      const data = await sections.json();
+      setSectionHeadings(data);
+    } catch (error) {
+      console.log({ error });
+
+      setSectionHeadings([]);
     }
   };
 
@@ -47,8 +72,18 @@ const ProductDetails = ({ product }: { product: string }) => {
   }, []);
 
   useEffect(() => {
+    getSections(productId);
+  }, [productId]);
+
+  useEffect(() => {
+    productData && sectionHeadings && setLoading(false);
+  }, [productData, sectionHeadings]);
+
+  useEffect(() => {
     if (error.error) notFound();
   }, [error]);
+
+  console.log({ loading });
 
   return (
     <div className="p-11 flex justify-evenly flex-wrap">
@@ -64,14 +99,17 @@ const ProductDetails = ({ product }: { product: string }) => {
               {productData.activeIngredient}
             </p>
             <p className="text-[#344054] font-[24px] ">
-              Manufactured by: {productData.company}
+              {t("manufacturedBy")} {productData.company}
             </p>
           </div>
         </div>
-        {loading ? (
+        {!productData && !sectionHeadings ? (
           <LoadingSpinner />
         ) : (
-          <Accordions productData={productData} />
+          <Accordions
+            productData={productData}
+            sectionHeadings={sectionHeadings}
+          />
         )}
         <LatestsNews />
       </div>
@@ -82,11 +120,11 @@ const ProductDetails = ({ product }: { product: string }) => {
           radius="full"
           className="bg-[#D80027] text-white  w-[221px] h-[48px]"
         >
-          Report an averse event
+          {t("buttons.report_event")}
         </Button>
 
         <PrintOptions />
-        <JumpToSection />
+        {sectionHeadings && <JumpToSection sectionHeadings={sectionHeadings} />}
       </div>
     </div>
   );

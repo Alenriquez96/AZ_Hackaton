@@ -104,9 +104,10 @@ const InPageSearch = ({ locale }: { locale: string }) => {
   const imageInput: any = useRef(null);
   const t = useTranslations("home");
 
-  const texts: { title: string; subTitle: string } = {
+  const texts: { title: string; subTitle: string; placeHolder: string } = {
     title: t("searchComponent.title"),
     subTitle: t("searchComponent.subtitle"),
+    placeHolder: t("searchComponent.placeHolder"),
   };
 
   //Image reader
@@ -203,7 +204,7 @@ const InPageSearch = ({ locale }: { locale: string }) => {
           className="sm:w-[562px] h-[84px]"
           value={search}
           onChange={handleSearch}
-          placeholder="Enter medication or brand name"
+          placeholder={texts.placeHolder}
           endContent={
             <div className="flex items-center [&>*]:mx-1">
               <CameraIcon

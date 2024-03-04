@@ -15,38 +15,22 @@ import {
   Button,
   useDisclosure,
 } from "@nextui-org/react";
+import { Section, Product } from "@/interfaces";
+import { useTranslations } from "next-intl";
 
-export const sectionHeadings: {
-  title: string;
-  section: string;
-  showVideo?: boolean;
-}[] = [
-  { title: "What is this medicine for?", section: "description" },
-  {
-    title: "Before you take the medicine",
-    section: "prerequisites.warningsAndPrecautions",
-  },
-  {
-    title: "How to take the medicine",
-    section: "instructions.instruction",
-    showVideo: true,
-  },
-  {
-    title: "Possible Side Effects",
-    section: "sideEffects.possibleSideEffects",
-  },
-  { title: "Storing the medicine", section: "storage" },
-  { title: "Disposing of the medicine", section: "disposalAndHandling" },
-  {
-    title: "Further information",
-    section: "authorizationHolderAndManufacturer",
-  },
-];
+const excludeHeadings: string[] = ["activeIngredient", "company", "name"];
 
-const Accordions = ({ productData }: any) => {
+const Accordions = ({
+  productData,
+  sectionHeadings,
+}: {
+  productData: Product;
+  sectionHeadings: Section[];
+}) => {
   const [opened, setOpened] = useState<number | null>(null);
   const [number, setNumber] = useState("");
   const { isOpen, onOpen, onOpenChange } = useDisclosure();
+  const t = useTranslations("product");
 
   const {
     text,
@@ -145,51 +129,55 @@ const Accordions = ({ productData }: any) => {
           )}
         </ModalContent>
       </Modal>
+
       <Accordion>
-        {sectionHeadings.map((section, i) => {
-          return (
-            <AccordionItem
-              className={section.title.replaceAll(" ", "").toLowerCase()}
-              key={i}
-              title={section.title}
-            >
-              <div className="flex justify-between items-center border-b-[1px] border-b[#DBDBDB] mb-3 pb-3 flex-row-reverse">
-                <div className="flex items-center">
-                  <ChatBubbleOvalLeftIcon width={24} height={24} />
-                  <button className="px-2" onClick={onOpen}>
-                    Send via text
-                  </button>
-                </div>
-                <div
-                  onClick={() => (isSpeaking ? cancel() : speak())}
-                  className="flex justify-end items-center [&>p]:px-2   cursor-pointer"
+        {sectionHeadings &&
+          sectionHeadings
+            .filter((section) => !excludeHeadings.includes(section.section))
+            .map((section, i: number) => {
+              return (
+                <AccordionItem
+                  className={section.title.replaceAll(" ", "").toLowerCase()}
+                  key={i}
+                  title={section.title}
                 >
-                  <SpeakerWaveIcon height={20} width={20} color="#486284" />
-                  <p className="text-[#486284]">Listen to this section</p>
-                </div>
-              </div>
-              <p className=" rounded-[8px] bg-[#E8E8E8] text-[14px] leading-[30px] text-black my-5 p-5">
-                {choosePath(productData, section.section)}
-              </p>
-              {section.showVideo && (
-                <Video src="https://www.youtube.com/watch?v=LQwxNS7ny0E" />
-              )}
-              <div className=" bg-[#F2F2F2] py-[12px] text-[14px] rounded-lg px-4 h-[46px] flex items-center justify-between">
-                <p>Your feedback on this section</p>
-                <div className="flex items-center [&>div]:mx-1">
-                  <div className="flex items-center [&>*]:mx-1">
-                    <p>Easy to understand</p>
-                    <IconThumbUp width={16} height={16} />
+                  <div className="flex justify-between items-center border-b-[1px] border-b[#DBDBDB] mb-3 pb-3 flex-row-reverse">
+                    <div className="flex items-center">
+                      <ChatBubbleOvalLeftIcon width={24} height={24} />
+                      <button className="px-2" onClick={onOpen}>
+                        {t("buttons.shareBtn")}
+                      </button>
+                    </div>
+                    <div
+                      onClick={() => (isSpeaking ? cancel() : speak())}
+                      className="flex justify-end items-center [&>p]:px-2   cursor-pointer"
+                    >
+                      <SpeakerWaveIcon height={20} width={20} color="#486284" />
+                      <p className="text-[#486284]">{t("buttons.listen")}</p>
+                    </div>
                   </div>
-                  <div className="flex items-center [&>*]:mx-1">
-                    <p>Difficult to understand</p>
-                    <IconThumbDown width={16} height={16} />
+                  <p className=" rounded-[8px] bg-[#E8E8E8] text-[14px] leading-[30px] text-black my-5 p-5">
+                    {choosePath(productData, section.section)}
+                  </p>
+                  {section.showVideo && (
+                    <Video src="https://www.youtube.com/watch?v=LQwxNS7ny0E" />
+                  )}
+                  <div className=" bg-[#F2F2F2] py-[12px] text-[14px] rounded-lg px-4 h-[46px] flex items-center justify-between">
+                    <p>{t("feedback")}</p>
+                    <div className="flex items-center [&>div]:mx-1">
+                      <div className="flex items-center [&>*]:mx-1">
+                        <p>{t("buttons.easy")}</p>
+                        <IconThumbUp width={16} height={16} />
+                      </div>
+                      <div className="flex items-center [&>*]:mx-1">
+                        <p>{t("buttons.difficult")}</p>
+                        <IconThumbDown width={16} height={16} />
+                      </div>
+                    </div>
                   </div>
-                </div>
-              </div>
-            </AccordionItem>
-          );
-        })}
+                </AccordionItem>
+              );
+            })}
       </Accordion>
     </div>
   );
