@@ -145,6 +145,7 @@ const ProductDetails = ({ product }: { product: string }) => {
           <Accordions
             productData={productData}
             sectionHeadings={sectionHeadings}
+            fontSize={fontSize}
           />
         )}
         <LatestsNews />

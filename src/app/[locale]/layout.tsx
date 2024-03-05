@@ -6,6 +6,7 @@ import { Providers } from "./providers";
 import { NextIntlClientProvider } from "next-intl";
 import { notFound } from "next/navigation";
 import { locales } from "@/navigation";
+import BackToTop from "./components/BackToTop";
 
 const dm_sans = DM_Sans({
   subsets: ["latin"],
@@ -56,6 +57,7 @@ export default async function RootLayout({
             <Header locale={locale} />
             {children}
             <Chatbot />
+            <BackToTop />
           </Providers>
         </NextIntlClientProvider>
       </body>

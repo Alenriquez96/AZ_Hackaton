@@ -120,7 +120,7 @@ const InPageSearch = ({ locale }: { locale: string }) => {
       const files = ret.data.lines.sort((a, b) => b.confidence - a.confidence);
 
       const text = files[0].text;
-      router.push(locale + "/products/" + text);
+      router.push("/" + locale + "/products/" + text);
 
       await worker.terminate();
     }
@@ -148,7 +148,7 @@ const InPageSearch = ({ locale }: { locale: string }) => {
 
         console.log("it catches the text as ", textValue);
 
-        router.push(locale + "/products/" + textValue);
+        router.push("/" + locale + "/products/" + textValue);
         stopRecording();
       });
     }
@@ -164,7 +164,7 @@ const InPageSearch = ({ locale }: { locale: string }) => {
 
   const handleSubmit = (e: any) => {
     e.preventDefault();
-    router.push(`${locale}/products/${search}`);
+    router.push(`/${locale}/products/${search}`);
   };
 
   return (

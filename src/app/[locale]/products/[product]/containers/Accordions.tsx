@@ -36,9 +36,11 @@ const excludeHeadings: string[] = ["activeIngredient", "company", "name"];
 const Accordions = ({
   productData,
   sectionHeadings,
+  fontSize,
 }: {
   productData: Product;
   sectionHeadings: Section[];
+  fontSize: number;
 }) => {
   const [opened, setOpened] = useState<number | null>(null);
   const [number, setNumber] = useState("");
@@ -166,7 +168,7 @@ const Accordions = ({
                 <AccordionItem
                   className={section.title.replaceAll(" ", "").toLowerCase()}
                   key={i}
-                  title={section.title}
+                  startContent={<>{section.title}</>}
                   onPress={() =>
                     setTextToSpeech(choosePath(productData, section.section))
                   }
@@ -209,13 +211,17 @@ const Accordions = ({
                       <p className="text-[#486284]">{t("buttons.listen")}</p>
                     </div>
                   </div>
-                  <p className=" rounded-[8px] bg-[#E8E8E8]  leading-[30px] text-black my-5 p-5">
+                  <p
+                    className={`rounded-[8px] bg-[#E8E8E8]  leading-[${
+                      fontSize * 2
+                    }px] text-black my-5 p-5`}
+                  >
                     {choosePath(productData, section.section)}
                   </p>
                   {section.showVideo && (
                     <Video src="https://www.youtube.com/watch?v=LQwxNS7ny0E" />
                   )}
-                  <div className=" bg-[#F2F2F2] py-[12px]  rounded-lg px-4 h-[46px] flex items-center justify-between">
+                  <div className=" bg-[#F2F2F2] py-[12px]  rounded-lg px-4  flex items-center justify-between">
                     <p>{t("feedback")}</p>
                     <div className="flex items-center [&>div]:mx-1">
                       <div className="flex items-center [&>*]:mx-1">
