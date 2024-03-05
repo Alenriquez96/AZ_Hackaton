@@ -2,7 +2,7 @@
 import InPageSearch from "../components/InPageSearch";
 import Text from "../components/Text";
 import LatestsNews from "../products/[product]/containers/LatestsNews";
-import PrescriptionAlert from "./components/PrescriptionAlert";
+import Notification from "../components/Notification";
 import HowFeeling from "./containers/HowFeeling";
 import TrackYourStats from "./containers/TrackYourStats";
 import { useTranslations } from "next-intl";
@@ -17,7 +17,7 @@ export default function Dashboard({
     <main className="flex justify-evenly flex-wrap [&>*]:mx-2">
       <div className="flex flex-col [&>*]:m-5 ">
         <Text>{t("welcomeText")} Olivia!</Text>
-        <PrescriptionAlert />
+        {/* <Notification /> */}
         <InPageSearch locale={locale} />
         <LatestsNews />
       </div>

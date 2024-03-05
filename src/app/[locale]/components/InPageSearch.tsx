@@ -120,7 +120,7 @@ const InPageSearch = ({ locale }: { locale: string }) => {
       const files = ret.data.lines.sort((a, b) => b.confidence - a.confidence);
 
       const text = files[0].text;
-      router.push("/products/" + text);
+      router.push(locale + "/products/" + text);
 
       await worker.terminate();
     }
@@ -148,7 +148,7 @@ const InPageSearch = ({ locale }: { locale: string }) => {
 
         console.log("it catches the text as ", textValue);
 
-        router.push("/products/" + textValue);
+        router.push(locale + "/products/" + textValue);
         stopRecording();
       });
     }
