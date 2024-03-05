@@ -155,11 +155,12 @@ const ProductDetails = ({ product }: { product: string }) => {
         <Button
           variant="shadow"
           radius="full"
-          className="bg-[#D80027] text-white  w-[221px] h-[48px]"
+          style={{ fontSize }}
+          className="bg-[#D80027] text-white   h-[48px]"
         >
           {t("buttons.report_event")}
         </Button>
-        <Options setFontSize={handleSetFontSize} />
+        <Options fontSize={fontSize} setFontSize={handleSetFontSize} />
         {sectionHeadings && <JumpToSection sectionHeadings={sectionHeadings} />}
       </div>
     </div>

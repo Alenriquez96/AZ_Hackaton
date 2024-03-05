@@ -7,7 +7,13 @@ import {
 } from "@heroicons/react/24/outline";
 import { useSpeachSynthesisApi } from "@/app/[locale]/hooks/useSpeechSynthesis";
 import { Video } from "@/app/[locale]/components/Video";
-import { Accordion, AccordionItem, Card, Input } from "@nextui-org/react";
+import {
+  Accordion,
+  AccordionItem,
+  Card,
+  Input,
+  divider,
+} from "@nextui-org/react";
 import {
   IconThumbDown,
   IconThumbUp,
@@ -168,7 +174,7 @@ const Accordions = ({
                 <AccordionItem
                   className={section.title.replaceAll(" ", "").toLowerCase()}
                   key={i}
-                  startContent={<>{section.title}</>}
+                  title={section.title}
                   onPress={() =>
                     setTextToSpeech(choosePath(productData, section.section))
                   }
@@ -221,7 +227,7 @@ const Accordions = ({
                   {section.showVideo && (
                     <Video src="https://www.youtube.com/watch?v=LQwxNS7ny0E" />
                   )}
-                  <div className=" bg-[#F2F2F2] py-[12px]  rounded-lg px-4  flex items-center justify-between">
+                  <div className="hidden sm:flex bg-[#F2F2F2] py-[12px]  rounded-lg px-4 items-center justify-between">
                     <p>{t("feedback")}</p>
                     <div className="flex items-center [&>div]:mx-1">
                       <div className="flex items-center [&>*]:mx-1">

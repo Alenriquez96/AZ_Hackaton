@@ -16,9 +16,10 @@ import { useTranslations } from "next-intl";
 
 interface OptionsProps {
   setFontSize: (size: number) => void;
+  fontSize: number;
 }
 
-const Options = ({ setFontSize }: OptionsProps) => {
+const Options = ({ setFontSize, fontSize }: OptionsProps) => {
   const t = useTranslations("product");
   return (
     <div className="flex items-end">
@@ -44,6 +45,7 @@ const Options = ({ setFontSize }: OptionsProps) => {
       <Dropdown>
         <DropdownTrigger>
           <Button
+            style={{ fontSize }}
             className="mr-2 h-[50px] "
             startContent={<IconShare />}
             radius="full"
@@ -65,6 +67,7 @@ const Options = ({ setFontSize }: OptionsProps) => {
         </DropdownMenu>
       </Dropdown>
       <Button
+        style={{ fontSize }}
         className="ml-2 h-[50px] "
         startContent={<IconPrinter />}
         radius="full"
