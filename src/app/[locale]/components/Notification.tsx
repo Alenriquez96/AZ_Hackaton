@@ -14,7 +14,7 @@ const Notification = ({ title }: { title?: string }) => {
           {/* <p>{t("alert.title")}</p> */}
           {/* <p>{t("alert.description")}</p> */}
         </div>
-        <XMarkIcon height={36} width={36} cursor={"pointer"} />
+        {/* <XMarkIcon height={36} width={36} cursor={"pointer"} /> */}
       </div>
     </div>
   );

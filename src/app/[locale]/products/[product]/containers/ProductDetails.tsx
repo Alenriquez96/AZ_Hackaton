@@ -13,6 +13,7 @@ import { notFound } from "next/navigation";
 import { Product, Section } from "@/interfaces";
 import { useTranslations } from "next-intl";
 import Notification from "@/app/[locale]/components/Notification";
+import AppleWallet from "../components/AppleWallet";
 
 const ProductDetails = ({ product }: { product: string }) => {
   const t = useTranslations("product");
@@ -113,8 +114,6 @@ const ProductDetails = ({ product }: { product: string }) => {
     if (error.error) notFound();
   }, [error]);
 
-  console.log(notifications);
-
   return (
     <div
       className={`p-11 flex justify-evenly flex-wrap`}
@@ -138,6 +137,7 @@ const ProductDetails = ({ product }: { product: string }) => {
                 <Notification key={i} title={notification.text} />
               ))}
           </div>
+          <AppleWallet />
         </div>
         {loading ? (
           <LoadingSpinner />
