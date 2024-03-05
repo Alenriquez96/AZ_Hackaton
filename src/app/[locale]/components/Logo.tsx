@@ -1,9 +1,8 @@
 import Link from "next/link";
 
-const Logo = ({ loggedUser, ...props }: any) => {
-  const path = loggedUser ? "/en/dashboard" : "/en";
+const Logo = ({ ...props }) => {
   return (
-    <Link {...props} href={path}>
+    <Link {...props} href={"/"}>
       <svg
         width="106"
         height="16"

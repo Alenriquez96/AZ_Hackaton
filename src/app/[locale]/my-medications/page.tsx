@@ -54,8 +54,9 @@ function MyMedications() {
               )
             </Text>
             <div className="flex flex-wrap items-center [&>*]:mr-8 [&>*]:my-8">
-              {currentMedications.map((med) => (
+              {currentMedications.map((med, i) => (
                 <Card
+                  key={i}
                   isPressable
                   className="min-h-[200px] min-w-[200px] bg-[#F1EFE9] "
                 >

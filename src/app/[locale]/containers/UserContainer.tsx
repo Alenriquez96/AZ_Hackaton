@@ -1,15 +1,29 @@
 "use client";
 import Link from "next/link";
+import { useRouter } from "next/navigation";
 import { Button } from "@nextui-org/react";
 import { useTranslations } from "next-intl";
+
+interface UserContainerProps {
+  handleSetIsLogged: () => void;
+  loggedUser: object | null;
+  isLogged: boolean;
+}
 
 const UserContainer = ({
   handleSetIsLogged,
   loggedUser,
   isLogged,
   ...props
-}: any) => {
+}: UserContainerProps) => {
   const t = useTranslations("header");
+  const router = useRouter();
+  const language = typeof window !== "undefined" && localStorage.getItem("lan");
+
+  const handleOnUserClick = () => {
+    router.push("/" + language + "/dashboard"); // Redirect to the dashboard page when the user is clicked
+  };
+
   return (
     <div {...props} className=" flex items-center justify-between [&>*]:mx-1">
       {!isLogged ? (
@@ -38,6 +52,7 @@ const UserContainer = ({
           variant="bordered"
           size="lg"
           className="h-[56px]"
+          onClick={handleOnUserClick}
           startContent={
             <div className="rounded-full bg-[#414141] text-white h-[32px] w-[32px] grid place-content-center">
               O
