@@ -17,7 +17,15 @@ const LanguageSelector = ({ ...props }) => {
   }, [selectedLanguage]);
 
   const handleChangeLocale = (e: any) => {
-    router.push("/" + e.target.value);
+    let route = pathName;
+    languages.map((language) => {
+      if (pathName.includes(language)) {
+        route = route.replace("/" + language, "/" + e.target.value);
+      }
+      return;
+    });
+
+    router.push(route);
   };
 
   return (
@@ -28,7 +36,7 @@ const LanguageSelector = ({ ...props }) => {
       name="Language"
       items={languages}
       placeholder={selectedLanguage.toUpperCase()}
-      className="w-[90px] sm:block hidden"
+      className="w-[90px] "
       endContent={<WorldLanguageIcon />}
       onChange={handleChangeLocale}
     >

@@ -10,8 +10,6 @@ const AppleWallet = () => {
         (navigator.platform === "MacIntel" && navigator.maxTouchPoints > 1)
       : false;
 
-  console.log(isIOS);
-
   const appleWalletCall = async () => {
     try {
       const res: any = await fetch(

@@ -80,7 +80,9 @@ const Header = ({ locale }: { locale: string }) => {
             </Link>
           ))}
         <CountrySelector />
-        <LanguageSelector />
+        <div className="sm:block hidden">
+          <LanguageSelector />
+        </div>
         <ThemeSwitcher />
         <UserContainer
           loggedUser={loggedUser}

@@ -35,6 +35,8 @@ const ProductDetails = ({ product }: { product: string }) => {
   const language =
     typeof document !== "undefined" && localStorage.getItem("lan");
 
+  console.log(language);
+
   // Get the product data
   const getProductData = async (product: string) => {
     try {
@@ -63,7 +65,9 @@ const ProductDetails = ({ product }: { product: string }) => {
       const res = await fetch(
         `https://mediguide-api-latest.onrender.com/v1/notifications?productId=${id}`,
         {
-          cache: "no-cache",
+          headers: {
+            Language: language || "en",
+          },
         }
       );
       const notifications = await res.json();
@@ -97,13 +101,13 @@ const ProductDetails = ({ product }: { product: string }) => {
 
   useEffect(() => {
     getProductData(product);
-  }, []);
+  }, [language]);
 
   //Get sections & notifications
   useEffect(() => {
     getSections(productId);
     getNotifications(productId);
-  }, [productId]);
+  }, [productId, language]);
 
   useEffect(() => {
     if (Object.keys(productData).length && sectionHeadings.length)
