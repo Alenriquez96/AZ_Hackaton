@@ -5,8 +5,10 @@ const AppleWallet = () => {
   const router = useRouter();
 
   let isIOS =
-    /iPad|iPhone|iPod/.test(navigator.platform) ||
-    (navigator.platform === "MacIntel" && navigator.maxTouchPoints > 1);
+    typeof window !== "undefined"
+      ? /iPad|iPhone|iPod/.test(navigator.platform) ||
+        (navigator.platform === "MacIntel" && navigator.maxTouchPoints > 1)
+      : false;
 
   console.log(isIOS);
 
