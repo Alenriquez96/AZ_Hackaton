@@ -7,6 +7,7 @@ import { NextIntlClientProvider } from "next-intl";
 import { notFound } from "next/navigation";
 import { locales } from "@/navigation";
 import BackToTop from "./components/BackToTop";
+import { unstable_setRequestLocale } from "next-intl/server";
 
 const dm_sans = DM_Sans({
   subsets: ["latin"],
@@ -43,6 +44,8 @@ export default async function RootLayout({
   children: React.ReactNode;
   params: { locale: string };
 }>) {
+  unstable_setRequestLocale(locale);
+
   const messages = await getMessages(locale);
 
   if (!locales.includes(locale)) {
