@@ -209,13 +209,13 @@ const Accordions = ({
                       <p className="text-[#486284]">{t("buttons.listen")}</p>
                     </div>
                   </div>
-                  <p className=" rounded-[8px] bg-[#E8E8E8] text-[14px] leading-[30px] text-black my-5 p-5">
+                  <p className=" rounded-[8px] bg-[#E8E8E8]  leading-[30px] text-black my-5 p-5">
                     {choosePath(productData, section.section)}
                   </p>
                   {section.showVideo && (
                     <Video src="https://www.youtube.com/watch?v=LQwxNS7ny0E" />
                   )}
-                  <div className=" bg-[#F2F2F2] py-[12px] text-[14px] rounded-lg px-4 h-[46px] flex items-center justify-between">
+                  <div className=" bg-[#F2F2F2] py-[12px]  rounded-lg px-4 h-[46px] flex items-center justify-between">
                     <p>{t("feedback")}</p>
                     <div className="flex items-center [&>div]:mx-1">
                       <div className="flex items-center [&>*]:mx-1">

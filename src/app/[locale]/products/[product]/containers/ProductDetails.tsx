@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState, useEffect, useCallback } from "react";
 import Options from "../components/Options";
 import SearchThisPage from "../components/SearchThisPage";
 import Accordions from "./Accordions";
@@ -20,6 +20,16 @@ const ProductDetails = ({ product }: { product: string }) => {
   const [error, setError] = useState<any>({});
   const [productId, setProductId] = useState<string>("");
   const [sectionHeadings, setSectionHeadings] = useState<Section[]>([]);
+  const [fontSize, setFontSize] = useState(14);
+
+  console.log(fontSize);
+
+  const handleSetFontSize = useCallback(
+    (size: number) => {
+      setFontSize(size);
+    },
+    [fontSize]
+  );
 
   const language =
     typeof document !== "undefined" && localStorage.getItem("lan");
@@ -83,7 +93,10 @@ const ProductDetails = ({ product }: { product: string }) => {
   }, [error]);
 
   return (
-    <div className="p-11 flex justify-evenly flex-wrap">
+    <div
+      className={`p-11 flex justify-evenly flex-wrap`}
+      style={{ fontSize: fontSize + "px" }}
+    >
       <div className="flex flex-col [&>*]:p-4 max-w-[700px]">
         <div className="flex items-center justify-between">
           <SearchThisPage />
@@ -118,7 +131,7 @@ const ProductDetails = ({ product }: { product: string }) => {
         >
           {t("buttons.report_event")}
         </Button>
-        <Options />
+        <Options setFontSize={handleSetFontSize} />
         {sectionHeadings && <JumpToSection sectionHeadings={sectionHeadings} />}
       </div>
     </div>

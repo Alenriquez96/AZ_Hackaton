@@ -14,7 +14,11 @@ import {
 } from "@tabler/icons-react";
 import { useTranslations } from "next-intl";
 
-const Options = () => {
+interface OptionsProps {
+  setFontSize: (size: number) => void;
+}
+
+const Options = ({ setFontSize }: OptionsProps) => {
   const t = useTranslations("product");
   return (
     <div className="flex items-end">
@@ -24,10 +28,12 @@ const Options = () => {
           {new Array(3).fill("A").map((letter, i) => (
             <p
               key={i}
+              onClick={() => setFontSize((i + 1) * 14)}
               style={{
                 fontWeight: 700,
-                fontSize: (i + 1) * 13,
+                fontSize: (i + 1) * 14,
                 padding: "0 2px",
+                cursor: "pointer",
               }}
             >
               {letter}
