@@ -30,11 +30,11 @@ const AppleWallet = () => {
     <Button
       onClick={appleWalletCall}
       radius="md"
-      className={`bg-black text-white ${isIOS ? "block" : "hidden"}`}
+      className={`bg-black text-white h-[50px] ${isIOS ? "block" : "hidden"}`}
     >
       <AppleWalletIcon />
-      <div>
-        <p>Add to</p>
+      <div className="m-5">
+        <p className="text-[8px]">Add to</p>
         <p>Apple Wallet</p>
       </div>
     </Button>
