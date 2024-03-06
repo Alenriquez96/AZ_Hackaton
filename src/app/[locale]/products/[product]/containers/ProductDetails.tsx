@@ -15,7 +15,13 @@ import { useTranslations } from "next-intl";
 import Notification from "@/app/[locale]/components/Notification";
 import AppleWallet from "../components/AppleWallet";
 
-const ProductDetails = ({ product }: { product: string }) => {
+const ProductDetails = ({
+  product,
+  language,
+}: {
+  product: string;
+  language: string;
+}) => {
   const t = useTranslations("product");
   const [productData, setProductData] = useState<any>({});
   const [loading, setLoading] = useState(false);
@@ -31,9 +37,6 @@ const ProductDetails = ({ product }: { product: string }) => {
     },
     [fontSize]
   );
-
-  const language =
-    typeof document !== "undefined" && localStorage.getItem("lan");
 
   // Get the product data
   const getProductData = async (product: string) => {
@@ -148,6 +151,7 @@ const ProductDetails = ({ product }: { product: string }) => {
             productData={productData}
             sectionHeadings={sectionHeadings}
             fontSize={fontSize}
+            language={language}
           />
         )}
         <Suggested />

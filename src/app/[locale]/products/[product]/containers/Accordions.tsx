@@ -7,13 +7,7 @@ import {
 } from "@heroicons/react/24/outline";
 import { useSpeachSynthesisApi } from "@/app/[locale]/hooks/useSpeechSynthesis";
 import { Video } from "@/app/[locale]/components/Video";
-import {
-  Accordion,
-  AccordionItem,
-  Card,
-  Input,
-  divider,
-} from "@nextui-org/react";
+import { Accordion, AccordionItem, Input } from "@nextui-org/react";
 import {
   IconThumbDown,
   IconThumbUp,
@@ -37,24 +31,28 @@ import {
 import { Section, Product } from "@/interfaces";
 import { useTranslations } from "next-intl";
 
+interface AccordionsProps {
+  productData: Product;
+  sectionHeadings: Section[];
+  fontSize: number;
+  language: string;
+}
+
 const excludeHeadings: string[] = ["activeIngredient", "company", "name"];
 
 const Accordions = ({
   productData,
   sectionHeadings,
   fontSize,
-}: {
-  productData: Product;
-  sectionHeadings: Section[];
-  fontSize: number;
-}) => {
+  language,
+}: AccordionsProps) => {
   const [opened, setOpened] = useState<number | null>(null);
   const [number, setNumber] = useState("");
   const { isOpen, onOpen, onOpenChange } = useDisclosure();
   const [textToSpeech, setTextToSpeech] = useState<string | null>(null);
   const t = useTranslations("product");
 
-  const options: any[] = [
+  const options: React.ReactNode[] = [
     <Button variant="light" startContent={<IconMail width={24} height={24} />}>
       {t("buttons.email")}
     </Button>,
@@ -73,11 +71,9 @@ const Accordions = ({
     </Button>,
   ];
 
-  // Get the locale from the local storage
-  const locale: string =
-    (typeof window !== "undefined" && localStorage.getItem("lan")) || "en-GB";
-
-  const { setText, isSpeaking, speak, cancel } = useSpeachSynthesisApi(locale);
+  const { setText, isSpeaking, speak, cancel } = useSpeachSynthesisApi(
+    language || "en-GB"
+  );
 
   useEffect(() => {
     cancel();

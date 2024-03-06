@@ -8,21 +8,20 @@ interface UserContainerProps {
   handleSetIsLogged: () => void;
   loggedUser: object | null;
   isLogged: boolean;
+  language: string;
 }
 
 const UserContainer = ({
   handleSetIsLogged,
   loggedUser,
   isLogged,
+  language,
   ...props
 }: UserContainerProps) => {
   const t = useTranslations("header");
   const router = useRouter();
 
   const handleOnUserClick = () => {
-    const language =
-      typeof window !== "undefined" && localStorage.getItem("lan");
-
     router.push("/" + language + "/dashboard"); // Redirect to the dashboard page when the user is clicked
   };
 

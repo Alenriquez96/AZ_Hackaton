@@ -40,9 +40,9 @@ export async function generateMetadata({
 export default async function Post({
   params,
 }: {
-  params: { product: string };
+  params: { product: string; locale: string };
 }) {
-  const { product } = params;
+  const { product, locale } = params;
 
-  return <ProductDetails product={product} />;
+  return <ProductDetails product={product} language={locale} />;
 }

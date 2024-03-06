@@ -88,6 +88,7 @@ const Header = ({ locale }: { locale: string }) => {
           loggedUser={loggedUser}
           isLogged={isLogged}
           handleSetIsLogged={handleSetIsLogged}
+          language={locale}
         />
       </div>
     </header>
