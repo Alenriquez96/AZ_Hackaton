@@ -121,7 +121,7 @@ const ProductDetails = ({ product }: { product: string }) => {
       className={`p-11 flex justify-evenly flex-wrap`}
       style={{ fontSize: fontSize + "px" }}
     >
-      <div className="flex flex-col [&>*]:p-4 ">
+      <div className="flex flex-col [&>*]:p-4 max-w-[900px]">
         <div className="flex items-center justify-between">
           <SearchThisPage />
         </div>
