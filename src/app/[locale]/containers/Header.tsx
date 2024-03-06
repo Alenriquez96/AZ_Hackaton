@@ -81,7 +81,7 @@ const Header = ({ locale }: { locale: string }) => {
           ))}
         <CountrySelector />
         <div className="sm:block hidden">
-          <LanguageSelector />
+          <LanguageSelector locale={locale} />
         </div>
         <ThemeSwitcher />
         <UserContainer

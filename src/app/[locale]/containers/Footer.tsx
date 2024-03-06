@@ -3,8 +3,9 @@ import LanguageSelector from "../components/LanguageSelector";
 import Logo from "../components/Logo";
 import { useTranslations } from "next-intl";
 
-const Footer = () => {
+const Footer = ({ ...props }) => {
   const t = useTranslations("footer");
+  const locale = props.locale || "en";
   const links: { heading: string; links: string[] }[] = [
     {
       heading: t("product.title"),
@@ -79,7 +80,7 @@ const Footer = () => {
       <div className="flex sm:flex-row flex-col sm:justify-between justify-center items-center border-t-[1px] w-[80%] mt-5 h-[100px] ">
         <Logo className="my-6 sm:m-0" />
         <div className="block sm:hidden">
-          <LanguageSelector />
+          <LanguageSelector locale={locale} />
         </div>
         <p className="text-[#98A2B3] text-[16px] my-5">
           {t("all_rights_reserved")}

@@ -18,7 +18,7 @@ export default async function Home({
           <ProductInfo />
         </div>
       </div>
-      <Footer />
+      <Footer locale={locale} />
     </main>
   );
 }
