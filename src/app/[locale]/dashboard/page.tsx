@@ -1,7 +1,7 @@
 "use client";
 import InPageSearch from "../components/InPageSearch";
 import Text from "../components/Text";
-import LatestsNews from "../products/[product]/containers/LatestsNews";
+import LatestsNews from "../products/[product]/containers/Suggested";
 import Notification from "../components/Notification";
 import HowFeeling from "./containers/HowFeeling";
 import TrackYourStats from "./containers/TrackYourStats";

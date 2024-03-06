@@ -1,7 +1,8 @@
 import ProductDetails from "./containers/ProductDetails";
+import { Product } from "@/interfaces";
 
 //Get all posts
-const getProducts = async () => {
+const getProducts = async (): Promise<Product[]> => {
   try {
     const res = await fetch(
       `https://mediguide-api-latest.onrender.com/v1/products`,
@@ -14,7 +15,7 @@ const getProducts = async () => {
     return products;
   } catch (error) {
     console.log({ error });
-    return [{ name: "Insulin" }];
+    return [];
   }
 };
 

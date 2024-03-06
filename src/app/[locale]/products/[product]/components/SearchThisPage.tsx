@@ -11,6 +11,7 @@ const SearchThisPage = () => {
       isClearable
       radius="full"
       placeholder={t("search")}
+      className="max-w-[450px]"
     />
   );
 };

@@ -5,7 +5,7 @@ import Options from "../components/Options";
 import SearchThisPage from "../components/SearchThisPage";
 import Accordions from "./Accordions";
 import { JumpToSection } from "./JumpToSection";
-import LatestsNews from "./LatestsNews";
+import Suggested from "./Suggested";
 import LoadingSpinner from "../components/LoadingSpinner";
 import Text from "@/app/[locale]/components/Text";
 import { Button } from "@nextui-org/react";
@@ -34,8 +34,6 @@ const ProductDetails = ({ product }: { product: string }) => {
 
   const language =
     typeof document !== "undefined" && localStorage.getItem("lan");
-
-  console.log(language);
 
   // Get the product data
   const getProductData = async (product: string) => {
@@ -94,8 +92,8 @@ const ProductDetails = ({ product }: { product: string }) => {
       setSectionHeadings(data);
     } catch (error) {
       console.log({ error });
-
       setSectionHeadings([]);
+      setError({ error });
     }
   };
 
@@ -123,7 +121,7 @@ const ProductDetails = ({ product }: { product: string }) => {
       className={`p-11 flex justify-evenly flex-wrap`}
       style={{ fontSize: fontSize + "px" }}
     >
-      <div className="flex flex-col [&>*]:p-4 max-w-[700px]">
+      <div className="flex flex-col [&>*]:p-4 ">
         <div className="flex items-center justify-between">
           <SearchThisPage />
         </div>
@@ -152,7 +150,7 @@ const ProductDetails = ({ product }: { product: string }) => {
             fontSize={fontSize}
           />
         )}
-        <LatestsNews />
+        <Suggested />
       </div>
 
       <div className=" flex-col sm:flex hidden [&>div]:my-8">

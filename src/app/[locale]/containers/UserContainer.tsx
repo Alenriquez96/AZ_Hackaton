@@ -18,9 +18,11 @@ const UserContainer = ({
 }: UserContainerProps) => {
   const t = useTranslations("header");
   const router = useRouter();
-  const language = typeof window !== "undefined" && localStorage.getItem("lan");
 
   const handleOnUserClick = () => {
+    const language =
+      typeof window !== "undefined" && localStorage.getItem("lan");
+
     router.push("/" + language + "/dashboard"); // Redirect to the dashboard page when the user is clicked
   };
 
