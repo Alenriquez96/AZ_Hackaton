@@ -77,15 +77,6 @@ const Footer = ({ ...props }) => {
           );
         })}
       </div>
-      <div className="flex sm:flex-row flex-col sm:justify-between justify-center items-center border-t-[1px] w-[80%] mt-5 h-[100px] ">
-        <Logo className="my-6 sm:m-0" />
-        <div className="block sm:hidden">
-          <LanguageSelector locale={locale} />
-        </div>
-        <p className="text-[#98A2B3] text-[16px] my-5">
-          {t("all_rights_reserved")}
-        </p>
-      </div>
     </footer>
   );
 };

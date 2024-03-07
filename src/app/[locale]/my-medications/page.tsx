@@ -1,34 +1,41 @@
 "use client";
 import { Card, CardHeader, CardBody, Button } from "@nextui-org/react";
 import { IconPill } from "@tabler/icons-react";
-import Text from "@/app/[locale]/components/Text";
+import Text from "@/app/components/Text";
 import { IconFilter, IconArrowsSort } from "@tabler/icons-react";
 import { useTranslations } from "next-intl";
 
 interface medications {
   name: string;
+  icon: React.ReactNode;
 }
 
 const currentMedications: medications[] = [
   {
+    icon: <IconPill size={50} />,
     name: "Atorvastatin",
   },
   {
+    icon: <IconPill size={50} />,
     name: "Insulin",
   },
   {
+    icon: <IconPill size={50} />,
     name: "Levothyroxine",
   },
 ];
 
 const pastMedications: medications[] = [
   {
+    icon: <IconPill size={50} />,
     name: "Morphine",
   },
   {
+    icon: <IconPill size={50} />,
     name: "Aspirin",
   },
   {
+    icon: <IconPill size={50} />,
     name: "Sertraline",
   },
 ];
@@ -53,16 +60,14 @@ function MyMedications() {
               {t("current_medications")} ({currentMedications.length.toString()}
               )
             </Text>
-            <div className="flex flex-wrap items-center [&>*]:mr-8 [&>*]:my-8">
+            <div className="flex justify-center flex-wrap items-center [&>*]:mr-8 [&>*]:my-8">
               {currentMedications.map((med, i) => (
                 <Card
                   key={i}
                   isPressable
                   className="min-h-[200px] min-w-[200px] bg-[#F1EFE9] "
                 >
-                  <CardBody>
-                    <IconPill size={50} />
-                  </CardBody>
+                  <CardBody>{med.icon}</CardBody>
                   <CardHeader>{med.name}</CardHeader>
                 </Card>
               ))}
@@ -72,16 +77,14 @@ function MyMedications() {
             <Text>
               {t("past_medications")} ({pastMedications.length.toString()})
             </Text>
-            <div className="flex flex-wrap items-center [&>*]:mr-8">
+            <div className="flex justify-center  flex-wrap items-center [&>*]:mr-8 [&>*]:my-8">
               {pastMedications.map((med, i) => (
                 <Card
                   key={i}
                   isPressable
                   className="min-h-[200px] min-w-[200px] bg-[#F1EFE9]"
                 >
-                  <CardBody>
-                    <IconPill size={50} />
-                  </CardBody>
+                  <CardBody>{med.icon}</CardBody>
                   <CardHeader>{med.name}</CardHeader>
                 </Card>
               ))}

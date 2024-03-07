@@ -10,8 +10,6 @@ const LanguageSelector = ({ ...props }) => {
   const pathName = usePathname();
   const router = useRouter();
 
-  console.log(locale);
-
   const handleChangeLocale = (e: any) => {
     let route = pathName;
     languages.map((language) => {

@@ -7,7 +7,17 @@
       "communities": "Communities"
     },
     "login": "Login",
-    "register": "Register"
+    "register": "Register",
+    "dropdown": {
+      "profile": "My Profile",
+      "settings": {
+        "label": "Change text size",
+        "small": "Small",
+        "medium": "Medium",
+        "large": "Large"
+      },
+      "darkMode": "Turn on dark mode"
+    }
   },
   "home": {
     "brand": "MediGuide",
@@ -135,5 +145,8 @@
   },
   "chatBot": {
     "tooltip": "Hi - ask me about medication!"
+  },
+  "loading": {
+    "loadingText": "Loading..."
   }
 }

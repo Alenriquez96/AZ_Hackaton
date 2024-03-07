@@ -26,15 +26,15 @@ const CountrySelector = ({ ...props }) => {
     <Dropdown>
       <DropdownTrigger>
         <Button
-          variant="bordered"
+          variant="light"
           radius="full"
           {...props}
-          className="h-[56px]  sm:flex  hidden [&>*]:mx-2"
+          className="h-[56px] [&>*]:mx-2 lg:border-[2px] lg:border-gray-200 "
           endContent={
             <CountryFlag countryCode={selectedCountry.code.toLowerCase()} />
           }
         >
-          {selectedCountry.name}
+          <p className="lg:block hidden">{selectedCountry.name}</p>
         </Button>
       </DropdownTrigger>
       <DropdownMenu>
@@ -45,9 +45,8 @@ const CountrySelector = ({ ...props }) => {
             }
             onClick={() => setSelectedCountry(country)}
             key={country.code}
-          >
-            {country.name}
-          </DropdownItem>
+            title={country.name}
+          />
         ))}
       </DropdownMenu>
     </Dropdown>

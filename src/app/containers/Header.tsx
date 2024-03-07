@@ -8,7 +8,6 @@ import Link from "next/link";
 import { Button } from "@nextui-org/react";
 import { usePathname } from "next/navigation";
 import { useTranslations } from "next-intl";
-import { ThemeSwitcher } from "../components/ThemeSwitcher";
 
 const Header = ({ locale }: { locale: string }) => {
   const t = useTranslations("header");
@@ -56,11 +55,11 @@ const Header = ({ locale }: { locale: string }) => {
   ];
 
   return (
-    <header className="h-24 flex justify-between content-center items-center border-b-[1px] border-b-[#DEE5ED] p-10">
+    <header className="h-24 flex justify-between content-center items-center border-b-[1px] border-b-[#DEE5ED] p-6">
       <div className="flex justify-start content-center">
         <Logo loggedUser={isLogged} />
       </div>
-      <div className="justify-around items-center  sm:[&>*]:mx-5 flex">
+      <div className="justify-around items-center  lg:[&>*]:mx-2 flex">
         {isLogged &&
           navigation.map((navItem) => (
             <Link
@@ -73,17 +72,20 @@ const Header = ({ locale }: { locale: string }) => {
                   pathName.includes(navItem.path) ? "secondary" : "default"
                 }
                 radius="full"
-                className="hidden sm:block"
+                className="hidden lg:block"
               >
                 {navItem.title}
               </Button>
             </Link>
           ))}
-        <CountrySelector />
-        <div className="sm:block hidden">
-          <LanguageSelector locale={locale} />
-        </div>
-        <ThemeSwitcher />
+        {isLogged && (
+          <>
+            <CountrySelector />
+
+            <LanguageSelector locale={locale} />
+          </>
+        )}
+
         <UserContainer
           loggedUser={loggedUser}
           isLogged={isLogged}

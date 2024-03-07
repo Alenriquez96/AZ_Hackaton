@@ -1,6 +1,6 @@
 "use client";
 import Link from "next/link";
-import Text from "./components/Text";
+import Text from "../components/Text";
 import { Button } from "@nextui-org/react";
 import { useTranslations } from "next-intl";
 

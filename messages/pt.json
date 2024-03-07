@@ -7,7 +7,17 @@
             "communities": "Comunidades"
         },
         "login": "Entrar",
-        "register": "Registrar-se"
+        "register": "Registrar",
+        "dropdown": {
+            "profile": "Meu Perfil",
+            "settings": {
+                "label": "Alterar tamanho do texto",
+                "small": "Pequeno",
+                "medium": "Médio",
+                "large": "Grande"
+            },
+            "darkMode": "Ativar modo escuro"
+        }
     },
     "home": {
         "brand": "MediGuide",
@@ -18,12 +28,12 @@
         },
         "searchComponent": {
             "title": "Encontre informações sobre seu medicamento",
-            "subtitle": "Pesquise com texto, voz ou segurando seu medicamento na frente da câmera do seu celular, desktop ou tablet.",
+            "subtitle": "Pesquise com texto, voz ou segurando seu medicamento na câmera do seu celular, desktop ou tablet.",
             "placeHolder": "Digite o nome do medicamento ou da marca"
         }
     },
     "product": {
-        "search": "Buscar nesta página",
+        "search": "Pesquisar nesta página",
         "manufacturedBy": "Fabricado por:",
         "buttons": {
             "report_event": "Relatar um evento adverso",
@@ -34,17 +44,18 @@
             "listen": "Ouvir esta seção",
             "easy": "Fácil de entender",
             "difficult": "Difícil de entender",
-            "textSize": "Tamanho do texto"
+            "textSize": "Tamanho do texto",
+            "highlight": "Destacar Seção"
         },
         "feedback": "Seu feedback sobre esta seção",
-        "jumpTo": "Ir para a seção"
+        "jumpTo": "Ir para a Seção"
     },
     "dashboard": {
         "welcomeText": "Bem-vindo, ",
         "reminders": "Lembretes",
         "alert": {
-            "title": "Prescrição em breve vencimento",
-            "description": "Sua prescrição de Levotiroxina está próxima do vencimento em 5 dias"
+            "title": "Prescrição prestes a expirar",
+            "description": "Sua prescrição de Levotiroxina está prestes a vencer em 5 dias"
         },
         "latestNews": {
             "suggested": "Sugerido para você",
@@ -111,7 +122,7 @@
             "support": "Suporte"
         },
         "social": {
-            "title": "Social",
+            "title": "Redes Sociais",
             "facebook": "Facebook",
             "x": "X",
             "linkedIn": "LinkedIn",
@@ -125,14 +136,17 @@
             "licenses": "Licenças",
             "settings": "Configurações"
         },
-        "all_rights_reserved": "© 2077 Interface do Usuário Sem Título. Todos os direitos reservados."
+        "all_rights_reserved": "© 2077 Interface de Usuário Sem Título. Todos os direitos reservados."
     },
     "notFound": {
-        "title": "Página não encontrada",
+        "title": "Não Encontrado",
         "description": "A página que você está procurando não existe. Por favor, verifique o URL ou clique no botão abaixo para retornar à página inicial.",
-        "btn": "Voltar para Casa"
+        "btn": "Retornar à Página Inicial"
     },
     "chatBot": {
         "tooltip": "Oi - pergunte-me sobre medicamentos!"
+    },
+    "loading": {
+        "loadingText": "Carregando..."
     }
 }

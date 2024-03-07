@@ -1,6 +1,6 @@
 "use client";
 import { useState } from "react";
-import { useOutsideClick, useHover } from "@/app/[locale]/hooks";
+import { useOutsideClick, useHover } from "@/app/hooks";
 import { useRef } from "react";
 import { useTranslations } from "next-intl";
 import { Tooltip } from "@nextui-org/react";
@@ -26,7 +26,7 @@ const Chatbot = () => {
           ref={hoverRef}
           onClick={() => setOpenChatbot(!openChatbot)}
           className={`
-      z-50 fixed bottom-20 right-6 bg-white animate-bounce-short transition-all hover:-translate-y-0.5 text-[40px] font-bold border-[2px] border-[#462255] rounded-full p-4`}
+      z-50  fixed bottom-40 right-6 bg-white animate-bounce-short transition-all hover:-translate-y-0.5 text-[40px] font-bold border-[2px] border-[#462255] rounded-full p-4`}
         >
           <span className="text-primary">M</span>
           <span className="text-[#FC7853]">G</span>

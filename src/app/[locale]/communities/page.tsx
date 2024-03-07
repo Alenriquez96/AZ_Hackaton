@@ -1,5 +1,5 @@
 "use client";
-import Text from "@/app/[locale]/components/Text";
+import Text from "@/app/components/Text";
 import { useTranslations } from "next-intl";
 
 const Communities = () => {

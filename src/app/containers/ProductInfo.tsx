@@ -1,5 +1,5 @@
 "use client";
-import Text from "@/app/[locale]/components/Text";
+import Text from "@/app/components/Text";
 import { Button } from "@nextui-org/react";
 import { useTranslations } from "next-intl";
 
@@ -13,7 +13,7 @@ const ProductInfo = () => {
   };
 
   return (
-    <div className="p-5 sm:p-10 [&>p]:py-3 [&>button]:my-3 max-w-[640px] ">
+    <div className="p-5 sm:p-10 [&>p]:py-3 [&>button]:my-3 sm:max-w-[640px] ">
       <p className="font-medium text-[21px] leading-[22px] text-[#344054] dark:text-white">
         {productInfo.name}
       </p>

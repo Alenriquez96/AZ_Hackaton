@@ -1,9 +1,10 @@
-import InPageSearch from "./components/InPageSearch";
-import ProductInfo from "./containers/ProductInfo";
+import InPageSearch from "../components/InPageSearch";
+import ProductInfo from "../containers/ProductInfo";
 // import FloatingMenu from "@/app/containers/FloatingMenu";
-import BackToTop from "./components/BackToTop";
+import BackToTop from "../components/BackToTop";
 // import LatestsNews from "@/app/containers/LatestsNews";
-import Footer from "./containers/Footer";
+import Footer from "../containers/Footer";
+import MobileNavbar from "../containers/MobileNavbar";
 
 export default async function Home({
   params: { locale },

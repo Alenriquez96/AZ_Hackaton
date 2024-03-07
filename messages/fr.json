@@ -7,19 +7,29 @@
             "communities": "Communautés"
         },
         "login": "Se connecter",
-        "register": "S'inscrire"
+        "register": "S'inscrire",
+        "dropdown": {
+            "profile": "Mon Profil",
+            "settings": {
+                "label": "Changer la taille du texte",
+                "small": "Petit",
+                "medium": "Moyen",
+                "large": "Grand"
+            },
+            "darkMode": "Activer le mode sombre"
+        }
     },
     "home": {
         "brand": "MediGuide",
         "title": "Votre compagnon de santé de confiance",
-        "description": "MediGuide s'engage à fournir des informations de santé fiables et faciles à comprendre à la communauté mondiale, permettant aux individus de prendre des décisions éclairées concernant leur bien-être. Avec MediGuide, les utilisateurs peuvent naviguer dans leur parcours de santé en toute confiance et sérénité, sachant qu'ils ont un compagnon de confiance à leurs côtés.",
+        "description": "MediGuide s'engage à fournir des informations de santé fiables et faciles à comprendre à la communauté mondiale, permettant aux individus de prendre des décisions éclairées concernant leur bien-être. Avec MediGuide, les utilisateurs peuvent naviguer dans leur parcours de santé en toute confiance et tranquillité d'esprit, sachant qu'ils ont un compagnon de confiance à leurs côtés.",
         "btns": {
             "get_started": "Commencer"
         },
         "searchComponent": {
-            "title": "Trouvez des informations sur votre médicament",
-            "subtitle": "Recherchez avec du texte, de la voix ou en tenant votre médicament devant la caméra de votre mobile, de votre ordinateur de bureau ou de votre tablette.",
-            "placeHolder": "Saisissez le nom du médicament ou de la marque"
+            "title": "Trouver des informations sur votre médicament",
+            "subtitle": "Recherchez avec du texte, de la voix ou en tenant votre médicament devant la caméra de votre mobile, ordinateur de bureau ou tablette.",
+            "placeHolder": "Entrez le nom du médicament ou de la marque"
         }
     },
     "product": {
@@ -34,33 +44,34 @@
             "listen": "Écouter cette section",
             "easy": "Facile à comprendre",
             "difficult": "Difficile à comprendre",
-            "textSize": "Taille du texte"
+            "textSize": "Taille du texte",
+            "highlight": "Surligner la Section"
         },
-        "feedback": "Votre avis sur cette section",
-        "jumpTo": "Aller à la section"
+        "feedback": "Votre retour d'information sur cette section",
+        "jumpTo": "Aller à la Section"
     },
     "dashboard": {
         "welcomeText": "Bienvenue, ",
         "reminders": "Rappels",
         "alert": {
             "title": "Prescription bientôt expirée",
-            "description": "Votre prescription de lévothyroxine doit être renouvelée dans 5 jours"
+            "description": "Votre prescription de lévothyroxine expire dans 5 jours"
         },
         "latestNews": {
             "suggested": "Suggéré pour vous",
-            "label": "Les systèmes de conception les plus populaires à apprendre en 2022",
-            "footer": "Systèmes de Conception"
+            "label": "Les systèmes de design les plus populaires à apprendre en 2022",
+            "footer": "Systèmes de Design"
         },
         "trackStats": {
             "title": "Suivez vos statistiques",
-            "reminders": "N'oubliez pas d'enregistrer votre taux de glycémie aujourd'hui",
+            "reminders": "N'oubliez pas d'enregistrer votre glycémie aujourd'hui",
             "btns": {
                 "log": "Enregistrer le résultat",
                 "trends": "Voir les tendances"
             }
         },
         "feeling_component": {
-            "title": "Comment vous sentez-vous aujourd'hui?",
+            "title": "Comment vous sentez-vous aujourd'hui ?",
             "action": "Suivez vos symptômes",
             "btns": {
                 "headache": "Mal de tête",
@@ -90,13 +101,13 @@
     "footer": {
         "product": {
             "title": "Produit",
-            "overview": "Vue d'ensemble",
+            "overview": "Aperçu",
             "features": "Fonctionnalités",
             "solutions": "Solutions",
             "releases": "Versions"
         },
         "company": {
-            "title": "Société",
+            "title": "Entreprise",
             "aboutUs": "À Propos de Nous",
             "careers": "Carrières",
             "press": "Presse",
@@ -119,7 +130,7 @@
         },
         "legal": {
             "title": "Légal",
-            "terms": "Conditions",
+            "terms": "Termes",
             "privacy": "Confidentialité",
             "cookies": "Cookies",
             "licenses": "Licences",
@@ -128,11 +139,14 @@
         "all_rights_reserved": "© 2077 Interface Utilisateur Sans Titre. Tous droits réservés."
     },
     "notFound": {
-        "title": "Page non trouvée",
-        "description": "La page que vous recherchez n'existe pas. Veuillez vérifier l'URL ou cliquer sur le bouton ci-dessous pour revenir à la page d'accueil.",
-        "btn": "Retour à l'accueil"
+        "title": "Non Trouvé",
+        "description": "La page que vous recherchez n'existe pas. Veuillez vérifier l'URL ou cliquer sur le bouton ci-dessous pour retourner à la page d'accueil.",
+        "btn": "Retourner à l'Accueil"
     },
     "chatBot": {
-        "tooltip": "Salut - demandez-moi des informations sur les médicaments !"
+        "tooltip": "Salut - demandez-moi sur les médicaments!"
+    },
+    "loading": {
+        "loadingText": "Chargement..."
     }
 }

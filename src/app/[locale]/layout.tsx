@@ -1,13 +1,14 @@
 import type { Metadata } from "next";
 import { DM_Sans } from "next/font/google";
-import Header from "./containers/Header";
-import Chatbot from "./components/Chatbot";
+import Header from "@/app/containers/Header";
+import Chatbot from "@/app/components/Chatbot";
 import { Providers } from "./providers";
 import { NextIntlClientProvider } from "next-intl";
 import { notFound } from "next/navigation";
 import { locales } from "@/navigation";
-import BackToTop from "./components/BackToTop";
+import BackToTop from "@/app/components/BackToTop";
 import { unstable_setRequestLocale } from "next-intl/server";
+import MobileNavbar from "@/app/containers/MobileNavbar";
 
 const dm_sans = DM_Sans({
   subsets: ["latin"],
@@ -61,6 +62,7 @@ export default async function RootLayout({
             {children}
             <Chatbot />
             <BackToTop />
+            <MobileNavbar locale={locale} />
           </Providers>
         </NextIntlClientProvider>
       </body>

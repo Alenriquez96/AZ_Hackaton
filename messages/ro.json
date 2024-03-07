@@ -2,23 +2,33 @@
     "header": {
         "navigation_btns": {
             "home": "Acasă",
-            "my_medications": "Medicațiile Mele",
+            "my_medications": "Medicamentele Mele",
             "calendar": "Calendar",
             "communities": "Comunități"
         },
         "login": "Autentificare",
-        "register": "Înregistrare"
+        "register": "Înregistrare",
+        "dropdown": {
+            "profile": "Profilul Meu",
+            "settings": {
+                "label": "Schimbă dimensiunea textului",
+                "small": "Mic",
+                "medium": "Mediu",
+                "large": "Mare"
+            },
+            "darkMode": "Activează modul întunecat"
+        }
     },
     "home": {
         "brand": "MediGuide",
-        "title": "Însoțitorul tău de sănătate de încredere",
-        "description": "MediGuide se angajează să furnizeze informații de sănătate fiabile și ușor de înțeles comunității globale, împuternicind indivizii să ia decizii informate despre starea lor de bine. Cu Mediguide, utilizatorii își pot naviga călătoria de sănătate cu încredere și liniște, știind că au un însoțitor de încredere alături.",
+        "title": "Companionul tău de sănătate de încredere",
+        "description": "MediGuide se angajează să furnizeze informații de sănătate fiabile și ușor de înțeles comunității globale, împuternicind indivizii să ia decizii informate despre bunăstarea lor. Cu MediGuide, utilizatorii pot naviga călătoria lor de sănătate cu încredere și liniște, știind că au un companion de încredere alături de ei.",
         "btns": {
             "get_started": "Începeți"
         },
         "searchComponent": {
-            "title": "Găsiți informații despre medicamentul dumneavoastră",
-            "subtitle": "Căutați cu text, voce sau ținând medicamentul la camera mobilului, desktopului sau tabletei dumneavoastră.",
+            "title": "Găsiți informații despre medicamentul dvs.",
+            "subtitle": "Căutați cu text, voce sau ținând medicamentul la camera mobilului, desktopului sau tabletei dvs.",
             "placeHolder": "Introduceți numele medicamentului sau al mărcii"
         }
     },
@@ -27,59 +37,60 @@
         "manufacturedBy": "Fabricat de:",
         "buttons": {
             "report_event": "Raportați un eveniment advers",
-            "shareBtn": "Partajați",
-            "print": "Imprimați",
+            "shareBtn": "Distribuiți",
+            "print": "Imprimare",
             "email": "Trimiteți prin e-mail",
-            "text": "Trimiteți prin text",
+            "text": "Trimiteți prin SMS",
             "listen": "Ascultați această secțiune",
             "easy": "Ușor de înțeles",
             "difficult": "Dificil de înțeles",
-            "textSize": "Dimensiunea textului"
+            "textSize": "Dimensiunea textului",
+            "highlight": "Evidențiați Secțiunea"
         },
-        "feedback": "Opinia dvs. despre această secțiune",
-        "jumpTo": "Săriți la secțiune"
+        "feedback": "Feedback-ul dvs. despre această secțiune",
+        "jumpTo": "Salt la secțiune"
     },
     "dashboard": {
         "welcomeText": "Bun venit, ",
-        "reminders": "Memento-uri",
+        "reminders": "Mementouri",
         "alert": {
-            "title": "Prescripția se apropie de expirare",
-            "description": "Prescripția dumneavoastră de Levotiroxină trebuie reînnoită în 5 zile"
+            "title": "Prescripția aproape expirată",
+            "description": "Prescripția dvs. de Levotiroxină trebuie reînnoită în 5 zile"
         },
         "latestNews": {
-            "suggested": "Sugerat pentru tine",
+            "suggested": "Sugestii pentru tine",
             "label": "Cele mai populare sisteme de design de învățat în 2022",
             "footer": "Sisteme de Design"
         },
         "trackStats": {
-            "title": "Urmăriți statisticile dumneavoastră",
-            "reminders": "Amintiți-vă să înregistrați nivelul de zahăr din sânge astăzi",
+            "title": "Urmăriți statisticile dvs.",
+            "reminders": "Nu uitați să vă înregistrați nivelul de zahăr din sânge astăzi",
             "btns": {
                 "log": "Înregistrați rezultatul",
-                "trends": "Vedeți tendințele"
+                "trends": "Vizualizați tendințele"
             }
         },
         "feeling_component": {
-            "title": "Cum vă simțiți astăzi?",
-            "action": "Urmăriți simptomele dumneavoastră",
+            "title": "Cum te simți astăzi?",
+            "action": "Urmăriți simptomele dvs.",
             "btns": {
                 "headache": "Durere de cap",
                 "nausea": "Grețuri",
-                "dizziness": "Ameeală",
-                "shortness_of_breath": "Dificultăți la respirație"
+                "dizziness": "Amețeală",
+                "shortness_of_breath": "Dificultate la respirație"
             }
         }
     },
     "My_medications": {
-        "title": "Medicațiile Mele",
+        "title": "Medicamentele Mele",
         "btns": {
-            "mng_medication": "Administrați Medicamentele",
+            "mng_medication": "Gestionați Medicamentele",
             "add_medication": "Adăugați un Medicament",
-            "filter": "Filtrare",
-            "sort": "Sortare"
+            "filter": "Filtru",
+            "sort": "Sortați"
         },
-        "current_medications": "Medicații Curente",
-        "past_medications": "Medicații Anterioare"
+        "current_medications": "Medicamente Actuale",
+        "past_medications": "Medicamente Trecute"
     },
     "calendar": {
         "title": "Calendar"
@@ -101,7 +112,7 @@
             "careers": "Cariere",
             "press": "Presă",
             "news": "Știri",
-            "employeeLogIn": "Autentificare Angajat"
+            "employeeLogIn": "Conectare Angajați"
         },
         "resources": {
             "title": "Resurse",
@@ -118,21 +129,24 @@
             "instagram": "Instagram"
         },
         "legal": {
-            "title": "Juridic",
+            "title": "Legal",
             "terms": "Termeni",
             "privacy": "Confidențialitate",
             "cookies": "Cookie-uri",
             "licenses": "Licențe",
             "settings": "Setări"
         },
-        "all_rights_reserved": "© 2077 Interfață de Utilizator Fără Titlu. Toate drepturile rezervate."
+        "all_rights_reserved": "© 2077 Interfață Utilizator Neintitulată. Toate drepturile rezervate."
     },
     "notFound": {
-        "title": "Pagină negăsită",
-        "description": "Pagina pe care o căutați nu există. Vă rugăm să verificați URL-ul sau să faceți clic pe butonul de mai jos pentru a reveni la pagina de pornire.",
-        "btn": "Înapoi la Acasă"
+        "title": "Nu a fost Găsit",
+        "description": "Pagina pe care o căutați nu există. Vă rugăm să verificați URL-ul sau să faceți clic pe butonul de mai jos pentru a reveni la pagina principală.",
+        "btn": "Reveniți la Acasă"
     },
     "chatBot": {
         "tooltip": "Salut - întreabă-mă despre medicamente!"
+    },
+    "loading": {
+        "loadingText": "Se încarcă..."
     }
 }

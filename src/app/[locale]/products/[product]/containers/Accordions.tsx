@@ -5,9 +5,8 @@ import {
   SpeakerXMarkIcon,
   ChatBubbleOvalLeftIcon,
 } from "@heroicons/react/24/outline";
-import { useSpeachSynthesisApi } from "@/app/[locale]/hooks/useSpeechSynthesis";
-import { Video } from "@/app/[locale]/components/Video";
-import { Accordion, AccordionItem, Input } from "@nextui-org/react";
+import { useSpeachSynthesisApi } from "@/app/hooks/useSpeechSynthesis";
+import { Video } from "@/app/components/Video";
 import {
   IconThumbDown,
   IconThumbUp,
@@ -27,6 +26,9 @@ import {
   DropdownItem,
   DropdownTrigger,
   DropdownMenu,
+  Accordion,
+  AccordionItem,
+  Input,
 } from "@nextui-org/react";
 import { Section, Product } from "@/interfaces";
 import { useTranslations } from "next-intl";

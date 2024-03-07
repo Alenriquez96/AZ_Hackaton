@@ -7,13 +7,14 @@ import Accordions from "./Accordions";
 import { JumpToSection } from "./JumpToSection";
 import Suggested from "./Suggested";
 import LoadingSpinner from "../components/LoadingSpinner";
-import Text from "@/app/[locale]/components/Text";
+import Text from "@/app/components/Text";
 import { Button } from "@nextui-org/react";
 import { notFound } from "next/navigation";
 import { Product, Section } from "@/interfaces";
 import { useTranslations } from "next-intl";
-import Notification from "@/app/[locale]/components/Notification";
+import Notification from "@/app/components/Notification";
 import AppleWallet from "../components/AppleWallet";
+import MobileOptions from "./MobileOptions";
 
 const ProductDetails = ({
   product,
@@ -125,10 +126,10 @@ const ProductDetails = ({
       style={{ fontSize: fontSize + "px" }}
     >
       <div className="flex flex-col [&>*]:p-4 max-w-[900px]">
-        <div className="flex items-center justify-between">
+        <div className="hidden sm:flex items-center justify-between">
           <SearchThisPage />
         </div>
-        <div className="flex items-center justify-between flex-row">
+        <div className="flex items-center justify-between flex-row [&>*]:mx-4">
           <div className="flex flex-col">
             <Text>{productData.name}</Text>
             <p className="text-[#344054] font-[24px] ">
@@ -142,7 +143,7 @@ const ProductDetails = ({
                 <Notification key={i} title={notification.text} />
               ))}
           </div>
-          <AppleWallet />
+          <MobileOptions />
         </div>
         {loading ? (
           <LoadingSpinner />
@@ -157,7 +158,7 @@ const ProductDetails = ({
         <Suggested />
       </div>
 
-      <div className=" flex-col sm:flex hidden [&>div]:my-8">
+      <div className="flex-col lg:flex hidden [&>div]:my-8">
         <Button
           variant="shadow"
           radius="full"
