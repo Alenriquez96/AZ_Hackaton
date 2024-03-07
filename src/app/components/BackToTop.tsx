@@ -16,7 +16,7 @@ function BackToTop() {
       onClick={handleScrollTo}
       className={`
       ${y > 900 ? "visible" : "invisible"}
-      flex flex-col items-center z-50 fixed bottom-44 left-10  animate-bounce-short transition-all hover:-translate-y-0.5 h-[45px] w-[45px]`}
+      flex flex-col items-center z-50 fixed bottom-60 right-6  animate-bounce-short transition-all hover:-translate-y-0.5 h-[45px] w-[45px]`}
     >
       <IconArrowNarrowUp height={24} width={24} />
     </Button>

@@ -32,6 +32,7 @@ import {
 } from "@nextui-org/react";
 import { Section, Product } from "@/interfaces";
 import { useTranslations } from "next-intl";
+import TextWithTooltip from "../components/TextWithTooltip";
 
 interface AccordionsProps {
   productData: Product;
@@ -215,13 +216,13 @@ const Accordions = ({
                       <p className="text-[#486284]">{t("buttons.listen")}</p>
                     </div>
                   </div>
-                  <p
-                    className={`rounded-[8px] bg-[#E8E8E8]  leading-[${
-                      fontSize * 2
-                    }px] text-black my-5 p-5`}
-                  >
-                    {choosePath(productData, section.section)}
-                  </p>
+
+                  <TextWithTooltip
+                    fontSize={fontSize}
+                    text={choosePath(productData, section.section)}
+                    keywords={productData.keywords}
+                  />
+
                   {section.showVideo && (
                     <Video src="https://www.youtube.com/watch?v=LQwxNS7ny0E" />
                   )}

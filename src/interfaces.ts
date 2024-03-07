@@ -30,6 +30,10 @@ export interface Product {
     reportingOfsideEffects: string;
     commonProblemsOfConditions: string;
   };
+  keywords: {
+    keyword: string;
+    tooltip: String;
+  }[];
 }
 
 export interface Section {

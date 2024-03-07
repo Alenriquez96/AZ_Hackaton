@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect, useCallback } from "react";
+import { useState, useEffect, useCallback, use } from "react";
 import Options from "../components/Options";
 import SearchThisPage from "../components/SearchThisPage";
 import Accordions from "./Accordions";
@@ -13,8 +13,9 @@ import { notFound } from "next/navigation";
 import { Product, Section } from "@/interfaces";
 import { useTranslations } from "next-intl";
 import Notification from "@/app/components/Notification";
-import AppleWallet from "../components/AppleWallet";
 import MobileOptions from "./MobileOptions";
+import Link from "next/link";
+import { usePathname } from "next/navigation";
 
 const ProductDetails = ({
   product,
@@ -24,13 +25,15 @@ const ProductDetails = ({
   language: string;
 }) => {
   const t = useTranslations("product");
-  const [productData, setProductData] = useState<any>({});
+  const [productData, setProductData] = useState<Product | any>({});
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<any>({});
   const [productId, setProductId] = useState<string>("");
   const [sectionHeadings, setSectionHeadings] = useState<Section[]>([]);
   const [fontSize, setFontSize] = useState(14);
   const [notifications, setNotifications] = useState<{ text: string }[]>([]);
+
+  const pathName = usePathname();
 
   const handleSetFontSize = useCallback(
     (size: number) => {
@@ -155,6 +158,9 @@ const ProductDetails = ({
             language={language}
           />
         )}
+        <Link className="underline" href={pathName + "/sustainability"}>
+          See sustainability information
+        </Link>
         <Suggested />
       </div>
 
