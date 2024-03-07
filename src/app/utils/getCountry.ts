@@ -1,17 +1,30 @@
-interface CountriesData {}
-interface TimezonesData {}
+interface CountriesData {
+  [code: string]: string;
+}
 
-const countries: any = require("../../../data/countries.json");
-const timezones: any = require("../../../data/timezones.json");
+interface TimeZoneInfo {
+  a?: string;
+  u?: number;
+  c: string[];
+  r?: number;
+}
+
+interface TimeZones {
+  [zone: string]: TimeZoneInfo;
+}
+
+const countries: CountriesData = require("../../../data/countries.json");
+const timezones: TimeZones = require("../../../data/timezones.json");
 
 const timezone = Intl.DateTimeFormat().resolvedOptions().timeZone;
 
-export default function getCountry(): string | null {
-  if (timezone === "" || !timezone) {
-    return null;
-  }
-
+export function getCountry(): string {
   const _country = timezones[timezone].c[0];
   const country = countries[_country];
   return country;
+}
+
+export function getCountryCode(): string {
+  const _country = timezones[timezone].c[0];
+  return _country;
 }

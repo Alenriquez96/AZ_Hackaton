@@ -7,7 +7,7 @@ import {
   DropdownMenu,
 } from "@nextui-org/react";
 import { useState } from "react";
-import getCountry from "@/app/utils/getCountry";
+import { getCountry, getCountryCode } from "@/app/utils/getCountry";
 import "/node_modules/flag-icons/css/flag-icons.min.css";
 
 type countryType = { name: string; code: string };
@@ -21,9 +21,12 @@ const countries: countryType[] = [
 ];
 
 const CountrySelector = ({ ...props }) => {
-  const [selectedCountry, setSelectedCountry] = useState(countries[0]);
-
-  console.log(getCountry());
+  const [selectedCountry, setSelectedCountry] = useState<countryType>(
+    {
+      name: getCountry(),
+      code: getCountryCode(),
+    } || countries[0]
+  );
 
   return (
     <Dropdown>

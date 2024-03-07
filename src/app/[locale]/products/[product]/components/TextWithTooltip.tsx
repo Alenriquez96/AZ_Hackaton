@@ -1,4 +1,5 @@
 import { Tooltip } from "@nextui-org/react";
+import { useState } from "react";
 
 interface StyledTextProps {
   children: React.ReactNode;
@@ -20,8 +21,10 @@ const StyledText = ({ children, fontSize }: StyledTextProps) => {
 
 // This component is used to add a tooltip when the keyword is found in the text at first instance.
 const TextWithTooltip = ({ text, keywords, fontSize }: any) => {
+  const [openTooltip, setOpenTooltip] = useState(false);
   let resultText = text;
   let resultComponents = [];
+  console.log(openTooltip);
 
   // Iterate over the keywords
   for (const { keyword, tooltip } of keywords) {
@@ -40,8 +43,11 @@ const TextWithTooltip = ({ text, keywords, fontSize }: any) => {
       resultComponents.push(<span>{prefix}</span>);
       // Add the keyword with a tooltip to the result
       resultComponents.push(
-        <Tooltip content={tooltip} key={keyword}>
-          <span className="underline underline-offset-4 decoration-[#FC7853]">
+        <Tooltip isOpen={openTooltip} content={tooltip} key={keyword}>
+          <span
+            className="underline underline-offset-4 decoration-[#FC7853]"
+            onClick={() => setOpenTooltip(!openTooltip)}
+          >
             {highlightedKeyword}
           </span>
         </Tooltip>

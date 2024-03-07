@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect, useCallback, use } from "react";
+import { useState, useEffect, useCallback } from "react";
 import Options from "../components/Options";
 import SearchThisPage from "../components/SearchThisPage";
 import Accordions from "./Accordions";
