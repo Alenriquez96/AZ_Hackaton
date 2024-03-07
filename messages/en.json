@@ -16,7 +16,8 @@
         "medium": "Medium",
         "large": "Large"
       },
-      "darkMode": "Turn on dark mode"
+      "darkMode": "Turn on dark mode",
+      "lightMode": "Turn on light mode"
     }
   },
   "home": {

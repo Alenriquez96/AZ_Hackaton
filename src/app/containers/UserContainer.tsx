@@ -14,7 +14,12 @@ import {
 } from "@nextui-org/react";
 import { useRouter } from "next/navigation";
 import { useTranslations } from "next-intl";
-import { IconUserCircle, IconZoomIn, IconMoon } from "@tabler/icons-react";
+import {
+  IconUserCircle,
+  IconZoomIn,
+  IconMoon,
+  IconSun,
+} from "@tabler/icons-react";
 import { useTheme } from "next-themes";
 
 interface UserContainerProps {
@@ -64,8 +69,14 @@ const UserContainer = ({
       isReadOnly: true,
     },
     {
-      label: t("dropdown.darkMode"),
-      icon: <IconMoon width={24} height={24} />,
+      label:
+        theme === "light" ? t("dropdown.darkMode") : t("dropdown.lightMode"),
+      icon:
+        theme === "dark" ? (
+          <IconSun width={24} height={24} />
+        ) : (
+          <IconMoon width={24} height={24} />
+        ),
       isReadOnly: false,
       onClick: () => setTheme(theme === "light" ? "dark" : "light"),
     },

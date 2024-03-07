@@ -16,7 +16,8 @@
                 "medium": "Mediu",
                 "large": "Mare"
             },
-            "darkMode": "Activează modul întunecat"
+            "darkMode": "Activează modul întunecat",
+            "lightMode": "Activare mod luminos"
         }
     },
     "home": {

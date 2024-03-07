@@ -16,7 +16,8 @@
                 "medium": "Médio",
                 "large": "Grande"
             },
-            "darkMode": "Ativar modo escuro"
+            "darkMode": "Ativar modo escuro",
+            "lightMode": "Ativar modo claro"
         }
     },
     "home": {
