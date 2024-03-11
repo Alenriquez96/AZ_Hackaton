@@ -149,5 +149,60 @@
     },
     "loading": {
         "loadingText": "Carregando..."
+    },
+    "register": {
+        "createAccount": {
+            "title": "Criar uma Conta",
+            "subtitle": "Junte-se ao MediGuide hoje para te apoiar ao longo da sua jornada de saúde.",
+            "form": {
+                "email": "Endereço de Email",
+                "password": "Senha",
+                "register": "Registrar",
+                "remember": "Lembrar-me",
+                "google": "Entrar com o Google",
+                "haveAccount": "Já tem uma conta? Entrar"
+            }
+        },
+        "profileType": {
+            "title": "Tipo de Perfil",
+            "subtitle": "Junte-se ao MediGuide hoje para te apoiar ao longo da sua jornada de saúde.",
+            "proffesional": {
+                "title": "Profissionais",
+                "description": "Profissional de Saúde"
+            },
+            "patient": {
+                "title": "Pacientes",
+                "description": "NHS ou Privado"
+            },
+            "carer": {
+                "title": "Cuidador",
+                "description": "Família ou Amigos"
+            }
+        },
+        "about": {
+            "title": "Fale-nos sobre você",
+            "subtitle": "Junte-se ao MediGuide hoje para te apoiar ao longo da sua jornada de saúde.",
+            "form": {
+                "firstName": "Primeiro Nome",
+                "age": "Idade",
+                "gender": {
+                    "female": "Mulher",
+                    "male": "Homem",
+                    "notSay": "Prefiro não dizer"
+                },
+                "existingConditions": {
+                    "label": "Condições Existente",
+                    "placeholder": "Pesquisar por uma condição"
+                },
+                "existingMedications": {
+                    "label": "Medicamentos Existentes",
+                    "placeholder": "Pesquisar por um medicamento"
+                }
+            }
+        },
+        "footer": {
+            "next": "Próximo",
+            "back": "Voltar"
+        }
     }
 }

@@ -23,7 +23,7 @@ import {
 import { useTheme } from "next-themes";
 
 interface UserContainerProps {
-  handleSetIsLogged: () => void;
+  handleSetIsLogged?: () => void;
   loggedUser: object | null;
   isLogged: boolean;
   language: string;
@@ -42,7 +42,6 @@ interface AccordionItemType {
 }
 
 const UserContainer = ({
-  handleSetIsLogged,
   loggedUser,
   isLogged,
   language,
@@ -78,6 +77,7 @@ const UserContainer = ({
           <IconMoon width={24} height={24} />
         ),
       isReadOnly: false,
+
       onClick: () => setTheme(theme === "light" ? "dark" : "light"),
     },
   ];
@@ -98,16 +98,17 @@ const UserContainer = ({
             variant="ghost"
             radius="full"
             className="text-[#486284] h-[48px] w-[86px] "
+            onClick={() => router.push("/" + language + "/register")}
           >
             {t("register")}
           </Button>
 
           <Button
-            onClick={handleSetIsLogged}
             variant="solid"
             radius="full"
             color="primary"
             className=" h-[48px] w-[86px]"
+            onClick={() => router.push("/" + language + "/register")}
           >
             {t("login")}
           </Button>
@@ -116,17 +117,6 @@ const UserContainer = ({
         <Dropdown>
           <DropdownTrigger>
             <Avatar className="cursor-pointer" name="O" />
-            {/* <Button
-              radius="lg"
-              variant="bordered"
-              size="sm"
-              className="h-[56px] "
-              startContent={
-                <div className="rounded-full bg-[#414141] text-white h-[32px] w-[32px] grid place-content-center">
-                  O
-                </div>
-              }
-            /> */}
           </DropdownTrigger>
           <DropdownMenu>
             {dropDownOptions.map((option, i) =>

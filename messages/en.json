@@ -149,5 +149,60 @@
   },
   "loading": {
     "loadingText": "Loading..."
+  },
+  "register": {
+    "createAccount": {
+      "title": "Create an Account",
+      "subtitle": "Join MediGuide today to empower you throughout your health journey. ",
+      "form": {
+        "email": "Email Address",
+        "password": "Password",
+        "register": "Register",
+        "remember": "Remember me",
+        "google": "Sign in with Google",
+        "haveAccount": "Already have an account? Sign in"
+      }
+    },
+    "profileType": {
+      "title": "Profile Type",
+      "subtitle": "Join MediGuide today to empower you throughout your health journey. ",
+      "proffesional": {
+        "title": "Professionals",
+        "description": "Healthcare Professional"
+      },
+      "patient": {
+        "title": "Patients",
+        "description": "NHS or Private"
+      },
+      "carer": {
+        "title": "Carer",
+        "description": "Family or Friends"
+      }
+    },
+    "about": {
+      "title": "Tell us about you",
+      "subtitle": "Join MediGuide today to empower you throughout your health journey. ",
+      "form": {
+        "firstName": "First Name",
+        "age": "Age",
+        "gender": {
+          "female": "Female",
+          "male": "Male",
+          "notSay": "Prefer not to say"
+        },
+        "existingConditions": {
+          "label": "Existing Conditions",
+          "placeholder": "Search for any condition"
+        },
+        "existingMedications": {
+          "label": "Existing Medications",
+          "placeholder": "Search for any medicine"
+        }
+      }
+    },
+    "footer": {
+      "next": "Next",
+      "back": "Back"
+    }
   }
 }

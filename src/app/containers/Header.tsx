@@ -8,18 +8,13 @@ import Link from "next/link";
 import { Button } from "@nextui-org/react";
 import { usePathname } from "next/navigation";
 import { useTranslations } from "next-intl";
+import { useUserContext } from "../context/UserContext";
 
 const Header = ({ locale }: { locale: string }) => {
   const t = useTranslations("header");
-  const [isLogged, setIsLogged] = useState(
-    () =>
-      typeof window !== "undefined" &&
-      localStorage.getItem("isLogged") === "true" // Get the isLogged from the local storage
-  );
-  const [loggedUser, setlLoggedUser] = useState<object | null>(() => {
-    if (typeof window !== "undefined")
-      return JSON.parse(localStorage.getItem("user") || "{}"); // Get the user from the local storage
-  });
+
+  const { user } = useUserContext(); // Get the user from the context
+  const { isLogged } = user; // Get the isLogged property from the user object
 
   let pathName = usePathname(); // Get the current path
 
@@ -32,23 +27,18 @@ const Header = ({ locale }: { locale: string }) => {
 
   // Set the user as logged
   const handleSetIsLogged = () => {
-    setIsLogged(true);
-    setlLoggedUser(user);
     if (typeof window !== "undefined") {
       localStorage.setItem("user", JSON.stringify(user));
       localStorage.setItem("isLogged", JSON.stringify(true));
     }
   };
 
-  //Fake user
-  const user = {
-    img: "",
-    name: "Olivia Smith",
-  };
-
   // Navigation items
   const navigation: { title: string; path: string }[] = [
-    { title: t("navigation_btns.home"), path: isLogged ? "/dashboard" : "/" },
+    {
+      title: t("navigation_btns.home"),
+      path: isLogged ? "/dashboard" : "/",
+    },
     { title: t("navigation_btns.my_medications"), path: "/my-medications" },
     { title: t("navigation_btns.calendar"), path: "/calendar" },
     { title: t("navigation_btns.communities"), path: "/communities" },
@@ -87,9 +77,8 @@ const Header = ({ locale }: { locale: string }) => {
         )}
 
         <UserContainer
-          loggedUser={loggedUser}
+          loggedUser={user}
           isLogged={isLogged}
-          handleSetIsLogged={handleSetIsLogged}
           language={locale}
         />
       </div>

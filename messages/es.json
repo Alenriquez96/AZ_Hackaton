@@ -52,7 +52,7 @@
         "jumpTo": "Ir a la sección"
     },
     "dashboard": {
-        "welcomeText": "Bienvenido, ",
+        "welcomeText": "Bienvenido/a, ",
         "reminders": "Recordatorios",
         "alert": {
             "title": "Prescripción próxima",
@@ -149,5 +149,60 @@
     },
     "loading": {
         "loadingText": "Cargando..."
+    },
+    "register": {
+        "createAccount": {
+            "title": "Crear una Cuenta",
+            "subtitle": "Únete a MediGuide hoy para fortalecerte a lo largo de tu viaje de salud.",
+            "form": {
+                "email": "Correo Electrónico",
+                "password": "Contraseña",
+                "register": "Registrar",
+                "remember": "Recuérdame",
+                "google": "Iniciar sesión con Google",
+                "haveAccount": "¿Ya tienes una cuenta? Inicia sesión"
+            }
+        },
+        "profileType": {
+            "title": "Tipo de Perfil",
+            "subtitle": "Únete a MediGuide hoy para fortalecerte a lo largo de tu viaje de salud.",
+            "proffesional": {
+                "title": "Profesionales",
+                "description": "Profesional de la Salud"
+            },
+            "patient": {
+                "title": "Pacientes",
+                "description": "NHS o Privado"
+            },
+            "carer": {
+                "title": "Cuidador",
+                "description": "Familiares o Amigos"
+            }
+        },
+        "about": {
+            "title": "Cuéntanos acerca de ti",
+            "subtitle": "Únete a MediGuide hoy para fortalecerte a lo largo de tu viaje de salud.",
+            "form": {
+                "firstName": "Nombre",
+                "age": "Edad",
+                "gender": {
+                    "female": "Mujer",
+                    "male": "Hombre",
+                    "notSay": "Prefiero no decirlo"
+                },
+                "existingConditions": {
+                    "label": "Condiciones Existentes",
+                    "placeholder": "Busca alguna condición"
+                },
+                "existingMedications": {
+                    "label": "Medicamentos Existentes",
+                    "placeholder": "Busca algún medicamento"
+                }
+            }
+        },
+        "footer": {
+            "next": "Siguiente",
+            "back": "Atrás"
+        }
     }
 }

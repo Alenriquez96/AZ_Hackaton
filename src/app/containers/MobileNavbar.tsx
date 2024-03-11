@@ -9,7 +9,7 @@ import { Card, Link, Button } from "@nextui-org/react";
 import LanguageSelector from "../components/LanguageSelector";
 import Logo from "../components/Logo";
 import { useTranslations } from "next-intl";
-import { useEffect, useState } from "react";
+import { useUserContext } from "../context/UserContext";
 
 interface mobileNavigationBarProps {
   icon: React.ReactNode;
@@ -20,17 +20,7 @@ interface mobileNavigationBarProps {
 const MobileNavbar = ({ ...props }) => {
   const locale = props.locale || "en";
   const t = useTranslations("footer");
-  const [mounted, setMounted] = useState(false);
-  const userLogged =
-    typeof window !== "undefined"
-      ? JSON.parse(localStorage.getItem("isLogged") || "false")
-      : false;
-
-  useEffect(() => {
-    setMounted(true);
-  }, []);
-
-  if (!mounted) return <></>;
+  const { user } = useUserContext();
 
   const mobileNavigationBar: mobileNavigationBarProps[] = [
     {
@@ -57,7 +47,7 @@ const MobileNavbar = ({ ...props }) => {
 
   return (
     <>
-      {userLogged ? (
+      {user.isLogged ? (
         <Card radius="none" className="sm:hidden w-full sticky bottom-0 z-10">
           <div className="flex w-full justify-around">
             {mobileNavigationBar.map((item, i) => (

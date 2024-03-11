@@ -149,5 +149,60 @@
     },
     "loading": {
         "loadingText": "Chargement..."
+    },
+    "register": {
+        "createAccount": {
+            "title": "Créer un Compte",
+            "subtitle": "Rejoignez MediGuide aujourd'hui pour vous soutenir tout au long de votre parcours de santé.",
+            "form": {
+                "email": "Adresse Email",
+                "password": "Mot de passe",
+                "register": "S'inscrire",
+                "remember": "Se souvenir de moi",
+                "google": "Se connecter avec Google",
+                "haveAccount": "Vous avez déjà un compte ? Connectez-vous"
+            }
+        },
+        "profileType": {
+            "title": "Type de Profil",
+            "subtitle": "Rejoignez MediGuide aujourd'hui pour vous soutenir tout au long de votre parcours de santé.",
+            "proffesional": {
+                "title": "Professionnels",
+                "description": "Professionnel de la Santé"
+            },
+            "patient": {
+                "title": "Patients",
+                "description": "NHS ou Privé"
+            },
+            "carer": {
+                "title": "Aidant",
+                "description": "Famille ou Amis"
+            }
+        },
+        "about": {
+            "title": "Parlez-nous de vous",
+            "subtitle": "Rejoignez MediGuide aujourd'hui pour vous soutenir tout au long de votre parcours de santé.",
+            "form": {
+                "firstName": "Prénom",
+                "age": "Âge",
+                "gender": {
+                    "female": "Femme",
+                    "male": "Homme",
+                    "notSay": "Je préfère ne pas le dire"
+                },
+                "existingConditions": {
+                    "label": "Conditions Existantes",
+                    "placeholder": "Rechercher une condition"
+                },
+                "existingMedications": {
+                    "label": "Médicaments Existant",
+                    "placeholder": "Rechercher un médicament"
+                }
+            }
+        },
+        "footer": {
+            "next": "Suivant",
+            "back": "Retour"
+        }
     }
 }

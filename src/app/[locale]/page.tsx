@@ -1,16 +1,22 @@
 import InPageSearch from "../components/InPageSearch";
 import ProductInfo from "../containers/ProductInfo";
-// import FloatingMenu from "@/app/containers/FloatingMenu";
-import BackToTop from "../components/BackToTop";
-// import LatestsNews from "@/app/containers/LatestsNews";
 import Footer from "../containers/Footer";
-import MobileNavbar from "../containers/MobileNavbar";
+import { redirect } from "next/navigation";
 
 export default async function Home({
   params: { locale },
 }: {
   params: { locale: string };
 }) {
+  const user =
+    typeof window !== "undefined"
+      ? JSON.parse(localStorage.getItem("user") || "{}")
+      : {};
+
+  if (Object.keys(user).length > 0) {
+    redirect("/" + locale + "/dashboard");
+  }
+
   return (
     <main className="flex flex-col items-center bg-[url('../assets/world.svg')]">
       <div className="min-h-[800px] w-full ">

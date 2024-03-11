@@ -24,7 +24,6 @@ const TextWithTooltip = ({ text, keywords, fontSize }: any) => {
   const [openTooltip, setOpenTooltip] = useState(false);
   let resultText = text;
   let resultComponents = [];
-  console.log(openTooltip);
 
   // Iterate over the keywords
   for (const { keyword, tooltip } of keywords) {

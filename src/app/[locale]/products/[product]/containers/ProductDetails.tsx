@@ -26,7 +26,7 @@ const ProductDetails = ({
 }) => {
   const t = useTranslations("product");
   const [productData, setProductData] = useState<Product | any>({});
-  const [loading, setLoading] = useState(false);
+  const [loading, setLoading] = useState(true);
   const [error, setError] = useState<any>({});
   const [productId, setProductId] = useState<string>("");
   const [sectionHeadings, setSectionHeadings] = useState<Section[]>([]);
@@ -125,44 +125,49 @@ const ProductDetails = ({
 
   return (
     <div
-      className={`p-11 flex justify-evenly flex-wrap`}
+      className={`p-11 flex justify-evenly flex-wrap min-h-screen`}
       style={{ fontSize: fontSize + "px" }}
     >
-      <div className="flex flex-col [&>*]:p-4 max-w-[900px]">
-        <div className="hidden sm:flex items-center justify-between">
-          <SearchThisPage />
-        </div>
-        <div className="flex items-center justify-between flex-row [&>*]:mx-4">
-          <div className="flex flex-col">
-            <Text>{productData.name}</Text>
-            <p className="text-[#344054] font-[24px] ">
-              {productData.activeIngredient}
-            </p>
-            <p className="text-[#344054] font-[24px] ">
-              {t("manufacturedBy")} {productData.company}
-            </p>
-            {notifications &&
-              notifications.map((notification: { text: string }, i: number) => (
-                <Notification key={i} title={notification.text} />
-              ))}
+      {!loading ? (
+        <div className="flex flex-col [&>*]:p-4 max-w-[900px]">
+          <div className="hidden sm:flex items-center justify-between">
+            <SearchThisPage />
           </div>
-          <MobileOptions />
-        </div>
-        {loading ? (
-          <LoadingSpinner />
-        ) : (
+
+          <div className="flex items-center justify-between flex-row [&>*]:mx-4">
+            <div className="flex flex-col">
+              <Text>{productData.name}</Text>
+              <p className="text-[#344054] font-[24px] ">
+                {productData.activeIngredient}
+              </p>
+              <p className="text-[#344054] font-[24px] ">
+                {t("manufacturedBy")} {productData.company}
+              </p>
+              {notifications &&
+                notifications.map(
+                  (notification: { text: string }, i: number) => (
+                    <Notification key={i} title={notification.text} />
+                  )
+                )}
+            </div>
+            <MobileOptions />
+          </div>
+
           <Accordions
             productData={productData}
             sectionHeadings={sectionHeadings}
             fontSize={fontSize}
             language={language}
           />
-        )}
-        <Link className="underline" href={pathName + "/sustainability"}>
-          See sustainability information
-        </Link>
-        <Suggested />
-      </div>
+
+          <Link className="underline" href={pathName + "/sustainability"}>
+            See sustainability information
+          </Link>
+          <Suggested />
+        </div>
+      ) : (
+        <LoadingSpinner />
+      )}
 
       <div className="flex-col lg:flex hidden [&>div]:my-8">
         <Button

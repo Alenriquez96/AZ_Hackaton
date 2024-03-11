@@ -149,5 +149,60 @@
     },
     "loading": {
         "loadingText": "Se încarcă..."
+    },
+    "register": {
+        "createAccount": {
+            "title": "Creează un Cont",
+            "subtitle": "Alătură-te MediGuide astăzi pentru a te sprijini pe tot parcursul călătoriei tale în domeniul sănătății.",
+            "form": {
+                "email": "Adresă de Email",
+                "password": "Parolă",
+                "register": "Înregistrare",
+                "remember": "Ține-mă minte",
+                "google": "Conectare cu Google",
+                "haveAccount": "Ai deja un cont? Conectează-te"
+            }
+        },
+        "profileType": {
+            "title": "Tip de Profil",
+            "subtitle": "Alătură-te MediGuide astăzi pentru a te sprijini pe tot parcursul călătoriei tale în domeniul sănătății.",
+            "proffesional": {
+                "title": "Profesioniști",
+                "description": "Profesionist în domeniul sănătății"
+            },
+            "patient": {
+                "title": "Pacienți",
+                "description": "NHS sau Privat"
+            },
+            "carer": {
+                "title": "Îngrijitor",
+                "description": "Familie sau Prieteni"
+            }
+        },
+        "about": {
+            "title": "Spune-ne despre tine",
+            "subtitle": "Alătură-te MediGuide astăzi pentru a te sprijini pe tot parcursul călătoriei tale în domeniul sănătății.",
+            "form": {
+                "firstName": "Prenume",
+                "age": "Vârstă",
+                "gender": {
+                    "female": "Femeie",
+                    "male": "Bărbat",
+                    "notSay": "Prefer să nu spun"
+                },
+                "existingConditions": {
+                    "label": "Condiții Existente",
+                    "placeholder": "Caută o condiție"
+                },
+                "existingMedications": {
+                    "label": "Medicamente Existente",
+                    "placeholder": "Caută un medicament"
+                }
+            }
+        },
+        "footer": {
+            "next": "Următorul",
+            "back": "Înapoi"
+        }
     }
 }

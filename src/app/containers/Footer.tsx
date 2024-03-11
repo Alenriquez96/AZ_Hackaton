@@ -1,6 +1,3 @@
-"use client";
-import LanguageSelector from "../components/LanguageSelector";
-import Logo from "../components/Logo";
 import { useTranslations } from "next-intl";
 
 const Footer = ({ ...props }) => {

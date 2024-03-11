@@ -6,6 +6,7 @@ import Notification from "../../components/Notification";
 import HowFeeling from "./containers/HowFeeling";
 import TrackYourStats from "./containers/TrackYourStats";
 import { useTranslations } from "next-intl";
+import { useEffect, useState } from "react";
 
 export default function Dashboard({
   params: { locale },
@@ -13,10 +14,24 @@ export default function Dashboard({
   params: { locale: string };
 }) {
   const t = useTranslations("dashboard");
+  const user =
+    typeof window !== "undefined" &&
+    JSON.parse(localStorage.getItem("user") || "{}");
+
+  const [mounted, setMounted] = useState(false);
+
+  useEffect(() => {
+    setMounted(true);
+  }, []);
+
   return (
     <main className="flex justify-evenly flex-wrap [&>*]:mx-2">
       <div className="flex flex-col [&>*]:m-5 ">
-        <Text>{t("welcomeText")} Olivia!</Text>
+        {mounted && (
+          <Text>
+            {t("welcomeText")} {user.name}!
+          </Text>
+        )}
         {/* <Notification /> */}
         <InPageSearch locale={locale} />
         <LatestsNews />

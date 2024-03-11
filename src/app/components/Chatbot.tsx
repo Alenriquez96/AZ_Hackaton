@@ -19,7 +19,7 @@ const Chatbot = () => {
         shadow="lg"
         placement="left"
         shouldFlip
-        className="bg-[#63A87D] h-[74px] w-[380px] text-white "
+        className="bg-[#FC7853] h-[74px] w-[380px] text-white "
         content={<div>{t("tooltip")}</div>}
       >
         <button
