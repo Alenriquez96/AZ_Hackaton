@@ -41,11 +41,7 @@ const MyProfilePage = ({
             {t("title")}: {user.profileType}
           </Text>
           <CardBody className="flex flex-row items-center">
-            <Avatar
-              name={(user.name && user.name.charAt(0).toUpperCase()) || ""}
-              size="lg"
-              className="m-2"
-            />
+            <Avatar name={""} size="lg" className="m-2" />
             <div className="[&>*]:m-2 flex flex-col">
               <Button
                 radius="full"
