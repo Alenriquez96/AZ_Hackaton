@@ -10,7 +10,7 @@ import {
 } from "@nextui-org/react";
 import { IconPencil, IconTrash } from "@tabler/icons-react";
 import { useUserContext } from "@/app/context/UserContext";
-import { getCountry } from "@/app/utils/getCountry";
+// import { getCountry } from "@/app/utils/getCountry";
 import { useTranslations } from "next-intl";
 import PillPalIcon from "./components/PillPalIcon";
 import HealthSyncIcon from "./components/HealthSyncIcon";
@@ -21,7 +21,7 @@ const MyProfilePage = ({
   params: { locale: string };
 }) => {
   const { user } = useUserContext();
-  const country = getCountry() || "United Kingdom";
+  const country = "United Kingdom";
   const t = useTranslations("myProfile");
 
   const details: string[][] = [
