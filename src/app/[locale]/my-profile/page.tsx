@@ -42,7 +42,7 @@ const MyProfilePage = ({
           </Text>
           <CardBody className="flex flex-row items-center">
             <Avatar
-              name={(user.name && user.name.slice(0, 1).toUpperCase()) || ""}
+              name={(user.name && user.name.charAt(0).toUpperCase()) || ""}
               size="lg"
               className="m-2"
             />

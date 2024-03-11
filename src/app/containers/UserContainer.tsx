@@ -120,7 +120,7 @@ const UserContainer = ({
           <DropdownTrigger>
             <Avatar
               className="cursor-pointer"
-              name={(user && user.name.slice(0, 1).toUpperCase()) || ""}
+              name={(user.name && user.name.charAt(0).toUpperCase()) || ""}
             />
           </DropdownTrigger>
           <DropdownMenu>
