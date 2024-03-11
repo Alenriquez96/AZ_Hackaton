@@ -37,7 +37,7 @@ const MyProfilePage = ({
 
   return (
     <main className="min-h-screen flex flex-wrap justify-evenly p-12">
-      {/* <section className="flex flex-col [&>*]:p-10 [&>*]:my-4">
+      <section className="flex flex-col [&>*]:p-10 [&>*]:my-4">
         <Card>
           <Text>
             {t("title")}: {user.profileType}
@@ -121,7 +121,7 @@ const MyProfilePage = ({
             </div>
           </CardBody>
         </Card>
-      </section> */}
+      </section>
     </main>
   );
 };
