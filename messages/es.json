@@ -204,5 +204,29 @@
             "next": "Siguiente",
             "back": "Atrás"
         }
+    },
+    "myProfile": {
+        "title": "Mi Perfil",
+        "btns": {
+            "change": "Cambiar Avatar",
+            "remove": "Eliminar Avatar"
+        },
+        "personalInfo": {
+            "title": "Mis Detalles",
+            "name": "Nombre",
+            "age": "Edad",
+            "gender": "Género",
+            "country": "País",
+            "language": "Idioma"
+        },
+        "conditions": {
+            "title": "Mis Condiciones"
+        },
+        "sync": {
+            "title": "Sincronización",
+            "description": "Conecta tu perfil de MediGuide con aplicaciones y servicios de terceros",
+            "pillpal": "Integrar a través de PillPal",
+            "healthsync": "Integrar a través de HealthSync"
+        }
     }
 }

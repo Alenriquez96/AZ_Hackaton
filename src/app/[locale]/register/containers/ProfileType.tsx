@@ -11,20 +11,24 @@ type ProfileTypeProps = {
   handleProfileType: (type: string) => void;
 };
 
+interface ProfileTypes {
+  tooltip: {
+    title: string;
+    description: string;
+    value: string;
+  };
+  icon: string;
+}
+
 const ProfileType = ({ handleProfileType }: ProfileTypeProps) => {
   const t = useTranslations("register");
 
-  const profileTypes: {
-    tooltip: {
-      title: string;
-      description: string;
-    };
-    icon: string;
-  }[] = [
+  const profileTypes: ProfileTypes[] = [
     {
       tooltip: {
         title: t("profileType.proffesional.title"),
         description: t("profileType.proffesional.description"),
+        value: "Proffesional",
       },
       icon: professionalsIcon,
     },
@@ -32,6 +36,7 @@ const ProfileType = ({ handleProfileType }: ProfileTypeProps) => {
       tooltip: {
         title: t("profileType.patient.title"),
         description: t("profileType.patient.description"),
+        value: "Patient",
       },
       icon: patientIcon,
     },
@@ -39,6 +44,7 @@ const ProfileType = ({ handleProfileType }: ProfileTypeProps) => {
       tooltip: {
         title: t("profileType.carer.title"),
         description: t("profileType.carer.description"),
+        value: "Carer",
       },
       icon: carerIcon,
     },
@@ -73,7 +79,7 @@ const ProfileType = ({ handleProfileType }: ProfileTypeProps) => {
               <Image
                 alt={profileType.tooltip.description}
                 src={profileType.icon}
-                onClick={() => handleProfileType(profileType.tooltip.title)}
+                onClick={() => handleProfileType(profileType.tooltip.value)}
               />
             </Tooltip>
           ))}

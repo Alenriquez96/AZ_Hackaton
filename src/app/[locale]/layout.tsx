@@ -12,8 +12,8 @@ import MobileNavbar from "@/app/containers/MobileNavbar";
 
 const dm_sans = DM_Sans({
   subsets: ["latin"],
-  weight: "400",
-  // weight: ["100", "200", "300", "400", "500", "600", "700", "800", "900"],
+
+  weight: ["100", "200", "300", "400", "500", "600", "700", "800", "900"],
 });
 
 export const metadata: Metadata = {

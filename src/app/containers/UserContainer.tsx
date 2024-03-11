@@ -21,6 +21,7 @@ import {
   IconSun,
 } from "@tabler/icons-react";
 import { useTheme } from "next-themes";
+import { useUserContext } from "../context/UserContext";
 
 interface UserContainerProps {
   handleSetIsLogged?: () => void;
@@ -50,9 +51,10 @@ const UserContainer = ({
   const t = useTranslations("header");
   const router = useRouter();
   const { theme, setTheme } = useTheme();
+  const { user } = useUserContext();
 
   const handleOnUserClick = () => {
-    router.push("/" + language + "/dashboard"); // Redirect to the dashboard page when the user is clicked
+    router.push("/" + language + "/my-profile"); // Redirect to the dashboard page when the user is clicked
   };
 
   const dropDownOptions: DropdownOptionType[] = [
@@ -116,7 +118,10 @@ const UserContainer = ({
       ) : (
         <Dropdown>
           <DropdownTrigger>
-            <Avatar className="cursor-pointer" name="O" />
+            <Avatar
+              className="cursor-pointer"
+              name={user.name.slice(0, 1).toUpperCase()}
+            />
           </DropdownTrigger>
           <DropdownMenu>
             {dropDownOptions.map((option, i) =>

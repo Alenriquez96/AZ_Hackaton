@@ -204,5 +204,29 @@
             "next": "Următorul",
             "back": "Înapoi"
         }
+    },
+    "myProfile": {
+        "title": "Profilul Meu",
+        "btns": {
+            "change": "Schimbă Avatarul",
+            "remove": "Elimină Avatarul"
+        },
+        "personalInfo": {
+            "title": "Detaliile Mele",
+            "name": "Nume",
+            "age": "Vârstă",
+            "gender": "Gen",
+            "country": "Țară",
+            "language": "Limba"
+        },
+        "conditions": {
+            "title": "Condițiile Mele"
+        },
+        "sync": {
+            "title": "Sincronizare",
+            "description": "Conectați-vă profilul MediGuide cu aplicații și servicii terțe",
+            "pillpal": "Integrați prin PillPal",
+            "healthsync": "Integrați prin HealthSync"
+        }
     }
 }
