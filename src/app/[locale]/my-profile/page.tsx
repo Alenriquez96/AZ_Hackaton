@@ -22,6 +22,17 @@ const MyProfilePage = ({
   const country = getCountry();
   const t = useTranslations("myProfile");
 
+  const details: string[][] = [
+    [
+      t("personalInfo.name"),
+      t("personalInfo.age"),
+      t("personalInfo.gender"),
+      t("personalInfo.country"),
+      t("personalInfo.language"),
+    ],
+    [user.name, user.age, user.gender, country, locale],
+  ];
+
   return (
     <main className="min-h-screen flex flex-wrap justify-evenly p-12">
       <section className="flex flex-col [&>*]:p-10 [&>*]:my-4">
@@ -57,20 +68,19 @@ const MyProfilePage = ({
         <Card>
           <Text> {t("personalInfo.title")}</Text>
           <CardBody className="flex flex-row justify-between">
-            <div className="flex flex-col font-black [&>*]:m-2">
-              <p>{t("personalInfo.name")}</p>
-              <p>{t("personalInfo.age")}</p>
-              <p>{t("personalInfo.gender")}</p>
-              <p>{t("personalInfo.country")}</p>
-              <p>{t("personalInfo.language")}</p>
-            </div>
-            <div className="flex flex-col [&>*]:m-2">
-              <p>{user.name}</p>
-              <p>{user.age}</p>
-              <p>{user.gender}</p>
-              <p>{country}</p>
-              <p>{locale}</p>
-            </div>
+            {details.map((detail, i) => (
+              <div
+                key={i}
+                style={{
+                  fontWeight: i === 0 ? "bold" : "normal",
+                }}
+                className="flex flex-col font-black [&>*]:m-2"
+              >
+                {detail.map((item, j) => (
+                  <p key={j}>{item}</p>
+                ))}
+              </div>
+            ))}
           </CardBody>
         </Card>
         <Card>
