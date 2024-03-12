@@ -79,6 +79,7 @@ const MyProfilePage = ({
       const data = await res;
       if (data.ok) {
         setIsConnectedToPillPal(false);
+        setPillPallData({});
       }
     } catch (error) {
       console.log(error);
@@ -183,10 +184,10 @@ const MyProfilePage = ({
             </div>
           </CardBody>
         </Card>
-        <Card>
-          <Text>PillPal Data</Text>
-          <CardBody className="flex flex-row justify-between">
-            {Object.keys(pillPallData).length !== 0 ? (
+        {Object.keys(pillPallData).length !== 0 ? (
+          <Card>
+            <Text>PillPal Data</Text>
+            <CardBody className="flex flex-row justify-between">
               <div>
                 {Object.keys(pillPallData).map((key, i) => (
                   <p key={i}>
@@ -195,11 +196,11 @@ const MyProfilePage = ({
                   </p>
                 ))}
               </div>
-            ) : (
-              <LoadingSpinner />
-            )}
-          </CardBody>
-        </Card>
+            </CardBody>
+          </Card>
+        ) : (
+          <></>
+        )}
       </section>
     </main>
   );
