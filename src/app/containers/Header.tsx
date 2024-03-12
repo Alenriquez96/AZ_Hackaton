@@ -41,7 +41,8 @@ const Header = ({ locale }: { locale: string }) => {
     },
     { title: t("navigation_btns.my_medications"), path: "/my-medications" },
     { title: t("navigation_btns.calendar"), path: "/calendar" },
-    { title: t("navigation_btns.communities"), path: "/communities" },
+    // { title: t("navigation_btns.communities"), path: "/communities" },
+    { title: "My Stats", path: "/my-stats" },
   ];
 
   return (

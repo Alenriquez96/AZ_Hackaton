@@ -174,6 +174,7 @@ const Accordions = ({
                   className={section.title.replaceAll(" ", "").toLowerCase()}
                   key={i}
                   title={section.title}
+                  id={section.title.replaceAll(" ", "").toLowerCase()}
                   onPress={() =>
                     setTextToSpeech(choosePath(productData, section.section))
                   }

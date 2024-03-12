@@ -24,9 +24,11 @@ export const JumpToSection = ({
   sectionHeadings: Section[];
 }) => {
   const handleJumpToSection = (section: string) => {
-    console.log(section);
-
-    document.getElementById(section)?.click();
+    document
+      .getElementById(section)
+      ?.getElementsByTagName("h2")[0]
+      .getElementsByTagName("button")[0]
+      .click();
   };
   const t = useTranslations("product");
 

@@ -16,6 +16,8 @@ import Text from "@/app/components/Text";
 import { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
 import LoadingSpinner from "../products/[product]/components/LoadingSpinner";
+import { ToastAction } from "@/components/ui/toast";
+import { useToast } from "@/components/ui/use-toast";
 
 const MyProfilePage = ({
   params: { locale },
@@ -27,6 +29,7 @@ const MyProfilePage = ({
   const router = useRouter();
   const [isConnectedToPillPal, setIsConnectedToPillPal] = useState(false);
   const [pillPallData, setPillPallData] = useState<any>({});
+  const { toast } = useToast();
 
   const details: string[][] = [
     [
@@ -88,6 +91,13 @@ const MyProfilePage = ({
 
   useEffect(() => {
     checkPillPal();
+
+    if (isConnectedToPillPal) {
+      toast({
+        title: "PillPal Account Synced",
+        duration: 2000,
+      });
+    }
   }, []);
 
   return (
@@ -156,6 +166,11 @@ const MyProfilePage = ({
         </Card>
       </section>
       <section className="flex flex-col [&>*]:p-10 [&>*]:my-4">
+        <div className="h-[12px] w-full  flex-row justify-end lg:flex hidden">
+          <Button color="primary" variant="solid" radius="full">
+            Edit Profile
+          </Button>
+        </div>
         <Card>
           <Text>{t("sync.title")}</Text>
           <p>{t("sync.description")}</p>

@@ -4,6 +4,7 @@ import {
   IconMedicalCross,
   IconCalendar,
   IconMessageCircle,
+  IconTrendingUp,
 } from "@tabler/icons-react";
 import { Card, Link, Button } from "@nextui-org/react";
 import LanguageSelector from "../components/LanguageSelector";
@@ -38,10 +39,15 @@ const MobileNavbar = ({ ...props }) => {
       label: "Calendar",
       path: "/" + locale + "/calendar",
     },
+    // {
+    //   icon: <IconMessageCircle />,
+    //   label: "Communities",
+    //   path: "/" + locale + "/communities",
+    // },
     {
-      icon: <IconMessageCircle />,
-      label: "Communities",
-      path: "/" + locale + "/communities",
+      icon: <IconTrendingUp />,
+      label: "My Stats",
+      path: "/" + locale + "/my-stats",
     },
   ];
 
