@@ -35,7 +35,7 @@ const CountrySelector = ({ ...props }) => {
           variant="light"
           radius="full"
           {...props}
-          className="h-[56px] [&>*]:mx-2 lg:border-[2px] lg:border-gray-200 "
+          className="h-[56px] p-0 [&>*]:mx-2 lg:border-[2px] lg:border-gray-200 "
           endContent={
             <CountryFlag countryCode={selectedCountry.code.toLowerCase()} />
           }

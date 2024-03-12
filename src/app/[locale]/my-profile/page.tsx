@@ -184,23 +184,24 @@ const MyProfilePage = ({
             </div>
           </CardBody>
         </Card>
-        {Object.keys(pillPallData).length !== 0 ? (
-          <Card>
-            <Text>PillPal Data</Text>
-            <CardBody className="flex flex-row justify-between">
-              <div>
-                {Object.keys(pillPallData).map((key, i) => (
-                  <p key={i}>
-                    <span className="font-black">{key}</span>:
-                    {pillPallData[key]}
-                  </p>
-                ))}
-              </div>
-            </CardBody>
-          </Card>
-        ) : (
-          <></>
-        )}
+        {isConnectedToPillPal &&
+          (Object.keys(pillPallData).length !== 0 ? (
+            <Card>
+              <Text>PillPal Data</Text>
+              <CardBody className="flex flex-row justify-between">
+                <div>
+                  {Object.keys(pillPallData).map((key, i) => (
+                    <p key={i}>
+                      <span className="font-black">{key}</span>:
+                      {pillPallData[key]}
+                    </p>
+                  ))}
+                </div>
+              </CardBody>
+            </Card>
+          ) : (
+            <LoadingSpinner />
+          ))}
       </section>
     </main>
   );

@@ -123,6 +123,10 @@ const ProductDetails = ({
     if (error.error) notFound();
   }, [error]);
 
+  const deleteNotification = (index: number) => {
+    setNotifications(notifications.filter((n, i) => i !== index));
+  };
+
   return (
     <div
       className={`p-11 flex justify-evenly flex-wrap min-h-screen`}
@@ -146,7 +150,11 @@ const ProductDetails = ({
               {notifications &&
                 notifications.map(
                   (notification: { text: string }, i: number) => (
-                    <Notification key={i} title={notification.text} />
+                    <Notification
+                      key={i}
+                      title={notification.text}
+                      deleteNotification={() => deleteNotification(i)}
+                    />
                   )
                 )}
             </div>

@@ -13,7 +13,7 @@ const HowFeeling = () => {
   ];
 
   return (
-    <div className="rounded-[8px] border-1 border-[#E5E5E5] text-secondary w-[386px] [&>*]:my-5 p-6">
+    <div className="rounded-[8px] border-1 border-[#E5E5E5] text-secondary max-w-[386px] [&>*]:my-5 p-6">
       <p className=" font-bold text-[20px]">{t("feeling_component.title")}</p>
       <div className="flex items-center [&>*]:mx-2 [&>*]:cursor-pointer">
         <svg

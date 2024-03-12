@@ -4,7 +4,12 @@ import { XMarkIcon } from "@heroicons/react/24/outline";
 import { IconInfoCircle } from "@tabler/icons-react";
 import { Card, CardBody } from "@nextui-org/react";
 
-const Notification = ({ title }: { title?: string }) => {
+interface NotificationProps {
+  title?: string;
+  deleteNotification?: () => void;
+}
+
+const Notification = ({ title, deleteNotification }: NotificationProps) => {
   const t = useTranslations("dashboard");
   return (
     <Card className="hidden sm:block  h-[72px] rounded-[12px] bg-[#F2F8FD] border-2 border-[#0972D3] my-4">
@@ -15,7 +20,12 @@ const Notification = ({ title }: { title?: string }) => {
           {/* <p>{t("alert.title")}</p> */}
           {/* <p>{t("alert.description")}</p> */}
         </div>
-        <XMarkIcon height={36} width={36} cursor={"pointer"} />
+        <XMarkIcon
+          onClick={deleteNotification}
+          height={36}
+          width={36}
+          cursor={"pointer"}
+        />
       </CardBody>
     </Card>
   );

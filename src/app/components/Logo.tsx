@@ -4,8 +4,8 @@ const Logo = ({ ...props }) => {
   return (
     <Link {...props} href={"/"}>
       <svg
-        width="106"
-        height="16"
+        width="86"
+        height="13"
         viewBox="0 0 106 16"
         fill="none"
         xmlns="http://www.w3.org/2000/svg"

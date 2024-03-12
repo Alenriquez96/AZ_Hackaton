@@ -9,7 +9,7 @@ import { Button } from "@nextui-org/react";
 import { usePathname } from "next/navigation";
 import { useTranslations } from "next-intl";
 import { useUserContext } from "../context/UserContext";
-
+import BellComponent from "../components/BellComponent";
 const Header = ({ locale }: { locale: string }) => {
   const t = useTranslations("header");
 
@@ -45,7 +45,7 @@ const Header = ({ locale }: { locale: string }) => {
   ];
 
   return (
-    <header className="h-24 flex justify-between content-center items-center border-b-[1px] border-b-[#DEE5ED] p-6">
+    <header className="h-24 flex justify-between content-center items-center border-b-[1px] border-b-[#DEE5ED] p-2 lg:p-6">
       <div className="flex justify-start content-center">
         <Logo loggedUser={isLogged} />
       </div>
@@ -73,6 +73,7 @@ const Header = ({ locale }: { locale: string }) => {
             <CountrySelector />
 
             <LanguageSelector locale={locale} />
+            <BellComponent />
           </>
         )}
 
