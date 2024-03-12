@@ -49,12 +49,14 @@ const BellComponent = () => {
     <div className="">
       <Popover placement="bottom-end">
         <PopoverTrigger>
-          <Badge
-            content={notifications?.length ? notifications?.length : <></>}
-            color="primary"
-          >
-            <BellIcon cursor={"pointer"} />
-          </Badge>
+          <div className="w-[24px] h-[24px]">
+            <Badge
+              content={notifications?.length ? notifications?.length : <></>}
+              color="primary"
+            >
+              <BellIcon cursor={"pointer"} />
+            </Badge>
+          </div>
         </PopoverTrigger>
         <PopoverContent className="p-6">
           <h2 className="font-bold text-lg">
