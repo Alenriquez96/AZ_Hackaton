@@ -9,11 +9,13 @@ import {
 } from "@nextui-org/react";
 import { IconPencil, IconTrash } from "@tabler/icons-react";
 import { useUserContext } from "@/app/context/UserContext";
-import { getCountry } from "@/app/utils/getCountry";
 import { useTranslations } from "next-intl";
 import PillPalIcon from "./components/PillPalIcon";
 import HealthSyncIcon from "./components/HealthSyncIcon";
 import Text from "@/app/components/Text";
+import { useEffect, useState } from "react";
+import { useRouter } from "next/navigation";
+import LoadingSpinner from "../products/[product]/components/LoadingSpinner";
 
 const MyProfilePage = ({
   params: { locale },
@@ -21,8 +23,10 @@ const MyProfilePage = ({
   params: { locale: string };
 }) => {
   const { user } = useUserContext();
-  // const country = getCountry();
   const t = useTranslations("myProfile");
+  const router = useRouter();
+  const [isConnectedToPillPal, setIsConnectedToPillPal] = useState(false);
+  const [pillPallData, setPillPallData] = useState<any>({});
 
   const details: string[][] = [
     [
@@ -32,8 +36,58 @@ const MyProfilePage = ({
       t("personalInfo.country"),
       t("personalInfo.language"),
     ],
-    [user?.name, user?.age, user?.gender, "United Kingdom", locale],
+    [user?.name, user?.age, user?.gender, user?.country, locale],
   ];
+
+  const checkPillPal = async () => {
+    try {
+      const res = await fetch(
+        "https://mediguide-api-latest.onrender.com/v1/users/link?app=PillPal&userId=f497561c-22ea-4d6f-8d8a-fe64bb5a3248"
+      );
+      const data = await res.json();
+      if (data.result === true) {
+        fetchPillPallData();
+        setIsConnectedToPillPal(true);
+      }
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
+  const fetchPillPallData = async () => {
+    try {
+      const res = await fetch(
+        "https://mediguide-api-latest.onrender.com/v1/users"
+      );
+      const data = await res.json();
+      setPillPallData(data);
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
+  const integrateWithPilPall = async () => {
+    router.push("http://pillpal.s3-website.eu-west-2.amazonaws.com/");
+  };
+
+  const unLinkPillPal = async () => {
+    try {
+      const res = await fetch(
+        "https://mediguide-api-latest.onrender.com/v1/users?app=PillPal&userId=f497561c-22ea-4d6f-8d8a-fe64bb5a3248",
+        { method: "DELETE" }
+      );
+      const data = await res;
+      if (data.ok) {
+        setIsConnectedToPillPal(false);
+      }
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
+  useEffect(() => {
+    checkPillPal();
+  }, []);
 
   return (
     <main className="min-h-screen flex flex-wrap justify-evenly p-12">
@@ -116,9 +170,34 @@ const MyProfilePage = ({
               </p>
             </div>
             <div className="flex flex-col [&>*]:m-2">
-              <Link className="text-[#63A87D]">{t("sync.pillpal")}</Link>
+              {!isConnectedToPillPal ? (
+                <Link onClick={integrateWithPilPall} className="text-[#63A87D]">
+                  {t("sync.pillpal")}
+                </Link>
+              ) : (
+                <Link onClick={unLinkPillPal} className="text-[#c04747]">
+                  Unlink PillPal
+                </Link>
+              )}
               <Link className="text-[#63A87D]">{t("sync.healthsync")}</Link>
             </div>
+          </CardBody>
+        </Card>
+        <Card>
+          <Text>PillPal Data</Text>
+          <CardBody className="flex flex-row justify-between">
+            {Object.keys(pillPallData).length !== 0 ? (
+              <div>
+                {Object.keys(pillPallData).map((key, i) => (
+                  <p key={i}>
+                    <span className="font-black">{key}</span>:
+                    {pillPallData[key]}
+                  </p>
+                ))}
+              </div>
+            ) : (
+              <LoadingSpinner />
+            )}
           </CardBody>
         </Card>
       </section>

@@ -2,9 +2,10 @@
 import RegisterComponent from "./containers/RegisterComponent";
 import { useUserContext } from "@/app/context/UserContext";
 import { useEffect, useState } from "react";
-import { useRouter, usePathname } from "next/navigation";
+import { useRouter } from "next/navigation";
 import PersonalInfo from "./containers/PersonalInfo";
 import ProfileType from "./containers/ProfileType";
+import { getCountry } from "@/app/utils/getCountry";
 
 const RegisterPage = ({
   params: { locale },
@@ -69,6 +70,7 @@ const RegisterPage = ({
         existingHealthCondition,
         existingMedications,
         isLogged: true,
+        country: getCountry() || "United Kingdom",
       };
 
       if (typeof window !== "undefined") {

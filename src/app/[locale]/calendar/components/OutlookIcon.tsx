@@ -7,7 +7,7 @@ const OutlookIcon = () => {
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
     >
-      <g clip-path="url(#clip0_633_6332)">
+      <g clipPath="url(#clip0_633_6332)">
         <path
           d="M22.5375 4.275H6.41248V1.70625C6.41248 1.275 6.74998 0.9375 7.16248 0.9375H21.7687C22.2 0.9375 22.5375 1.275 22.5375 1.70625V4.275Z"
           fill="#0464B8"

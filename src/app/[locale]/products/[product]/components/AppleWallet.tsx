@@ -26,6 +26,7 @@ const AppleWallet = () => {
       console.log(error);
     }
   };
+
   return (
     <Button
       onClick={appleWalletCall}
