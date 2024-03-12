@@ -3,7 +3,7 @@ import Text from "../../components/Text";
 import { useTranslations } from "next-intl";
 import { Calendar } from "../../../components/ui/calendar";
 import { Button, Card, CardBody, Link, useDisclosure } from "@nextui-org/react";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Appointments from "./components/Appointments";
 import ModalContainer from "./containers/Modal";
 import GoogleCalendarIcon from "./components/GoogleCalendarIcon";
@@ -56,11 +56,10 @@ const CalendarPage = ({
   const [date, setDate] = useState<Date | undefined>();
   const [appointments, setAppointments] = useState<AppointmentsType[]>();
   const [reminders, setReminders] = useState<RemindersType[]>();
-
   const randomAppointmentsNumber = Math.floor(Math.random() * 4); // Random number of appointments
   const randomRemindersNumber = Math.floor(Math.random() * 4); // Random number of reminders
 
-  const handleOnDayClick = (val: Date) => {
+  useEffect(() => {
     //set a certain number of appointments depending on randomAppointmentsNumber
     setAppointments(
       Array.from({ length: randomAppointmentsNumber }, (_, i) => ({
@@ -68,13 +67,13 @@ const CalendarPage = ({
         range: exampleAppointments[i].range,
       }))
     );
+    //set a certain number of reminders depending on randomRemindersNumber
     setReminders(
       Array.from({ length: randomRemindersNumber }, (_, i) => ({
         title: exampleReminders[i].title,
       }))
     );
-    setDate(val);
-  };
+  }, [date]);
 
   const addAnAppointment = (appointment: AppointmentsType) => {
     setAppointments((prev) => (prev ? [...prev, appointment] : [appointment]));
@@ -101,7 +100,7 @@ const CalendarPage = ({
           <CardBody>
             <Calendar
               selected={date}
-              onSelect={(val: any) => handleOnDayClick(val)}
+              onSelect={setDate}
               mode="single"
               className="cursor-pointer"
             />

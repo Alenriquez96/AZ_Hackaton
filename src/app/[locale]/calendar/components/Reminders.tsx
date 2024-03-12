@@ -16,7 +16,12 @@ const Reminders = ({ date, title, deleteReminder }: ReminderProps) => {
         {title}
       </p>
       <IconPencil width={20} height={20} />
-      <IconTrash onClick={deleteReminder} width={20} height={20} />
+      <IconTrash
+        cursor={"pointer"}
+        onClick={deleteReminder}
+        width={20}
+        height={20}
+      />
     </div>
   );
 };

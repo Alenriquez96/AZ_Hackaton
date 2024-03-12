@@ -53,8 +53,13 @@ const ModalContainer = ({
         >
           <Tab key={"event"} title="Event">
             <ModalBody>
-              <Input label="Title" onChange={(e) => setTitle(e.target.value)} />
+              <Input
+                isRequired
+                label="Title"
+                onChange={(e) => setTitle(e.target.value)}
+              />
               <Textarea
+                isRequired
                 label="Description"
                 placeholder="Details about event"
                 onChange={(e) => setDescription(e.target.value)}
