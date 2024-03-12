@@ -8,18 +8,18 @@ import Appointments from "./components/Appointments";
 import ModalContainer from "./containers/Modal";
 import GoogleCalendarIcon from "./components/GoogleCalendarIcon";
 import OutlookIcon from "./components/OutlookIcon";
+import Reminders from "./components/Reminders";
 
-interface Appointments {
+interface AppointmentsType {
   title: string;
   range: string;
 }
 
-interface Reminders {
-  date: Date;
+interface RemindersType {
   title: string;
 }
 
-const exampleAppointments: Appointments[] = [
+const exampleAppointments: AppointmentsType[] = [
   {
     title: "Doctor's Appointment",
     range: "10:00 - 11:00",
@@ -34,17 +34,14 @@ const exampleAppointments: Appointments[] = [
   },
 ];
 
-const exampleReminders: Reminders[] = [
+const exampleReminders: RemindersType[] = [
   {
-    date: new Date("2023-02-10"),
     title: "Pick up Albuterol prescription",
   },
   {
-    date: new Date("2023-02-11"),
     title: "Take Insulin",
   },
   {
-    date: new Date("2023-02-12"),
     title: "Take Levothyroxine",
   },
 ];
@@ -55,15 +52,13 @@ const CalendarPage = ({
   params: { locale: string };
 }) => {
   const t = useTranslations("calendar");
-  const { isOpen, onOpen, onOpenChange } = useDisclosure(); //modal actions
+  const { isOpen, onOpen, onOpenChange, onClose } = useDisclosure(); //modal actions
   const [date, setDate] = useState<Date | undefined>();
-  const [appointments, setAppointments] = useState<
-    Appointments[] | undefined
-  >();
-  const [reminders, setReminders] = useState<Reminders[] | undefined>();
+  const [appointments, setAppointments] = useState<AppointmentsType[]>();
+  const [reminders, setReminders] = useState<RemindersType[]>();
 
-  const randomAppointmentsNumber = Math.floor(Math.random() * 3) + 1; // Random number of appointments
-  const randomRemindersNumber = Math.floor(Math.random() * 3) + 1; // Random number of reminders
+  const randomAppointmentsNumber = Math.floor(Math.random() * 4); // Random number of appointments
+  const randomRemindersNumber = Math.floor(Math.random() * 4); // Random number of reminders
 
   const handleOnDayClick = (val: Date) => {
     //set a certain number of appointments depending on randomAppointmentsNumber
@@ -73,8 +68,28 @@ const CalendarPage = ({
         range: exampleAppointments[i].range,
       }))
     );
-    setReminders(exampleReminders);
+    setReminders(
+      Array.from({ length: randomRemindersNumber }, (_, i) => ({
+        title: exampleReminders[i].title,
+      }))
+    );
     setDate(val);
+  };
+
+  const addAnAppointment = (appointment: AppointmentsType) => {
+    setAppointments((prev) => (prev ? [...prev, appointment] : [appointment]));
+  };
+
+  const addAReminder = (reminders: RemindersType) => {
+    setReminders((prev) => (prev ? [...prev, reminders] : [reminders]));
+  };
+
+  const deleteAppointment = (index: number) => {
+    setAppointments((prev) => prev?.filter((_, i) => i !== index));
+  };
+
+  const deleteReminder = (index: number) => {
+    setReminders((prev) => prev?.filter((_, i) => i !== index));
   };
 
   return (
@@ -108,20 +123,37 @@ const CalendarPage = ({
         <Card className="p-6">
           <p>Appointments</p>
           <CardBody>
-            {appointments &&
+            {appointments?.length ? (
               appointments?.map((appointment, i) => (
                 <Appointments
                   key={i}
                   date={date || new Date()}
                   range={appointment.range}
                   title={appointment.title}
+                  deleteAppointment={() => deleteAppointment(i)}
                 />
-              ))}
+              ))
+            ) : (
+              <p className="text-gray-400">No appointments</p>
+            )}
           </CardBody>
         </Card>
         <Card className="p-6">
           <p>Reminders</p>
-          <CardBody></CardBody>
+          <CardBody>
+            {reminders?.length ? (
+              reminders?.map((reminder, i) => (
+                <Reminders
+                  key={i}
+                  title={reminder.title}
+                  date={date || new Date()}
+                  deleteReminder={() => deleteReminder(i)}
+                />
+              ))
+            ) : (
+              <p className="text-gray-400">No reminders</p>
+            )}
+          </CardBody>
         </Card>
         <Card className="p-6">
           <Text>Sync</Text>
@@ -144,7 +176,13 @@ const CalendarPage = ({
           </CardBody>
         </Card>
       </section>
-      <ModalContainer isOpen={isOpen} onOpenChange={onOpenChange} />
+      <ModalContainer
+        addAnAppointment={addAnAppointment}
+        addAReminder={addAReminder}
+        isOpen={isOpen}
+        onOpenChange={onOpenChange}
+        onClose={onClose}
+      />
     </main>
   );
 };

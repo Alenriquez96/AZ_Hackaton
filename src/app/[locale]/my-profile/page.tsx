@@ -1,5 +1,4 @@
 "use client";
-import Text from "@/app/components/Text";
 import {
   Button,
   Card,
@@ -10,10 +9,11 @@ import {
 } from "@nextui-org/react";
 import { IconPencil, IconTrash } from "@tabler/icons-react";
 import { useUserContext } from "@/app/context/UserContext";
-// import { getCountry } from "@/app/utils/getCountry";
+import { getCountry } from "@/app/utils/getCountry";
 import { useTranslations } from "next-intl";
 import PillPalIcon from "./components/PillPalIcon";
 import HealthSyncIcon from "./components/HealthSyncIcon";
+import Text from "@/app/components/Text";
 
 const MyProfilePage = ({
   params: { locale },
@@ -21,7 +21,7 @@ const MyProfilePage = ({
   params: { locale: string };
 }) => {
   const { user } = useUserContext();
-  const country = "United Kingdom";
+  // const country = getCountry();
   const t = useTranslations("myProfile");
 
   const details: string[][] = [
@@ -32,7 +32,7 @@ const MyProfilePage = ({
       t("personalInfo.country"),
       t("personalInfo.language"),
     ],
-    [user.name, user.age, user.gender, country, locale],
+    [user?.name, user?.age, user?.gender, "United Kingdom", locale],
   ];
 
   return (
@@ -40,7 +40,7 @@ const MyProfilePage = ({
       <section className="flex flex-col [&>*]:p-10 [&>*]:my-4">
         <Card>
           <Text>
-            {t("title")}: {user.profileType}
+            {t("title")}:{user.profileType}
           </Text>
           <CardBody className="flex flex-row items-center">
             <Avatar name={""} size="lg" className="m-2" />
@@ -66,7 +66,7 @@ const MyProfilePage = ({
         <Card>
           <Text> {t("personalInfo.title")}</Text>
           <CardBody className="flex flex-row justify-between">
-            {details.map((detail, i) => (
+            {details?.map((detail, i) => (
               <div
                 key={i}
                 style={{
@@ -74,7 +74,7 @@ const MyProfilePage = ({
                 }}
                 className="flex flex-col font-black [&>*]:m-2"
               >
-                {detail.map((item, j) => (
+                {detail?.map((item, j) => (
                   <p key={j}>{item}</p>
                 ))}
               </div>
@@ -84,8 +84,8 @@ const MyProfilePage = ({
         <Card>
           <Text>{t("conditions.title")}</Text>
           <CardBody className="[&>*]:m-2">
-            {user.existingHealthCondition &&
-              user.existingHealthCondition.map(
+            {user?.existingHealthCondition &&
+              user?.existingHealthCondition.map(
                 (condition: string, i: number) => (
                   <Snippet
                     hideCopyButton

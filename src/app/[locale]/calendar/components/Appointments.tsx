@@ -4,9 +4,15 @@ interface AppointmentsProps {
   title: string;
   range: string;
   date: Date;
+  deleteAppointment: () => void;
 }
 
-const Appointments = ({ title, range, date }: AppointmentsProps) => {
+const Appointments = ({
+  title,
+  range,
+  date,
+  deleteAppointment,
+}: AppointmentsProps) => {
   return (
     <div className="flex flex-row justify-between items-center border-1 border-[#63A87D] rounded-lg my-2 p-4">
       <IconCalendar />
@@ -16,7 +22,7 @@ const Appointments = ({ title, range, date }: AppointmentsProps) => {
         <p>{range}</p>
       </div>
       <IconPencil />
-      <IconTrash />
+      <IconTrash onClick={deleteAppointment} />
     </div>
   );
 };
