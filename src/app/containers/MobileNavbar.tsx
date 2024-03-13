@@ -71,7 +71,7 @@ const MobileNavbar = ({ ...props }) => {
         </Card>
       ) : (
         <div className="flex sm:flex-row flex-col sm:justify-between justify-center items-center border-t-[1px] lg:w-[80%] mt-5 h-[100px] ">
-          <Logo className="my-6 sm:m-0" />
+          <Logo />
           <div className="block sm:hidden">
             <LanguageSelector locale={locale} />
           </div>
