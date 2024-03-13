@@ -19,6 +19,7 @@ import {
   IconZoomIn,
   IconMoon,
   IconSun,
+  IconLogout2,
 } from "@tabler/icons-react";
 import { useTheme } from "next-themes";
 import { useUserContext } from "../context/UserContext";
@@ -81,6 +82,18 @@ const UserContainer = ({
       isReadOnly: false,
 
       onClick: () => setTheme(theme === "light" ? "dark" : "light"),
+    },
+    {
+      label: "Logout",
+      icon: <IconLogout2 width={24} height={24} />,
+      isReadOnly: false,
+      onClick: () => {
+        if (typeof window !== "undefined") {
+          localStorage.setItem("user", JSON.stringify({}));
+          router.push("/" + language + "/");
+          location.reload();
+        }
+      },
     },
   ];
 
