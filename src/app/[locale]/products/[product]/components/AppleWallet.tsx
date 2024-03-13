@@ -1,7 +1,9 @@
-import { useRouter } from "next/navigation";
+import { useRouter, useParams } from "next/navigation";
 
 const AppleWallet = () => {
   const router = useRouter();
+  const params = useParams();
+  const { product } = params;
 
   let isIOS =
     typeof window !== "undefined"
@@ -12,7 +14,7 @@ const AppleWallet = () => {
   const appleWalletCall = async () => {
     try {
       const res: any = await fetch(
-        "https://mediguide-api-latest.onrender.com/v1/wallet?product=Humalog",
+        `https://mediguide-api-latest.onrender.com/v1/wallet?product=${product}`,
         {
           method: "POST",
         }
