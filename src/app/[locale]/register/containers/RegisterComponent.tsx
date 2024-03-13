@@ -28,6 +28,7 @@ const RegisterComponent = ({
           <CardBody className="[&>*]:my-2">
             <Input
               name="email"
+              type="email"
               label={t("createAccount.form.email")}
               isRequired
             />

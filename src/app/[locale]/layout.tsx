@@ -10,6 +10,7 @@ import BackToTop from "@/app/components/BackToTop";
 import { unstable_setRequestLocale } from "next-intl/server";
 import MobileNavbar from "@/app/containers/MobileNavbar";
 import { Toaster } from "@/components/ui/toaster";
+import Footer from "../containers/Footer";
 
 const dm_sans = DM_Sans({
   subsets: ["latin"],
@@ -62,6 +63,7 @@ export default async function RootLayout({
             {children}
             <Chatbot />
             <BackToTop />
+            <Footer locale={locale} />
             <MobileNavbar locale={locale} />
             <Toaster />
           </Providers>

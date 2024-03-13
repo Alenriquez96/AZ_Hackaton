@@ -7,6 +7,7 @@ import HowFeeling from "./containers/HowFeeling";
 import TrackYourStats from "./containers/TrackYourStats";
 import { useTranslations } from "next-intl";
 import { useEffect, useState } from "react";
+import { useUserContext } from "@/app/context/UserContext";
 
 export default function Dashboard({
   params: { locale },
@@ -14,24 +15,17 @@ export default function Dashboard({
   params: { locale: string };
 }) {
   const t = useTranslations("dashboard");
-  const user =
-    typeof window !== "undefined" &&
-    JSON.parse(localStorage.getItem("user") || "{}");
+  const { user } = useUserContext();
 
-  const [mounted, setMounted] = useState(false);
-
-  useEffect(() => {
-    setMounted(true);
-  }, []);
+  useEffect(() => {}, [user]);
 
   return (
     <main className="flex justify-evenly flex-wrap [&>*]:mx-2">
       <div className="flex flex-col [&>*]:m-5 ">
-        {mounted && (
-          <Text>
-            {t("welcomeText")} {user.name}!
-          </Text>
-        )}
+        <Text>
+          {t("welcomeText")} {user.name}!
+        </Text>
+
         {/* <Notification /> */}
         <InPageSearch locale={locale} />
         <LatestsNews />

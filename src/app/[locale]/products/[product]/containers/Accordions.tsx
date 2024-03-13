@@ -105,7 +105,6 @@ const Accordions = ({
         }
       );
       const data = await res.json();
-      console.log(data);
     } catch (error) {
       console.log("Error ocurred: " + error);
     }

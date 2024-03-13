@@ -3,86 +3,67 @@ import Logo from "../components/Logo";
 import LanguageSelector from "../components/LanguageSelector";
 import UserContainer from "./UserContainer";
 import CountrySelector from "../components/CountrySelector";
-import { useEffect, useState } from "react";
-import Link from "next/link";
 import { Button } from "@nextui-org/react";
-import { usePathname } from "next/navigation";
 import { useTranslations } from "next-intl";
 import { useUserContext } from "../context/UserContext";
 import BellComponent from "../components/BellComponent";
+import { useRouter } from "next/navigation";
+import Navigation from "./Navigation";
+import EmployeeNavbar from "./EmployeeNavbar";
+
 const Header = ({ locale }: { locale: string }) => {
   const t = useTranslations("header");
-
+  const router = useRouter();
   const { user } = useUserContext(); // Get the user from the context
   const { isLogged } = user; // Get the isLogged property from the user object
-
-  let pathName = usePathname(); // Get the current path
-
-  const [mounted, setMounted] = useState(false);
-  useEffect(() => {
-    setMounted(true);
-  }, []);
-
-  if (!mounted) return <></>; // Return null if the component is not mounted yet
-
-  // Set the user as logged
-  const handleSetIsLogged = () => {
-    if (typeof window !== "undefined") {
-      localStorage.setItem("user", JSON.stringify(user));
-      localStorage.setItem("isLogged", JSON.stringify(true));
-    }
-  };
-
-  // Navigation items
-  const navigation: { title: string; path: string }[] = [
-    {
-      title: t("navigation_btns.home"),
-      path: isLogged ? "/dashboard" : "/",
-    },
-    { title: t("navigation_btns.my_medications"), path: "/my-medications" },
-    { title: t("navigation_btns.calendar"), path: "/calendar" },
-    // { title: t("navigation_btns.communities"), path: "/communities" },
-    { title: "My Stats", path: "/my-stats" },
-  ];
 
   return (
     <header className="h-24 flex justify-between content-center items-center border-b-[1px] border-b-[#DEE5ED] p-2 lg:p-6">
       <div className="flex justify-start content-center">
         <Logo />
       </div>
+
       <div className="justify-around items-center  lg:[&>*]:mx-2 flex">
-        {isLogged &&
-          navigation.map((navItem) => (
-            <Link
-              key={navItem.title}
-              href={`/${locale || "en"}/${navItem.path}`}
-            >
-              <Button
-                variant={pathName.includes(navItem.path) ? "solid" : "light"}
-                color={
-                  pathName.includes(navItem.path) ? "secondary" : "default"
-                }
-                radius="full"
-                className="hidden lg:block"
-              >
-                {navItem.title}
-              </Button>
-            </Link>
-          ))}
-        {isLogged && (
+        {isLogged ? (
           <>
+            {user.profileType === "Proffesional" ? (
+              <EmployeeNavbar locale={locale} />
+            ) : (
+              <Navigation locale={locale} />
+            )}
+
             <CountrySelector />
 
             <LanguageSelector locale={locale} />
             <BellComponent />
+            <UserContainer
+              loggedUser={user}
+              isLogged={isLogged}
+              language={locale}
+            />
+          </>
+        ) : (
+          <>
+            <Button
+              variant="ghost"
+              radius="full"
+              className="text-[#486284] h-[48px] w-[86px] "
+              onClick={() => router.push("/" + locale + "/register")}
+            >
+              {t("register")}
+            </Button>
+
+            <Button
+              variant="solid"
+              radius="full"
+              color="primary"
+              className=" h-[48px] w-[86px]"
+              onClick={() => router.push("/" + locale + "/login")}
+            >
+              {t("login")}
+            </Button>
           </>
         )}
-
-        <UserContainer
-          loggedUser={user}
-          isLogged={isLogged}
-          language={locale}
-        />
       </div>
     </header>
   );

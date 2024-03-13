@@ -3,7 +3,6 @@ export async function handle401(currentUrl: string) {
     const res = await fetch(
       `https://mediguide-api-latest.onrender.com/v1/login&state=${currentUrl}`
     );
-    console.log(res);
   } catch (error) {
     console.error(error);
   }

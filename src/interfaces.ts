@@ -50,3 +50,16 @@ export interface medicationsType {
   frequency?: string;
   type: string;
 }
+
+export interface user {
+  name?: string;
+  age?: number;
+  gender?: string;
+  existingHealthCondition?: string[];
+  existingMedications?: string[];
+  email: string;
+  password: string;
+  profileType: string;
+  isLogged: boolean;
+  country?: string;
+}

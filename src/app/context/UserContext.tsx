@@ -5,14 +5,7 @@ import {
   useState,
   useEffect,
 } from "react";
-
-interface user {
-  firstName: string;
-  age: number;
-  gender: string;
-  existingHealthCondition: string[];
-  existingMedications: string[];
-}
+import { user } from "../../interfaces";
 
 const UserContext = createContext<any>(undefined);
 

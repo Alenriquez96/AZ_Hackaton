@@ -1,8 +1,12 @@
+"use client";
 import { useTranslations } from "next-intl";
+import { Link } from "@nextui-org/react";
+import { useUserContext } from "../context/UserContext";
 
 const Footer = ({ ...props }) => {
   const t = useTranslations("footer");
   const locale = props.locale || "en";
+  const { user } = useUserContext();
   const links: { heading: string; links: string[] }[] = [
     {
       heading: t("product.title"),
@@ -53,28 +57,43 @@ const Footer = ({ ...props }) => {
     },
   ];
 
+  if (Object.keys(user).length === 0) {
+    return (
+      <footer className="bg-[#F9FAFB] w-full  p-6 flex flex-col items-center dark:bg-black">
+        <Link
+          color="primary"
+          underline="active"
+          href={"/" + locale + `/employee-login`}
+        >
+          Employee Log In
+        </Link>
+      </footer>
+    );
+  }
+
   return (
-    <footer className="bg-[#F9FAFB] w-full  p-6 flex flex-col items-center dark:bg-black">
-      <div className="w-[80%] sm:flex items-start justify-between hidden">
-        {links.map((row, i) => {
-          return (
-            <div key={i} className="flex flex-col justify-start">
-              <p className="font-semibold text-[#98A2B3] text-[14px] my-2">
-                {row.heading}
-              </p>
-              {row.links.map((link, i) => (
-                <p
-                  key={i}
-                  className="text-[#667085] text-[16px] font-semibold my-2"
-                >
-                  {link}
-                </p>
-              ))}
-            </div>
-          );
-        })}
-      </div>
-    </footer>
+    <></>
+    // <footer className="bg-[#F9FAFB] w-full  p-6 flex flex-col items-center dark:bg-black">
+    //   <div className="w-[80%] sm:flex items-start justify-between hidden">
+    //     {links.map((row, i) => {
+    //       return (
+    //         <div key={i} className="flex flex-col justify-start">
+    //           <p className="font-semibold text-[#98A2B3] text-[14px] my-2">
+    //             {row.heading}
+    //           </p>
+    //           {row.links.map((link, i) => (
+    //             <p
+    //               key={i}
+    //               className="text-[#667085] text-[16px] font-semibold my-2"
+    //             >
+    //               {link}
+    //             </p>
+    //           ))}
+    //         </div>
+    //       );
+    //     })}
+    //   </div>
+    // </footer>
   );
 };
 

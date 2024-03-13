@@ -6,6 +6,7 @@ import { useRouter } from "next/navigation";
 import PersonalInfo from "./containers/PersonalInfo";
 import ProfileType from "./containers/ProfileType";
 import { getCountry } from "@/app/utils/getCountry";
+import { user } from "@/interfaces";
 
 const RegisterPage = ({
   params: { locale },
@@ -60,7 +61,7 @@ const RegisterPage = ({
   //UseEffect to handle the register completed
   useEffect(() => {
     if (registerCompleted) {
-      const newUser = {
+      const newUser: user = {
         email,
         password,
         profileType,

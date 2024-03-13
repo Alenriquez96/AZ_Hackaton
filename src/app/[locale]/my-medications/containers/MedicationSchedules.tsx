@@ -22,17 +22,17 @@ const MedicationSchedules = ({
         </AccordionItem>
         <AccordionItem title="Afternoon">
           <div className="flex justify-between bg-[#E0EEE5] rounded-lg p-3">
-            <p>{currentMedications[1].name}</p>
+            <p>{currentMedications[0].name}</p>
             <p>
-              {currentMedications[1].dose} {currentMedications[1].frequency}
+              {currentMedications[0].dose} {currentMedications[0].frequency}
             </p>
           </div>
         </AccordionItem>
         <AccordionItem title="Evening">
           <div className="flex justify-between bg-[#E0EEE5] rounded-lg p-3">
-            <p>{currentMedications[2].name}</p>
+            <p>{currentMedications[0].name}</p>
             <p>
-              {currentMedications[2].dose} {currentMedications[2].frequency}
+              {currentMedications[0].dose} {currentMedications[0].frequency}
             </p>
           </div>
         </AccordionItem>

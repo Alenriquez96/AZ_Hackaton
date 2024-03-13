@@ -47,7 +47,6 @@ const UserContainer = ({
   loggedUser,
   isLogged,
   language,
-  ...props
 }: UserContainerProps) => {
   const t = useTranslations("header");
   const router = useRouter();
@@ -106,81 +105,58 @@ const UserContainer = ({
   ];
 
   return (
-    <div {...props} className=" flex items-center justify-between [&>*]:mx-1">
-      {!isLogged ? (
-        <>
-          <Button
-            variant="ghost"
-            radius="full"
-            className="text-[#486284] h-[48px] w-[86px] "
-            onClick={() => router.push("/" + language + "/register")}
-          >
-            {t("register")}
-          </Button>
-
-          <Button
-            variant="solid"
-            radius="full"
-            color="primary"
-            className=" h-[48px] w-[86px]"
-            onClick={() => router.push("/" + language + "/register")}
-          >
-            {t("login")}
-          </Button>
-        </>
-      ) : (
-        <Dropdown>
-          <DropdownTrigger>
-            <Avatar
-              className="cursor-pointer"
-              name={(user.name && user.name.charAt(0).toUpperCase()) || ""}
-            />
-          </DropdownTrigger>
-          <DropdownMenu>
-            {dropDownOptions.map((option, i) =>
-              i !== 1 ? (
-                <DropdownItem
-                  key={i}
-                  isReadOnly={option.isReadOnly}
-                  endContent={
-                    <Accordion>
-                      <AccordionItem
-                        onPress={option.onClick}
-                        hideIndicator
-                        startContent={option.icon}
-                        title={option.label}
-                      />
-                    </Accordion>
-                  }
-                />
-              ) : (
-                <DropdownItem
-                  key={i}
-                  isReadOnly={option.isReadOnly}
-                  endContent={
-                    <Accordion>
-                      <AccordionItem
-                        startContent={option.icon}
-                        title={option.label}
-                      >
-                        <Listbox>
-                          {accordionItems.map((item, i) => (
-                            <ListboxItem
-                              key={i}
-                              title={item.label}
-                              onClick={() => console.log(item.label)}
-                            />
-                          ))}
-                        </Listbox>
-                      </AccordionItem>
-                    </Accordion>
-                  }
-                ></DropdownItem>
-              )
-            )}
-          </DropdownMenu>
-        </Dropdown>
-      )}
+    <div className=" flex items-center justify-between [&>*]:mx-1">
+      <Dropdown>
+        <DropdownTrigger>
+          <Avatar
+            className="cursor-pointer"
+            name={(user.name && user.name.charAt(0).toUpperCase()) || ""}
+          />
+        </DropdownTrigger>
+        <DropdownMenu>
+          {dropDownOptions.map((option, i) =>
+            i !== 1 ? (
+              <DropdownItem
+                key={i}
+                isReadOnly={option.isReadOnly}
+                endContent={
+                  <Accordion>
+                    <AccordionItem
+                      onPress={option.onClick}
+                      hideIndicator
+                      startContent={option.icon}
+                      title={option.label}
+                    />
+                  </Accordion>
+                }
+              />
+            ) : (
+              <DropdownItem
+                key={i}
+                isReadOnly={option.isReadOnly}
+                endContent={
+                  <Accordion>
+                    <AccordionItem
+                      startContent={option.icon}
+                      title={option.label}
+                    >
+                      <Listbox>
+                        {accordionItems.map((item, i) => (
+                          <ListboxItem
+                            key={i}
+                            title={item.label}
+                            onClick={() => console.log(item.label)}
+                          />
+                        ))}
+                      </Listbox>
+                    </AccordionItem>
+                  </Accordion>
+                }
+              ></DropdownItem>
+            )
+          )}
+        </DropdownMenu>
+      </Dropdown>
     </div>
   );
 };
