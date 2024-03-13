@@ -10,6 +10,7 @@ import {
   SelectItem,
   Autocomplete,
   AutocompleteItem,
+  Input,
 } from "@nextui-org/react";
 import { Button } from "@nextui-org/react";
 
@@ -36,6 +37,98 @@ const medicationsSample: OptionsType[] = [
   {
     label: "Levothyroxine",
     value: "levothyroxine",
+  },
+  {
+    label: "Lisinopril",
+    value: "lisinopril",
+  },
+  {
+    label: "Metformin",
+    value: "metformin",
+  },
+  {
+    label: "Omeprazole",
+    value: "omeprazole",
+  },
+  {
+    label: "Simvastatin",
+    value: "simvastatin",
+  },
+  {
+    label: "Atorvastatin",
+    value: "atorvastatin",
+  },
+  {
+    label: "Amlodipine",
+    value: "amlodipine",
+  },
+  {
+    label: "Hydrochlorothiazide",
+    value: "hydrochlorothiazide",
+  },
+  {
+    label: "Metoprolol",
+    value: "metoprolol",
+  },
+  {
+    label: "Losartan",
+    value: "losartan",
+  },
+  {
+    label: "Gabapentin",
+    value: "gabapentin",
+  },
+  {
+    label: "Sertraline",
+    value: "sertraline",
+  },
+  {
+    label: "Azithromycin",
+    value: "azithromycin",
+  },
+  {
+    label: "Amoxicillin",
+    value: "amoxicillin",
+  },
+  {
+    label: "Hydrocodone",
+    value: "hydrocodone",
+  },
+  {
+    label: "Tramadol",
+    value: "tramadol",
+  },
+  {
+    label: "Cyclobenzaprine",
+    value: "cyclobenzaprine",
+  },
+  {
+    label: "Trazodone",
+    value: "trazodone",
+  },
+  {
+    label: "Clonazepam",
+    value: "clonazepam",
+  },
+  {
+    label: "Citalopram",
+    value: "citalopram",
+  },
+  {
+    label: "Propranolol",
+    value: "propranolol",
+  },
+  {
+    label: "Duloxetine",
+    value: "duloxetine",
+  },
+  {
+    label: "Venlafaxine",
+    value: "venlafaxine",
+  },
+  {
+    label: "Bupropion",
+    value: "bupropion",
   },
 ];
 
@@ -77,8 +170,8 @@ const AddMedicationModal = ({
       <ModalContent>
         <Card>
           <ModalBody>
-            <CardHeader className="flex flex-col justify-start">
-              <h1>Add a Medication</h1>
+            <CardHeader className="flex flex-col items-start">
+              <h1 className="font-black text-lg mb-3">Add a Medication</h1>
               <p>
                 Dosage and schedule should be confirmed with your health care
                 practitioner
@@ -97,13 +190,21 @@ const AddMedicationModal = ({
               </Autocomplete>
 
               <p>Dosage</p>
-              <Select variant="bordered" isRequired label="Choose Dosage">
-                {dosageOptions.map((option) => (
-                  <SelectItem key={option.value} value={option.value}>
-                    {option.label}
-                  </SelectItem>
-                ))}
-              </Select>
+              <div className="flex flex-row items-center ">
+                <Input
+                  label="Enter Dosage"
+                  isRequired
+                  variant="bordered"
+                  className=""
+                />
+                <Select variant="bordered" isRequired className="ml-6 max-w-24">
+                  {dosageOptions.map((option) => (
+                    <SelectItem key={option.value} value={option.value}>
+                      {option.label}
+                    </SelectItem>
+                  ))}
+                </Select>
+              </div>
 
               <p>Form</p>
               <Select variant="bordered" isRequired label="Choose Form">

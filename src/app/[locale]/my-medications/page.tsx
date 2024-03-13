@@ -169,7 +169,7 @@ function MyMedications() {
         </Tabs>
       </section>
 
-      <section className="flex flex-col items-center [&>*]:mb-8 [&>*]:min-w-[80%]">
+      <section className="flex flex-col items-center [&>*]:mb-8 [&>*]:min-w-full">
         <div className="[&>*]:mx-3 [&>*]:mb-5">
           <Button
             variant="solid"
