@@ -5,6 +5,8 @@ import {
   IconCalendar,
   IconMessageCircle,
   IconTrendingUp,
+  IconReportAnalytics,
+  IconCropPortrait,
 } from "@tabler/icons-react";
 import { Card, Link, Button } from "@nextui-org/react";
 import LanguageSelector from "../components/LanguageSelector";
@@ -51,22 +53,57 @@ const MobileNavbar = ({ ...props }) => {
     },
   ];
 
+  const employeeMobileNavigationBar: mobileNavigationBarProps[] = [
+    {
+      icon: <IconHome />,
+      label: "Home",
+      path: "/" + locale + "/",
+    },
+    {
+      icon: <IconMedicalCross />,
+      label: "Medications",
+      path: "/" + locale + "/my-medications",
+    },
+    {
+      icon: <IconReportAnalytics />,
+      label: "Product Analytics",
+      path: "/" + locale + "/product-analytics",
+    },
+    {
+      icon: <IconCropPortrait />,
+      label: "Portfolio Analytics",
+      path: "/" + locale + "/portfolio-analytics",
+    },
+  ];
+
   return (
     <>
       {user.isLogged ? (
         <Card radius="none" className="sm:hidden w-full sticky bottom-0 z-10">
           <div className="flex w-full justify-around">
-            {mobileNavigationBar.map((item, i) => (
-              <Link href={item.path} key={i}>
-                <Button
-                  className="flex flex-col p-2 items-center h-[100px] my-4"
-                  variant="light"
-                >
-                  {item.icon}
-                  {item.label}
-                </Button>
-              </Link>
-            ))}
+            {user.profileType === "Proffesional"
+              ? employeeMobileNavigationBar.map((item, i) => (
+                  <Link href={item.path} key={i}>
+                    <Button
+                      className="flex flex-col p-2 items-center h-[100px] my-4"
+                      variant="light"
+                    >
+                      {item.icon}
+                      <p className="text-wrap">{item.label}</p>
+                    </Button>
+                  </Link>
+                ))
+              : mobileNavigationBar.map((item, i) => (
+                  <Link href={item.path} key={i}>
+                    <Button
+                      className="flex flex-col p-2 items-center h-[100px] my-4"
+                      variant="light"
+                    >
+                      {item.icon}
+                      <p className="text-wrap">{item.label}</p>
+                    </Button>
+                  </Link>
+                ))}
           </div>
         </Card>
       ) : (
