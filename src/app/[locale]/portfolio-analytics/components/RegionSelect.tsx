@@ -19,7 +19,11 @@ const RegionSelect = () => {
     <Card className="bg-primary">
       <CardBody className="flex flex-row justify-between items-center [&>*]:mx-2">
         <p className="text-white">Select a Region</p>
-        <Select className="max-w-[200px]" placeholder={region}>
+        <Select
+          aria-label="region"
+          className="max-w-[200px]"
+          placeholder={region}
+        >
           {regionsSample.map((region) => (
             <SelectItem
               onPress={() => setRegion(region)}
