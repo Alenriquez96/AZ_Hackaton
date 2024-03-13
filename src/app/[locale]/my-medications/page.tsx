@@ -1,81 +1,128 @@
 "use client";
 import {
   Card,
-  CardHeader,
   CardBody,
   Button,
   Tabs,
   Tab,
-  Accordion,
-  AccordionItem,
+  useDisclosure,
+  Image as Img,
 } from "@nextui-org/react";
 import Image from "next/image";
 import { IconPill } from "@tabler/icons-react";
 import Text from "@/app/components/Text";
 import { IconFilter, IconArrowsSort } from "@tabler/icons-react";
 import { useTranslations } from "next-intl";
-import inhaler from "../../../../public/inhaler.png";
-import aspirin from "../../../../public/aspirin.png";
-import pills from "../../../../public/pills.png";
+import inhaler from "../../assets/inhaler.png";
+import aspirin from "../../assets/aspirin.png";
+import pills from "../../assets/pills.png";
+import injection from "../../assets/injection.png";
+import AddMedicationModal from "./containers/AddMedicationModal";
+import { Calendar } from "@/components/ui/calendar";
+import { useState } from "react";
+import MedicationSchedules from "./containers/MedicationSchedules";
+import MedicationTracker from "./containers/MedicationTracker";
+import { medicationsType } from "@/interfaces";
+import { useFillRandomly } from "@/app/hooks";
 
-interface medications {
-  name: string;
-  icon: React.ReactNode;
-  instructions?: string;
-  bg?: string;
-  dose?: string;
-  frequency?: string;
-}
-
-const currentMedications: medications[] = [
+const currentMedicationsMock: medicationsType[] = [
   {
-    icon: <IconPill size={50} />,
     name: "Albuterol",
     instructions: "To be taken",
-    bg: "../../../../public/inhaler.png",
     dose: "3ml",
     frequency: "every 2 days",
+    type: "inhaler",
   },
   {
-    icon: <IconPill size={50} />,
     name: "Insulin",
     instructions: "Taken at 1pm today ",
-    bg: "../../../../public/aspirin.png",
     dose: "50mg",
     frequency: "Daily",
+    type: "pill",
   },
   {
-    icon: <IconPill size={50} />,
     name: "Levothyroxine",
     instructions: "Taken at 11am today ",
-    bg: "../../../../public/pills.png",
     dose: "300mg",
     frequency: "Weekly",
+    type: "tablet",
+  },
+  {
+    name: "Humalog",
+    instructions: "To be taken",
+    dose: "3ml",
+    frequency: "every 2 days",
+    type: "injection",
+  },
+  {
+    name: "Sertraline",
+    instructions: "To be taken",
+    dose: "3ml",
+    frequency: "every 2 days",
+    type: "tablet",
   },
 ];
 
-const pastMedications: medications[] = [
+const pastMedicationsMock: medicationsType[] = [
   {
-    icon: <IconPill size={50} />,
-    name: "Morphine",
-    bg: "../../../../public/inhaler.png",
+    name: "Humalog",
+    type: "injection",
   },
   {
-    icon: <IconPill size={50} />,
     name: "Aspirin",
-    bg: "../../../../public/aspirin.png",
+    type: "tablet",
   },
   {
-    icon: <IconPill size={50} />,
     name: "Sertraline",
-    bg: "../../../../public/pills.png",
+    type: "tablet",
+  },
+  {
+    name: "Albuterol",
+    type: "inhaler",
+  },
+  {
+    name: "Insulin",
+    type: "injection",
   },
 ];
 
 function MyMedications() {
   const t = useTranslations("My_medications");
+  const { isOpen, onOpen, onOpenChange, onClose } = useDisclosure();
+  const [date, setDate] = useState<Date | undefined>(new Date());
+  const [currentMedications, setCurrentMedications] = useState<
+    medicationsType[]
+  >([]);
+  const [pastMedications, setPastMedications] = useState<medicationsType[]>([]);
+
+  useFillRandomly(currentMedicationsMock, setCurrentMedications);
+  useFillRandomly(pastMedicationsMock, setPastMedications);
+
+  const showImg = (type: string) => {
+    if (type === "inhaler") {
+      return <Image alt="bg" width={500} height={700} src={inhaler} />;
+    }
+
+    if (type === "tablet") {
+      return <Image alt="bg" width={500} height={700} src={aspirin} />;
+    }
+
+    if (type === "pill") {
+      return <Image alt="bg" width={500} height={700} src={pills} />;
+    }
+
+    if (type === "injection") {
+      return <Image alt="bg" width={500} height={700} src={injection} />;
+    }
+  };
+
   return (
     <main className="min-h-screen p-10 flex-wrap flex justify-evenly">
+      <AddMedicationModal
+        onClose={onClose}
+        isOpen={isOpen}
+        onOpenChange={onOpenChange}
+      />
       <section>
         <Tabs aria-label="medications">
           <Tab
@@ -89,7 +136,7 @@ function MyMedications() {
           >
             {currentMedications.map((med, i) => (
               <Card key={i} isPressable className=" bg-[#F1EFE9] w-full my-4">
-                <CardHeader className="bg-gradient-to-r from-purple-500 to-pink-500 h-[130px]"></CardHeader>
+                {showImg(med.type)}
                 <CardBody className=" flex flex-row justify-between items-center">
                   <div>
                     <Text>{med.name}</Text>
@@ -111,9 +158,7 @@ function MyMedications() {
           >
             {pastMedications.map((med, i) => (
               <Card key={i} isPressable className=" bg-[#F1EFE9] w-full my-4">
-                <CardHeader
-                  className={`bg-gradient-to-r from-purple-500 to-pink-500 h-[130px]`}
-                ></CardHeader>
+                {showImg(med.type)}
                 <CardBody className="">
                   <Text>{med.name}</Text>
                   <p>{med.instructions}</p>
@@ -124,51 +169,37 @@ function MyMedications() {
         </Tabs>
       </section>
 
-      <section className="flex flex-col ">
+      <section className="flex flex-col items-center [&>*]:mb-8 [&>*]:min-w-[80%]">
         <div className="[&>*]:mx-3 [&>*]:mb-5">
           <Button
             variant="solid"
             color="secondary"
             radius="full"
-            className="w-[202px] h-[50px]"
+            className="w-[150px] "
           >
             {t("btns.mng_medication")}
           </Button>
           <Button
-            className="bg-[#63A87D] text-white w-[202px] h-[50px]"
+            className="bg-[#63A87D] text-white w-[150px]  "
             radius="full"
+            onPress={onOpen}
           >
             + {t("btns.add_medication")}
           </Button>
         </div>
-        <Card className="p-4">
-          <CardHeader>Medication Schedules</CardHeader>
-          <Accordion>
-            <AccordionItem title="Morning">
-              <div className="flex justify-between bg-[#E0EEE5] rounded-lg p-3">
-                <p>{currentMedications[0].name}</p>
-                <p>
-                  {currentMedications[0].dose} {currentMedications[0].frequency}
-                </p>
-              </div>
-            </AccordionItem>
-            <AccordionItem title="Afternoon">
-              <div className="flex justify-between bg-[#E0EEE5] rounded-lg p-3">
-                <p>{currentMedications[1].name}</p>
-                <p>
-                  {currentMedications[1].dose} {currentMedications[1].frequency}
-                </p>
-              </div>
-            </AccordionItem>
-            <AccordionItem title="Evening">
-              <div className="flex justify-between bg-[#E0EEE5] rounded-lg p-3">
-                <p>{currentMedications[2].name}</p>
-                <p>
-                  {currentMedications[2].dose} {currentMedications[2].frequency}
-                </p>
-              </div>
-            </AccordionItem>
-          </Accordion>
+        <MedicationTracker />
+        {currentMedications.length && (
+          <MedicationSchedules currentMedications={currentMedications} />
+        )}
+        <Card>
+          <CardBody className="grid place-content-center">
+            <Calendar
+              selected={date}
+              onSelect={setDate}
+              mode="single"
+              className="cursor-pointer"
+            />
+          </CardBody>
         </Card>
       </section>
     </main>

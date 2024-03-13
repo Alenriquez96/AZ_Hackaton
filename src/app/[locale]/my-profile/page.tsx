@@ -16,8 +16,15 @@ import Text from "@/app/components/Text";
 import { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
 import LoadingSpinner from "../products/[product]/components/LoadingSpinner";
-import { ToastAction } from "@/components/ui/toast";
 import { useToast } from "@/components/ui/use-toast";
+
+const pillPalHeaders: { label: string; value: string }[] = [
+  { label: "Id", value: "id" },
+  { label: "User Id", value: "userId" },
+  { label: "Age", value: "age" },
+  { label: "Sex", value: "sex" },
+  { label: "Medical Conditions", value: "medicalConditions" },
+];
 
 const MyProfilePage = ({
   params: { locale },
@@ -45,15 +52,23 @@ const MyProfilePage = ({
   const checkPillPal = async () => {
     try {
       const res = await fetch(
-        "https://mediguide-api-latest.onrender.com/v1/users/link?app=PillPal&userId=f497561c-22ea-4d6f-8d8a-fe64bb5a3248"
+        "https://mediguide-api-latest.onrender.com/v1/users/link?app=PillPal&userId=f497561c-22ea-4d6f-8d8a-fe64bb5a3248",
+        {
+          headers: {
+            "Access-Control-Allow-Origin": "*",
+          },
+        }
       );
+
+      if (res.status === 401) {
+      }
       const data = await res.json();
       if (data.result === true) {
         fetchPillPallData();
         setIsConnectedToPillPal(true);
       }
     } catch (error) {
-      console.log(error);
+      console.error(error);
     }
   };
 
@@ -203,15 +218,13 @@ const MyProfilePage = ({
           (Object.keys(pillPallData).length !== 0 ? (
             <Card>
               <Text>PillPal Data</Text>
-              <CardBody className="flex flex-row justify-between">
-                <div>
-                  {Object.keys(pillPallData).map((key, i) => (
-                    <p key={i}>
-                      <span className="font-black">{key}</span>:
-                      {pillPallData[key]}
-                    </p>
-                  ))}
-                </div>
+              <CardBody className="flex flex-col justify-between">
+                {pillPalHeaders.map((header, i) => (
+                  <div className="flex flex-row justify-between" key={i}>
+                    <span className="font-black">{header.label}:</span>
+                    <p>{pillPallData[header.value]}</p>
+                  </div>
+                ))}
               </CardBody>
             </Card>
           ) : (

@@ -8,6 +8,7 @@ import {
 import { BellIcon } from "lucide-react";
 import { IconClock, IconTrash, IconX } from "@tabler/icons-react";
 import { useEffect, useState } from "react";
+import { useFillRandomly } from "../hooks";
 
 interface NotificationType {
   time?: string;
@@ -17,29 +18,34 @@ interface NotificationType {
 
 const mockNotifications: NotificationType[] = [
   { time: "10:00", action: "Take Paracetamol", type: "reminder" },
+  { time: "11:00", action: "Take Levothyroxine", type: "reminder" },
+  { time: "17:00", action: "Take Aspirin", type: "reminder" },
   { time: "12:00", action: "Take Aspirin", type: "reminder" },
   {
     action:
       "Have you disposed of your Aspirin correctly? See disposal information",
     type: "info",
   },
+  {
+    action:
+      "Have you disposed of your Paracetamol correctly? See disposal information",
+    type: "info",
+  },
+  {
+    action:
+      "Have you disposed of your Levothyroxine correctly? See disposal information",
+    type: "info",
+  },
+  {
+    action:
+      "Have you disposed of your Albuterol correctly? See disposal information",
+    type: "info",
+  },
 ];
 
 const BellComponent = () => {
-  const randomNotificationsNumber = Math.floor(Math.random() * 4); // Random number of notifications
   const [notifications, setNotifications] = useState<NotificationType[]>();
-
-  useEffect(() => {
-    setNotifications(
-      Array.from(
-        { length: randomNotificationsNumber },
-        () =>
-          mockNotifications[
-            Math.floor(Math.random() * mockNotifications.length)
-          ]
-      )
-    );
-  }, []);
+  useFillRandomly(mockNotifications, setNotifications);
 
   const deleteNotification = (index: number) => {
     setNotifications(notifications?.filter((_, i) => i !== index));

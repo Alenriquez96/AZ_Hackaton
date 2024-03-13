@@ -1,8 +1,8 @@
 import Link from "next/link";
 
-const Logo = ({ ...props }) => {
+const Logo = () => {
   return (
-    <Link {...props} href={"/"}>
+    <Link href={"/"}>
       <svg
         width="86"
         height="13"

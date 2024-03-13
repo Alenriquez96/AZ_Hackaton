@@ -42,3 +42,11 @@ export interface Section {
   starred: boolean;
   showVideo: boolean;
 }
+
+export interface medicationsType {
+  name: string;
+  instructions?: string;
+  dose?: string;
+  frequency?: string;
+  type: string;
+}

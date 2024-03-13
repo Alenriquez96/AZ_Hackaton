@@ -48,7 +48,7 @@ const Header = ({ locale }: { locale: string }) => {
   return (
     <header className="h-24 flex justify-between content-center items-center border-b-[1px] border-b-[#DEE5ED] p-2 lg:p-6">
       <div className="flex justify-start content-center">
-        <Logo loggedUser={isLogged} />
+        <Logo />
       </div>
       <div className="justify-around items-center  lg:[&>*]:mx-2 flex">
         {isLogged &&

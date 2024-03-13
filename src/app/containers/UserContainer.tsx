@@ -127,6 +127,7 @@ const UserContainer = ({
             {dropDownOptions.map((option, i) =>
               i !== 1 ? (
                 <DropdownItem
+                  key={i}
                   isReadOnly={option.isReadOnly}
                   endContent={
                     <Accordion>
@@ -141,6 +142,7 @@ const UserContainer = ({
                 />
               ) : (
                 <DropdownItem
+                  key={i}
                   isReadOnly={option.isReadOnly}
                   endContent={
                     <Accordion>
