@@ -6,7 +6,11 @@ import { medicationsType } from "@/interfaces";
 import { Title } from "@/app/components/Title";
 import { medicationsSample } from "@/data/medications";
 
-const slicedMedications = medicationsSample.slice(0, 4);
+// slice the medicationsSample to be taken and taken
+const slicedToBeTaken = medicationsSample.slice(0, 4);
+const slicedTaken = medicationsSample
+  .filter((med, i) => !slicedToBeTaken.includes(med))
+  .slice(4, 8);
 
 const MedicationTracker = ({
   addToPastMedication,
@@ -16,8 +20,8 @@ const MedicationTracker = ({
   const [toBeTaken, setToBeTaken] = useState<medicationsType[]>([]);
   const [taken, setTaken] = useState<medicationsType[]>([]);
 
-  useFillRandomly(slicedMedications, setToBeTaken);
-  useFillRandomly(slicedMedications, setTaken);
+  useFillRandomly(slicedToBeTaken, setToBeTaken);
+  useFillRandomly(slicedTaken, setTaken);
 
   const markAsTaken = (index: number) => {
     setToBeTaken(toBeTaken.filter((_, i) => i !== index));

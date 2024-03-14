@@ -23,6 +23,11 @@ import { medicationsType } from "@/interfaces";
 import { useFillRandomly } from "@/app/hooks";
 import { medicationsSample } from "../../../data/medications";
 
+const slicedCurrentMedications = medicationsSample.slice(0, 4);
+const slicedPastMedications = medicationsSample
+  .filter((med) => !slicedCurrentMedications.includes(med))
+  .slice(0, 4);
+
 function MyMedications() {
   const t = useTranslations("My_medications");
   const { isOpen, onOpen, onOpenChange, onClose } = useDisclosure();
@@ -33,8 +38,8 @@ function MyMedications() {
   const [pastMedications, setPastMedications] = useState<medicationsType[]>([]);
 
   //fills randomly the current and past medications
-  useFillRandomly(medicationsSample, setCurrentMedications);
-  useFillRandomly(medicationsSample, setPastMedications);
+  useFillRandomly(slicedCurrentMedications, setCurrentMedications);
+  useFillRandomly(slicedPastMedications, setPastMedications);
 
   //add a medication to current medications
   const addAMedication = (med: medicationsType) => {

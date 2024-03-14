@@ -12,7 +12,6 @@ export default async function Home({
   searchParams: { access_token: string };
 }) {
   const router = useRouter();
-  console.log(searchParams.access_token);
 
   if (searchParams.access_token && typeof window !== "undefined") {
     localStorage.setItem("access_token", searchParams.access_token);
