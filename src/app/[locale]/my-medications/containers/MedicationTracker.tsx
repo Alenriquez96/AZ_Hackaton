@@ -4,13 +4,9 @@ import { useState } from "react";
 import { useFillRandomly } from "@/app/hooks/";
 import { medicationsType } from "@/interfaces";
 import { Title } from "@/app/components/Title";
+import { medicationsSample } from "@/data/medications";
 
-const medicationsSample: medicationsType[] = [
-  { name: "Aspirin", type: "tablet" },
-  { name: "Paracetamol", type: "pill" },
-  { name: "Albuterol", type: "inhaler" },
-  { name: "Levothyroxine", type: "tablet" },
-];
+const slicedMedications = medicationsSample.slice(0, 4);
 
 const MedicationTracker = ({
   addToPastMedication,
@@ -20,8 +16,8 @@ const MedicationTracker = ({
   const [toBeTaken, setToBeTaken] = useState<medicationsType[]>([]);
   const [taken, setTaken] = useState<medicationsType[]>([]);
 
-  useFillRandomly(medicationsSample, setToBeTaken);
-  useFillRandomly(medicationsSample, setTaken);
+  useFillRandomly(slicedMedications, setToBeTaken);
+  useFillRandomly(slicedMedications, setTaken);
 
   const markAsTaken = (index: number) => {
     setToBeTaken(toBeTaken.filter((_, i) => i !== index));

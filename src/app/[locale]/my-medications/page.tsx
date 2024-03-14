@@ -24,92 +24,7 @@ import MedicationSchedules from "./containers/MedicationSchedules";
 import MedicationTracker from "./containers/MedicationTracker";
 import { medicationsType } from "@/interfaces";
 import { useFillRandomly } from "@/app/hooks";
-
-const currentMedicationsMock: medicationsType[] = [
-  {
-    name: "Albuterol",
-    instructions: "To be taken",
-    dose: 3,
-    dosageMeasure: "ml",
-    frequency: "every 2 days",
-    type: "inhaler",
-  },
-  {
-    name: "Insulin",
-    instructions: "Taken at 1pm today ",
-    dose: 50,
-    dosageMeasure: "mg",
-    frequency: "Daily",
-    type: "pill",
-  },
-  {
-    name: "Levothyroxine",
-    instructions: "Taken at 11am today ",
-    dose: 300,
-    dosageMeasure: "mg",
-    frequency: "Weekly",
-    type: "tablet",
-  },
-  {
-    name: "Humalog",
-    instructions: "To be taken",
-    dose: 3,
-    dosageMeasure: "ml",
-    frequency: "every 2 days",
-    type: "injection",
-  },
-  {
-    name: "Sertraline",
-    instructions: "To be taken",
-    dose: 3,
-    dosageMeasure: "ml",
-    frequency: "every 2 days",
-    type: "tablet",
-  },
-];
-
-const pastMedicationsMock: medicationsType[] = [
-  {
-    name: "Humalog",
-    type: "injection",
-    instructions: "Taken at 11am today ",
-    dose: 50,
-    dosageMeasure: "mg",
-    frequency: "Daily",
-  },
-  {
-    name: "Aspirin",
-    type: "tablet",
-    instructions: "Taken at 1pm today ",
-    dose: 50,
-    dosageMeasure: "mg",
-    frequency: "Daily",
-  },
-  {
-    name: "Sertraline",
-    type: "tablet",
-    instructions: "To be taken",
-    dose: 3,
-    dosageMeasure: "ml",
-    frequency: "every 2 days",
-  },
-  {
-    name: "Albuterol",
-    type: "inhaler",
-    instructions: "To be taken",
-    dose: 3,
-    dosageMeasure: "ml",
-    frequency: "every 2 days",
-  },
-  {
-    name: "Insulin",
-    type: "injection",
-    instructions: "To be taken",
-    dose: 50,
-    dosageMeasure: "mg",
-    frequency: "Daily",
-  },
-];
+import { medicationsSample } from "../../../data/medications";
 
 function MyMedications() {
   const t = useTranslations("My_medications");
@@ -121,8 +36,8 @@ function MyMedications() {
   const [pastMedications, setPastMedications] = useState<medicationsType[]>([]);
 
   //fills randomly the current and past medications
-  useFillRandomly(currentMedicationsMock, setCurrentMedications);
-  useFillRandomly(pastMedicationsMock, setPastMedications);
+  useFillRandomly(medicationsSample, setCurrentMedications);
+  useFillRandomly(medicationsSample, setPastMedications);
 
   //add a medication to current medications
   const addAMedication = (med: medicationsType) => {

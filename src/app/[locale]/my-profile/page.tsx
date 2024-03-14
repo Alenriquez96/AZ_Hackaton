@@ -64,9 +64,6 @@ const MyProfilePage = ({
       );
 
       if (res.status === 401) {
-        router.push(
-          `https://mediguide-api-latest.onrender.com/v1/login?state=https://mediguide.vercel.app/en/my-profile`
-        );
       }
       const data = await res.json();
       if (data.result === true) {

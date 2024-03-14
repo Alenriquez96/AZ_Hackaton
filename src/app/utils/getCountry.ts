@@ -13,8 +13,8 @@ interface TimeZones {
   [zone: string]: TimeZoneInfo;
 }
 
-const countries: CountriesData = require("../../../data/countries.json");
-const timezones: TimeZones = require("../../../data/timezones.json");
+const countries: CountriesData = require("../../data/countries.json");
+const timezones: TimeZones = require("../../data/timezones.json");
 
 const timezone = Intl.DateTimeFormat().resolvedOptions().timeZone;
 
