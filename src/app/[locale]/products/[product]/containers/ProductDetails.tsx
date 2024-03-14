@@ -15,7 +15,7 @@ import { useTranslations } from "next-intl";
 import Notification from "@/app/components/Notification";
 import MobileOptions from "./MobileOptions";
 import Link from "next/link";
-import { usePathname } from "next/navigation";
+import { usePathname, useRouter } from "next/navigation";
 
 const ProductDetails = ({
   product,
@@ -34,6 +34,7 @@ const ProductDetails = ({
   const [notifications, setNotifications] = useState<{ text: string }[]>([]);
 
   const pathName = usePathname();
+  const router = useRouter();
 
   const handleSetFontSize = useCallback(
     (size: number) => {
@@ -51,9 +52,15 @@ const ProductDetails = ({
         {
           headers: {
             Language: language || "en",
+            "Access-Control-Allow-Origin": "*",
+            authorization:
+              "Bearer " + localStorage.getItem("access_token") || "",
           },
         }
       );
+      if (singleProduct.status === 401) {
+        router.push("/");
+      }
       const data = await singleProduct.json();
       setProductData(data);
       setProductId(data.id);
@@ -72,9 +79,14 @@ const ProductDetails = ({
         {
           headers: {
             Language: language || "en",
+            authorization:
+              "Bearer " + localStorage.getItem("access_token") || "",
           },
         }
       );
+      if (res.status === 401) {
+        router.push("/");
+      }
       const notifications = await res.json();
       setNotifications(notifications.notifications);
     } catch (error) {
@@ -91,10 +103,15 @@ const ProductDetails = ({
         {
           headers: {
             Language: language || "en",
+            authorization:
+              "Bearer " + localStorage.getItem("access_token") || "",
           },
         }
       );
 
+      if (sections.status === 401) {
+        router.push("/");
+      }
       const data = await sections.json();
       setSectionHeadings(data);
     } catch (error) {

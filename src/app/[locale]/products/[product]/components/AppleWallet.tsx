@@ -17,8 +17,18 @@ const AppleWallet = () => {
         `https://mediguide-api-latest.onrender.com/v1/wallet?product=${product}`,
         {
           method: "POST",
+          headers: {
+            "Access-Control-Allow-Origin": "*",
+            authorization:
+              "Bearer " + localStorage.getItem("access_token") || "",
+          },
         }
       );
+
+      if (res.status === 401) {
+        router.push("/");
+      }
+
       if (res.ok) {
         const data = await res.json();
         router.push(data.linkToPassPage);

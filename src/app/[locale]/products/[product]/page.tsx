@@ -1,5 +1,6 @@
 import ProductDetails from "./containers/ProductDetails";
 import { Product } from "@/interfaces";
+import { redirect } from "next/navigation";
 
 //Get all posts
 const getProducts = async (): Promise<Product[]> => {
@@ -8,8 +9,20 @@ const getProducts = async (): Promise<Product[]> => {
       `https://mediguide-api-latest.onrender.com/v1/products`,
       {
         cache: "no-cache",
+        headers: {
+          "Access-Control-Allow-Origin": "*",
+          authorization:
+            ("Bearer " + typeof window !== "undefined" &&
+              localStorage.getItem("access_token")) ||
+            "",
+        },
       }
     );
+
+    if (res.status === 401) {
+      redirect("/");
+    }
+
     const products = await res.json();
 
     return products;

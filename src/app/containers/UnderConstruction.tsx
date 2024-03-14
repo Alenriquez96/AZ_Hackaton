@@ -16,7 +16,7 @@ const UnderConstruction = () => {
           <Title>Uh oh!</Title>
           <Title>This page is under construction</Title>
         </CardBody>
-        <CardFooter>
+        <CardFooter className="grid place-content-center">
           <Button onClick={() => router.back()} color="primary" radius="full">
             Go back
           </Button>

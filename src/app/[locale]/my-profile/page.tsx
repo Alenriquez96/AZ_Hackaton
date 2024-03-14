@@ -58,12 +58,15 @@ const MyProfilePage = ({
         {
           headers: {
             "Access-Control-Allow-Origin": "*",
-            credentials: "include",
+            cache: "no-store",
+            authorization:
+              "Bearer " + localStorage.getItem("access_token") || "",
           },
         }
       );
 
       if (res.status === 401) {
+        router.push("/");
       }
       const data = await res.json();
       if (data.result === true) {
@@ -78,8 +81,20 @@ const MyProfilePage = ({
   const fetchPillPallData = async () => {
     try {
       const res = await fetch(
-        "https://mediguide-api-latest.onrender.com/v1/users"
+        "https://mediguide-api-latest.onrender.com/v1/users",
+        {
+          headers: {
+            "Access-Control-Allow-Origin": "*",
+            authorization:
+              "Bearer " + localStorage.getItem("access_token") || "",
+          },
+        }
       );
+
+      if (res.status === 401) {
+        router.push("/");
+      }
+
       const data = await res.json();
       setPillPallData(data);
     } catch (error) {
@@ -95,8 +110,20 @@ const MyProfilePage = ({
     try {
       const res = await fetch(
         "https://mediguide-api-latest.onrender.com/v1/users?app=PillPal&userId=f497561c-22ea-4d6f-8d8a-fe64bb5a3248",
-        { method: "DELETE" }
+        {
+          method: "DELETE",
+          headers: {
+            "Access-Control-Allow-Origin": "*",
+            authorization:
+              "Bearer " + localStorage.getItem("access_token") || "",
+          },
+        }
       );
+
+      if (res.status === 401) {
+        router.push("/");
+      }
+
       const data = await res;
       if (data.ok) {
         setIsConnectedToPillPal(false);

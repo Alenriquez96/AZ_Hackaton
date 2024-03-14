@@ -33,6 +33,7 @@ import {
 import { Section, Product } from "@/interfaces";
 import { useTranslations } from "next-intl";
 import TextWithTooltip from "../components/TextWithTooltip";
+import { useRouter } from "next/navigation";
 
 interface AccordionsProps {
   productData: Product;
@@ -54,6 +55,7 @@ const Accordions = ({
   const { isOpen, onOpen, onOpenChange } = useDisclosure();
   const [textToSpeech, setTextToSpeech] = useState<string | null>(null);
   const t = useTranslations("product");
+  const router = useRouter();
 
   const options: React.ReactNode[] = [
     <Button variant="light" startContent={<IconMail width={24} height={24} />}>
@@ -101,9 +103,17 @@ const Accordions = ({
           }),
           headers: {
             "content-type": "application/json",
+
+            "Access-Control-Allow-Origin": "*",
+            authorization:
+              "Bearer " + localStorage.getItem("access_token") || "",
           },
         }
       );
+
+      if (res.status === 401) {
+        router.push("/");
+      }
       const data = await res.json();
     } catch (error) {
       console.log("Error ocurred: " + error);
