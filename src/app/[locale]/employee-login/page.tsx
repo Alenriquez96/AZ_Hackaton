@@ -33,24 +33,28 @@ const EmployeeLogin = ({
     const password = e.target.password.value;
 
     if (typeof window !== "undefined") {
-      const users = JSON.parse(localStorage.getItem("users") || "[]");
+      try {
+        const users = JSON.parse(localStorage.getItem("users") || "[]");
 
-      const user = users.find(
-        (user: { email: string; password: string; profileType: string }) =>
-          user.email === email &&
-          user.password === password &&
-          user.profileType === "Proffesional"
-      );
+        const user = users.find(
+          (user: { email: string; password: string; profileType: string }) =>
+            user.email === email &&
+            user.password === password &&
+            user.profileType === "Proffesional"
+        );
 
-      if (!user) {
-        toast({
-          description: "Wrong email or password",
-          duration: 2000,
-        });
-      }
-      if (user) {
+        if (!user) {
+          throw new Error("Wrong email or password :(");
+        }
+
         localStorage.setItem("user", JSON.stringify(user));
         location.reload();
+      } catch (error: any) {
+        toast({
+          description: error.message,
+          duration: 2000,
+          variant: "destructive",
+        });
       }
     }
   };

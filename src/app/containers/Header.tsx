@@ -8,7 +8,7 @@ import { useTranslations } from "next-intl";
 import { useUserContext } from "../context/UserContext";
 import BellComponent from "../components/BellComponent";
 import { useRouter } from "next/navigation";
-import Navigation from "./Navigation";
+import Navbar from "./Navbar";
 import EmployeeNavbar from "./EmployeeNavbar";
 
 const Header = ({ locale }: { locale: string }) => {
@@ -29,7 +29,7 @@ const Header = ({ locale }: { locale: string }) => {
             {user.profileType === "Proffesional" ? (
               <EmployeeNavbar locale={locale} />
             ) : (
-              <Navigation locale={locale} />
+              <Navbar locale={locale} />
             )}
 
             <CountrySelector />
@@ -47,7 +47,7 @@ const Header = ({ locale }: { locale: string }) => {
             <Button
               variant="ghost"
               radius="full"
-              className="text-[#486284] h-[48px] w-[86px] "
+              className="text-[#486284] h-[48px] w-[86px] mr-1"
               onClick={() => router.push("/" + locale + "/register")}
             >
               {t("register")}
@@ -57,7 +57,7 @@ const Header = ({ locale }: { locale: string }) => {
               variant="solid"
               radius="full"
               color="primary"
-              className=" h-[48px] w-[86px]"
+              className=" h-[48px] w-[86px] ml-1"
               onClick={() => router.push("/" + locale + "/login")}
             >
               {t("login")}

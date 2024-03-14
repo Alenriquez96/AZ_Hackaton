@@ -8,7 +8,7 @@ interface NavigationProps {
   locale: string;
 }
 
-const Navigation = ({ locale }: NavigationProps) => {
+const Navbar = ({ locale }: NavigationProps) => {
   const t = useTranslations("header");
 
   // Navigation items
@@ -18,9 +18,10 @@ const Navigation = ({ locale }: NavigationProps) => {
       path: "/dashboard",
     },
     { title: t("navigation_btns.my_medications"), path: "/my-medications" },
-    { title: t("navigation_btns.calendar"), path: "/calendar" },
-    // { title: t("navigation_btns.communities"), path: "/communities" },
+
+    // { title: t("navigation_btns.calendar"), path: "/calendar" },
     { title: "My Stats", path: "/my-stats" },
+    { title: t("navigation_btns.communities"), path: "/communities" },
   ];
 
   const pathName = usePathname();
@@ -42,4 +43,4 @@ const Navigation = ({ locale }: NavigationProps) => {
   );
 };
 
-export default Navigation;
+export default Navbar;

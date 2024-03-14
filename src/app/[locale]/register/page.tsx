@@ -7,6 +7,7 @@ import PersonalInfo from "./containers/PersonalInfo";
 import ProfileType from "./containers/ProfileType";
 import { getCountry } from "@/app/utils/getCountry";
 import { user } from "@/interfaces";
+import { toast } from "@/components/ui/use-toast";
 
 const RegisterPage = ({
   params: { locale },
@@ -30,8 +31,30 @@ const RegisterPage = ({
   // submit register handler
   const handleSubmitRegister = (e: React.FormEvent<HTMLFormElement> | any) => {
     e.preventDefault();
-    setEmail(e.target.email.value);
-    setPassword(e.target.password.value);
+    try {
+      let email = e.target.email.value;
+      let password = e.target.password.value;
+
+      if (password.length < 8) {
+        throw new Error("Password must be at least 8 characters");
+      }
+
+      if (typeof window !== "undefined") {
+        const users = JSON.parse(localStorage.getItem("users") || "[]");
+
+        if (users.some((user: user) => user.email === email)) {
+          throw new Error("Email already exists");
+        }
+      }
+      setEmail(email);
+      setPassword(password);
+    } catch (error: any) {
+      toast({
+        description: error.message,
+        variant: "destructive",
+        duration: 2000,
+      });
+    }
   };
 
   // handle profile type
@@ -40,20 +63,18 @@ const RegisterPage = ({
   };
 
   // handle personal info
-  const handleSubmit = (e: React.FormEvent<HTMLFormElement> | any) => {
+  const handleSubmit = (
+    e: React.FormEvent<HTMLFormElement> | any,
+    cons: string[],
+    meds: string[]
+  ) => {
     e.preventDefault();
 
     setFirstName(e.target.firstName.value);
     setAge(e.target.age.value);
     setGender(e.target.gender.value);
-    setExistingMedications((prev) => [
-      ...prev,
-      e.target.existingMedications.value,
-    ]);
-    setHealthCondition((prev) => [
-      ...prev,
-      e.target.existingHealthConditions.value,
-    ]);
+    setExistingMedications(meds);
+    setHealthCondition(cons);
 
     setRegisterCompleted(true);
   };

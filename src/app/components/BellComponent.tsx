@@ -72,7 +72,7 @@ const BellComponent = () => {
             {notifications?.map((reminder, index) =>
               reminder.type === "reminder" ? (
                 <div
-                  className="flex py-[10px] px-[18px] justify-center items-center gap-16 rounded-[12px] border-2 [&>*]:mx-1 border-[#0972D3] bg-[#F2F8FD]  my-2"
+                  className="flex py-[10px] px-[18px] justify-between items-center gap-16 rounded-[12px] border-2 [&>*]:mx-1 border-[#0972D3] bg-[#F2F8FD]  my-2"
                   key={index}
                 >
                   <IconClock className="w-[20px] h-[20px]" />

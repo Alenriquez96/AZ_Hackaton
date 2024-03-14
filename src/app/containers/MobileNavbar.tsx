@@ -36,16 +36,16 @@ const MobileNavbar = ({ ...props }) => {
       label: "Medications",
       path: "/" + locale + "/my-medications",
     },
-    {
-      icon: <IconCalendar />,
-      label: "Calendar",
-      path: "/" + locale + "/calendar",
-    },
     // {
-    //   icon: <IconMessageCircle />,
-    //   label: "Communities",
-    //   path: "/" + locale + "/communities",
+    //   icon: <IconCalendar />,
+    //   label: "Calendar",
+    //   path: "/" + locale + "/calendar",
     // },
+    {
+      icon: <IconMessageCircle />,
+      label: "Communities",
+      path: "/" + locale + "/communities",
+    },
     {
       icon: <IconTrendingUp />,
       label: "My Stats",

@@ -17,6 +17,8 @@ import { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
 import LoadingSpinner from "../products/[product]/components/LoadingSpinner";
 import { useToast } from "@/components/ui/use-toast";
+import MyDetailsContainer from "./containers/MyDetailsContainer";
+import MyConditionsContainer from "./containers/MyConditionsContainer";
 
 const pillPalHeaders: { label: string; value: string }[] = [
   { label: "Id", value: "id" },
@@ -120,10 +122,11 @@ const MyProfilePage = ({
       <section className="flex flex-col [&>*]:p-10 [&>*]:my-4">
         <Card>
           <Text>
-            {t("title")}:{user.profileType}
+            {t("title")}
+            {": " + user.profileType}
           </Text>
           <CardBody className="flex flex-row items-center">
-            <Avatar name={""} size="lg" className="m-2" />
+            <Avatar name={user.name} size="lg" className="m-2" />
             <div className="[&>*]:m-2 flex flex-col">
               <Button
                 radius="full"
@@ -143,42 +146,8 @@ const MyProfilePage = ({
             </div>
           </CardBody>
         </Card>
-        <Card>
-          <Text> {t("personalInfo.title")}</Text>
-          <CardBody className="flex flex-row justify-between">
-            {details?.map((detail, i) => (
-              <div
-                key={i}
-                style={{
-                  fontWeight: i === 0 ? "bold" : "normal",
-                }}
-                className="flex flex-col font-black [&>*]:m-2"
-              >
-                {detail?.map((item, j) => (
-                  <p key={j}>{item}</p>
-                ))}
-              </div>
-            ))}
-          </CardBody>
-        </Card>
-        <Card>
-          <Text>{t("conditions.title")}</Text>
-          <CardBody className="[&>*]:m-2">
-            {user?.existingHealthCondition &&
-              user?.existingHealthCondition.map(
-                (condition: string, i: number) => (
-                  <Snippet
-                    hideCopyButton
-                    hideSymbol
-                    key={i}
-                    className="grid place-content-center"
-                  >
-                    {condition}
-                  </Snippet>
-                )
-              )}
-          </CardBody>
-        </Card>
+        <MyDetailsContainer details={details} />
+        <MyConditionsContainer user={user} />
       </section>
       <section className="flex flex-col [&>*]:p-10 [&>*]:my-4">
         <div className="h-[12px] w-full  flex-row justify-end lg:flex hidden">
@@ -202,11 +171,17 @@ const MyProfilePage = ({
             </div>
             <div className="flex flex-col [&>*]:m-2">
               {!isConnectedToPillPal ? (
-                <Link onClick={integrateWithPilPall} className="text-[#63A87D]">
+                <Link
+                  onClick={integrateWithPilPall}
+                  className="text-[#63A87D] cursor-pointer"
+                >
                   {t("sync.pillpal")}
                 </Link>
               ) : (
-                <Link onClick={unLinkPillPal} className="text-[#c04747]">
+                <Link
+                  onClick={unLinkPillPal}
+                  className="text-[#c04747] cursor-pointer"
+                >
                   Unlink PillPal
                 </Link>
               )}
@@ -220,7 +195,10 @@ const MyProfilePage = ({
               <Text>PillPal Data</Text>
               <CardBody className="flex flex-col justify-between">
                 {pillPalHeaders.map((header, i) => (
-                  <div className="flex flex-row justify-between" key={i}>
+                  <div
+                    className="flex flex-row justify-between [&>*]:my-2"
+                    key={i}
+                  >
                     <span className="font-black">{header.label}:</span>
                     <p>{pillPallData[header.value]}</p>
                   </div>

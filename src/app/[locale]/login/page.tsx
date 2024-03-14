@@ -29,23 +29,26 @@ const Login = ({ params: { locale } }: { params: { locale: string } }) => {
     const password = e.target.password.value;
 
     if (typeof window !== "undefined") {
-      const users = JSON.parse(localStorage.getItem("users") || "[]");
+      try {
+        const users = JSON.parse(localStorage.getItem("users") || "[]");
 
-      const user = users.find(
-        (user: { email: string; password: string }) =>
-          user.email === email && user.password === password
-      );
+        const user = users.find(
+          (user: { email: string; password: string }) =>
+            user.email === email && user.password === password
+        );
 
-      if (!user) {
-        toast({
-          description: "Wrong email or password",
-          duration: 2000,
-        });
-      }
+        if (!user) {
+          throw new Error("Wrong email or password :(");
+        }
 
-      if (user) {
         localStorage.setItem("user", JSON.stringify(user));
         location.reload();
+      } catch (error: any) {
+        toast({
+          description: error.message,
+          variant: "destructive",
+          duration: 2000,
+        });
       }
     }
   };
