@@ -1,13 +1,15 @@
-"use client";
-import Text from "@/app/components/Text";
-import { useTranslations } from "next-intl";
+// import { useTranslations } from "next-intl";
+import UnderConstruction from "@/app/containers/UnderConstruction";
+import { Suspense } from "react";
 
 const Communities = () => {
-  const t = useTranslations("communities");
+  // const t = useTranslations("communities");
 
   return (
     <main className="min-h-screen">
-      <Text>{t("title")}</Text>
+      <Suspense fallback={<p>Loading...</p>}>
+        <UnderConstruction />
+      </Suspense>
     </main>
   );
 };

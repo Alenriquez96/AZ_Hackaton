@@ -1,5 +1,11 @@
+import UnderConstruction from "@/app/containers/UnderConstruction";
+
 const MyStatsPage = () => {
-  return <main className="min-h-screen">MyStatsPage</main>;
+  return (
+    <main className="min-h-screen">
+      <UnderConstruction />
+    </main>
+  );
 };
 
 export default MyStatsPage;
