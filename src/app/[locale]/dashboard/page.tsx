@@ -21,8 +21,8 @@ export default function Dashboard({
   useEffect(() => {}, [user]);
 
   return (
-    <main className="flex justify-evenly flex-wrap [&>*]:mx-2">
-      <div className="flex flex-col [&>*]:m-5 ">
+    <main className="flex justify-evenly flex-wrap my-10 [&>*]:mx-2">
+      <div className="flex flex-col [&>*]:m-5 lg:max-w-[50%]">
         <Text>
           {t("welcomeText")} {user.name}!
         </Text>

@@ -60,8 +60,18 @@
     },
     "latestNews": {
       "suggested": "Suggested for you",
-      "label": "Most popular design systems to learn from in 2022",
-      "footer": "Design Systems"
+      "suggested1": {
+        "label": "The Importance of Mental Health Check-Ins",
+        "footer": "MedicalToday"
+      },
+      "suggested2": {
+        "label": "Managing Stress: Understanding Triggers and Treatment",
+        "footer": "PatientNews"
+      },
+      "suggested3": {
+        "label": "Sleep Hygiene 101: Tips for Improving Sleep",
+        "footer": "WellbeingCentral"
+      }
     },
     "trackStats": {
       "title": "Track your stats",

@@ -201,7 +201,7 @@ const InPageSearch = ({ locale }: { locale: string }) => {
             />
           }
           radius="full"
-          className="sm:w-[562px] h-[84px]"
+          className="h-[84px]"
           value={search}
           onChange={handleSearch}
           placeholder={texts.placeHolder}

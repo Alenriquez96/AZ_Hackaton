@@ -6,12 +6,9 @@ import {
   Tabs,
   Tab,
   useDisclosure,
-  Image as Img,
 } from "@nextui-org/react";
 import Image from "next/image";
-import { IconPill } from "@tabler/icons-react";
 import Text from "@/app/components/Text";
-import { IconFilter, IconArrowsSort } from "@tabler/icons-react";
 import { useTranslations } from "next-intl";
 import inhaler from "../../assets/inhaler.png";
 import aspirin from "../../assets/aspirin.png";
