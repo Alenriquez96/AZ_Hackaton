@@ -31,7 +31,7 @@ export default async function Home({
       );
       if (res.status === 401) {
         router.push(
-          "https://mediguide-api-latest.onrender.com/v1/login?state=http://localhost:3000/"
+          "https://mediguide-api-latest.onrender.com/v1/login?state=https://mediguide.vercel.app"
         );
       }
     } catch (error) {
