@@ -46,8 +46,10 @@ export interface Section {
 export interface medicationsType {
   name: string;
   instructions?: string;
-  dose?: string;
+  dose?: number;
+  dosageMeasure?: string;
   frequency?: string;
+  times?: string;
   type: string;
 }
 

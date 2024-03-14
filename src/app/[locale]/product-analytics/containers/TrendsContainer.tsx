@@ -1,7 +1,7 @@
 "use client";
 import { Select, SelectItem, Button } from "@nextui-org/react";
 import { IconCheck } from "@tabler/icons-react";
-import { Title } from "../page";
+import { Title } from "@/app/components/Title";
 
 interface DataPointsType {
   label: string;

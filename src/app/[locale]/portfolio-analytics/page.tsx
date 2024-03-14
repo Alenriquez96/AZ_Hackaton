@@ -1,6 +1,6 @@
 import RegionSelect from "./components/RegionSelect";
 import Text from "@/app/components/Text";
-import { Title } from "../product-analytics/page";
+import { Title } from "@/app/components/Title";
 import { Card, CardBody } from "@nextui-org/react";
 import DistributionTable from "../../assets/GobalDistributionTable.svg";
 import TherapeuticGraph from "../../assets/TherapeuticGraph.svg";

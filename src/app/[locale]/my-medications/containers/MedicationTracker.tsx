@@ -1,41 +1,42 @@
 "use client";
 import { Card, CardHeader, CardBody, Button } from "@nextui-org/react";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { useFillRandomly } from "@/app/hooks/";
 import { medicationsType } from "@/interfaces";
+import { Title } from "@/app/components/Title";
 
-const toBeTakenSample: medicationsType[] = [
-  { name: "Aspirin", type: "tablet" },
-  { name: "Paracetamol", type: "pill" },
-  { name: "Albuterol", type: "inhaler" },
-  { name: "Levothyroxine", type: "tablet" },
-];
-const takenSample: medicationsType[] = [
+const medicationsSample: medicationsType[] = [
   { name: "Aspirin", type: "tablet" },
   { name: "Paracetamol", type: "pill" },
   { name: "Albuterol", type: "inhaler" },
   { name: "Levothyroxine", type: "tablet" },
 ];
 
-const MedicationTracker = () => {
+const MedicationTracker = ({
+  addToPastMedication,
+}: {
+  addToPastMedication?: (med: medicationsType) => void;
+}) => {
   const [toBeTaken, setToBeTaken] = useState<medicationsType[]>([]);
   const [taken, setTaken] = useState<medicationsType[]>([]);
 
-  useFillRandomly(toBeTakenSample, setToBeTaken);
-  useFillRandomly(takenSample, setTaken);
+  useFillRandomly(medicationsSample, setToBeTaken);
+  useFillRandomly(medicationsSample, setTaken);
 
   const markAsTaken = (index: number) => {
     setToBeTaken(toBeTaken.filter((_, i) => i !== index));
+    addToPastMedication && addToPastMedication(toBeTaken[index]);
   };
 
   const markAsNotTaken = (index: number) => {
     setTaken(taken.filter((_, i) => i !== index));
+    addToPastMedication && addToPastMedication(taken[index]);
   };
 
   return (
     <Card className="p-3">
       <CardHeader>
-        <h1>Medication Tracker</h1>
+        <Title>Medication Tracker</Title>
       </CardHeader>
       <CardBody className="[&>*]:my-3">
         <div>

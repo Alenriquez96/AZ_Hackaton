@@ -7,6 +7,7 @@ import TrendsContainer from "./containers/TrendsContainer";
 import HealthLiteracyTable from "../../assets/HealthLiteracyTable.svg";
 import Image from "next/image";
 import ProductSearches from "../../assets/ProductSearches.svg";
+import { Title } from "@/app/components/Title";
 
 const ProductAnalyticsPage = () => {
   return (
@@ -45,10 +46,6 @@ const ProductAnalyticsPage = () => {
       </section>
     </main>
   );
-};
-
-export const Title = ({ children }: { children: string }) => {
-  return <h2 className="text-2xl font-bold">{children}</h2>;
 };
 
 export default ProductAnalyticsPage;

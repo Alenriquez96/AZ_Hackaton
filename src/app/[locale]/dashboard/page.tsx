@@ -8,6 +8,7 @@ import TrackYourStats from "./containers/TrackYourStats";
 import { useTranslations } from "next-intl";
 import { useEffect, useState } from "react";
 import { useUserContext } from "@/app/context/UserContext";
+import MedicationTracker from "../my-medications/containers/MedicationTracker";
 
 export default function Dashboard({
   params: { locale },
@@ -28,12 +29,13 @@ export default function Dashboard({
 
         {/* <Notification /> */}
         <InPageSearch locale={locale} />
+        <HowFeeling />
         <LatestsNews />
       </div>
-      <div className="flex flex-col items-center sm:items-start [&>*]:m-5 max-w-[400px]">
+      <div className="flex flex-col items-center sm:items-start [&>*]:m-5 max-w-[400px] [&>*]:w-[94%]">
         <p className="text-[24px]">{t("reminders")}</p>
         <TrackYourStats />
-        <HowFeeling />
+        <MedicationTracker />
       </div>
     </main>
   );
