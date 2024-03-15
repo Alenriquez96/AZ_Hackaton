@@ -11,6 +11,7 @@ import { unstable_setRequestLocale } from "next-intl/server";
 import MobileNavbar from "@/app/containers/MobileNavbar";
 import { Toaster } from "@/components/ui/toaster";
 import Footer from "../containers/Footer";
+import AuthComponent from "../containers/AuthComponent";
 
 const dm_sans = DM_Sans({
   subsets: ["latin"],
@@ -66,6 +67,7 @@ export default async function RootLayout({
             <Footer locale={locale} />
             <MobileNavbar locale={locale} />
             <Toaster />
+            <AuthComponent />
           </Providers>
         </NextIntlClientProvider>
       </body>
