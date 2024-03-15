@@ -23,7 +23,7 @@ const EmployeeLogin = ({
 
   useEffect(() => {
     if (Object.keys(user).length !== 0) {
-      router.push("/" + locale + "/dashboard");
+      router.push("/" + locale + "/product-analytics");
     }
   }, [user]);
 
