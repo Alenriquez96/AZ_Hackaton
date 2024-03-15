@@ -13,6 +13,8 @@ import { Toaster } from "@/components/ui/toaster";
 import Footer from "../containers/Footer";
 import AuthComponent from "../containers/AuthComponent";
 import { Suspense } from "react";
+import LoadingSpinner from "./products/[product]/components/LoadingSpinner";
+import { CircularProgress } from "@nextui-org/react";
 
 const dm_sans = DM_Sans({
   subsets: ["latin"],
@@ -61,14 +63,20 @@ export default async function RootLayout({
       <body className={dm_sans.className}>
         <NextIntlClientProvider locale={locale} messages={messages}>
           <Providers>
-            <Header locale={locale} />
-            {children}
-            {/* <Chatbot /> */}
-            <BackToTop />
-            <Footer locale={locale} />
-            <MobileNavbar locale={locale} />
-            <Toaster />
-            <Suspense>
+            <Suspense
+              fallback={
+                <main className="min-h-screen grid place-content-center">
+                  <CircularProgress />
+                </main>
+              }
+            >
+              <Header locale={locale} />
+              {children}
+              {/* <Chatbot /> */}
+              <BackToTop />
+              <Footer locale={locale} />
+              <MobileNavbar locale={locale} />
+              <Toaster />
               <AuthComponent />
             </Suspense>
           </Providers>

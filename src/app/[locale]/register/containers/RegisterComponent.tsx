@@ -46,7 +46,7 @@ const RegisterComponent = ({
               {t("createAccount.form.register")}
             </Button>
             <Button variant="shadow">{t("createAccount.form.google")}</Button>
-            <Link href={""}>{t("createAccount.form.haveAccount")}</Link>
+            <Link href={"./login"}>{t("createAccount.form.haveAccount")}</Link>
           </CardBody>
         </form>
       </Card>
