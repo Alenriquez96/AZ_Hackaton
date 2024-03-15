@@ -3,7 +3,7 @@ import { Product } from "@/interfaces";
 import { redirect } from "next/navigation";
 
 //Get all posts
-const getProducts = async (): Promise<Product[]> => {
+const getProducts = async (): Promise<Product[] | any> => {
   try {
     const res = await fetch(
       `https://mediguide-api-latest.onrender.com/v1/products`,
@@ -12,23 +12,24 @@ const getProducts = async (): Promise<Product[]> => {
         headers: {
           "Access-Control-Allow-Origin": "*",
           authorization:
-            "Bearer " +
-            (typeof window !== "undefined"
-              ? localStorage.getItem("access_token")
-              : ""),
+            ("Bearer " + typeof window !== "undefined" &&
+              localStorage.getItem("access_token")) ||
+            "",
         },
       }
     );
 
     if (res.status === 401) {
-      redirect("/");
+      throw new Error("Unauthorized");
     }
 
     const products = await res.json();
 
     return products;
-  } catch (error) {
-    console.log({ error });
+  } catch (error: any) {
+    if (error.message === "Unauthorized") {
+      return [{ name: "unauthorized" }];
+    }
     return [];
   }
 };
