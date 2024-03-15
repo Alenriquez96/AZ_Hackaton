@@ -204,15 +204,17 @@ const MyProfilePage = ({
             <Card>
               <Text>PillPal Data</Text>
               <CardBody className="flex flex-col justify-between">
-                {pillPalHeaders.map((header, i) => (
-                  <div
-                    className="flex flex-row justify-between [&>*]:my-2"
-                    key={i}
-                  >
-                    <span className="font-black">{header.label}:</span>
-                    <p>{pillPallData[header.value]}</p>
-                  </div>
-                ))}
+                {pillPalHeaders
+                  .slice(2, pillPalHeaders.length)
+                  .map((header, i) => (
+                    <div
+                      className="flex flex-row justify-between [&>*]:my-2"
+                      key={i}
+                    >
+                      <span className="font-black">{header.label}:</span>
+                      <p>{pillPallData[header.value]}</p>
+                    </div>
+                  ))}
               </CardBody>
             </Card>
           ) : (

@@ -69,7 +69,7 @@ const Suggested = () => {
             >
               <Card key={i} className="rounded-[8px]  cursor-pointer">
                 <Image src={card.img} alt="" />
-                <CardHeader className="text-[12px] text-[#090914] font-semibold m-3">
+                <CardHeader className="text-[12px]  font-semibold m-3">
                   {card.title}
                 </CardHeader>
                 <CardFooter className="text-[#63A87D] m-3">

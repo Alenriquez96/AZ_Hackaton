@@ -6,8 +6,8 @@ const SearchThisPage = () => {
   const t = useTranslations("product");
   return (
     <Input
-      endContent={<IconSearch color="#49454F" />}
-      startContent={<IconMenu2 color="#49454F" />}
+      endContent={<IconSearch />}
+      startContent={<IconMenu2 />}
       isClearable
       radius="full"
       placeholder={t("search")}

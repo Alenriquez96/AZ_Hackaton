@@ -9,14 +9,14 @@ export const medicationsSample: medicationsType[] = [
     frequency: "every 2 days",
     type: "inhaler",
   },
-  {
-    name: "Insulin",
-    instructions: "Taken at 1pm today ",
-    dose: 50,
-    dosageMeasure: "mg",
-    frequency: "Daily",
-    type: "pill",
-  },
+  // {
+  //   name: "Insulin",
+  //   instructions: "Taken at 1pm today ",
+  //   dose: 50,
+  //   dosageMeasure: "mg",
+  //   frequency: "Daily",
+  //   type: "injection",
+  // },
   {
     name: "Levothyroxine",
     instructions: "Taken at 11am today ",
@@ -25,14 +25,7 @@ export const medicationsSample: medicationsType[] = [
     frequency: "Weekly",
     type: "tablet",
   },
-  {
-    name: "Humalog",
-    instructions: "To be taken",
-    dose: 3,
-    dosageMeasure: "ml",
-    frequency: "every 2 days",
-    type: "injection",
-  },
+
   {
     name: "Sertraline",
     instructions: "To be taken",

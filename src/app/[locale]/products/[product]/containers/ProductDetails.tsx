@@ -152,13 +152,11 @@ const ProductDetails = ({
             <SearchThisPage />
           </div>
 
-          <div className="flex items-center justify-between flex-row [&>*]:mx-4">
+          <div className="flex items-center justify-between flex-row [&>*]:mx-4 ">
             <div className="flex flex-col">
               <Text>{productData.name}</Text>
-              <p className="text-[#344054] font-[24px] ">
-                {productData.activeIngredient}
-              </p>
-              <p className="text-[#344054] font-[24px] ">
+              <p className=" font-[24px] ">{productData.activeIngredient}</p>
+              <p className=" font-[24px] ">
                 {t("manufacturedBy")} {productData.company}
               </p>
               {notifications &&

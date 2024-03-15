@@ -220,7 +220,7 @@ const Accordions = ({
                           color="#486284"
                         />
                       )}
-                      <p className="text-[#486284]">{t("buttons.listen")}</p>
+                      <p className="">{t("buttons.listen")}</p>
                     </div>
                   </div>
 
@@ -233,7 +233,7 @@ const Accordions = ({
                   {section.showVideo && (
                     <Video src="https://www.youtube.com/watch?v=LQwxNS7ny0E" />
                   )}
-                  <div className="hidden sm:flex bg-[#F2F2F2] py-[12px]  rounded-lg px-4 items-center justify-between">
+                  <div className="hidden sm:flex dark:text-black bg-[#F2F2F2] py-[12px]  rounded-lg px-4 items-center justify-between">
                     <p>{t("feedback")}</p>
                     <div className="flex items-center [&>div]:mx-1">
                       <div className="flex items-center [&>*]:mx-1">
