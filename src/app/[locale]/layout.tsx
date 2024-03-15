@@ -12,6 +12,7 @@ import MobileNavbar from "@/app/containers/MobileNavbar";
 import { Toaster } from "@/components/ui/toaster";
 import Footer from "../containers/Footer";
 import AuthComponent from "../containers/AuthComponent";
+import { Suspense } from "react";
 
 const dm_sans = DM_Sans({
   subsets: ["latin"],
@@ -67,7 +68,9 @@ export default async function RootLayout({
             <Footer locale={locale} />
             <MobileNavbar locale={locale} />
             <Toaster />
-            <AuthComponent />
+            <Suspense>
+              <AuthComponent />
+            </Suspense>
           </Providers>
         </NextIntlClientProvider>
       </body>
