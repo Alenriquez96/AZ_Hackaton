@@ -31,8 +31,7 @@ export function UserProvider({ children }: { children: ReactNode }) {
         );
       } else if (localStorageToken) {
         return;
-      }
-      {
+      } else {
         fetchToken();
       }
     }
