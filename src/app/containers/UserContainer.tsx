@@ -89,7 +89,7 @@ const UserContainer = ({
       onClick: () => {
         if (typeof window !== "undefined") {
           localStorage.setItem("user", JSON.stringify({}));
-          router.push("/" + language + "/");
+          router.push("/" + language);
           location.reload();
         }
       },

@@ -19,7 +19,11 @@ const Login = ({ params: { locale } }: { params: { locale: string } }) => {
 
   useEffect(() => {
     if (Object.keys(user).length !== 0) {
-      router.push("/" + locale + "/dashboard");
+      if (user.profileType === "Proffesional") {
+        router.push("/" + locale + "/product-analytics");
+      } else {
+        router.push("/" + locale + "/dashboard");
+      }
     }
   }, [user]);
 

@@ -59,11 +59,11 @@ const MobileNavbar = ({ ...props }) => {
       label: "Home",
       path: "/" + locale + "/",
     },
-    {
-      icon: <IconMedicalCross />,
-      label: "Medications",
-      path: "/" + locale + "/my-medications",
-    },
+    // {
+    //   icon: <IconMedicalCross />,
+    //   label: "Medications",
+    //   path: "/" + locale + "/my-medications",
+    // },
     {
       icon: <IconReportAnalytics />,
       label: "Product Analytics",
