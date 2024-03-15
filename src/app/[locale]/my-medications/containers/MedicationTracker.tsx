@@ -12,11 +12,7 @@ const slicedTaken = medicationsSample
   .filter((med, i) => !slicedToBeTaken.includes(med))
   .slice(4, 8);
 
-const MedicationTracker = ({
-  addToPastMedication,
-}: {
-  addToPastMedication?: (med: medicationsType) => void;
-}) => {
+const MedicationTracker = () => {
   const [toBeTaken, setToBeTaken] = useState<medicationsType[]>([]);
   const [taken, setTaken] = useState<medicationsType[]>([]);
 
@@ -25,12 +21,19 @@ const MedicationTracker = ({
 
   const markAsTaken = (index: number) => {
     setToBeTaken(toBeTaken.filter((_, i) => i !== index));
-    addToPastMedication && addToPastMedication(toBeTaken[index]);
+    addToTaken(toBeTaken[index]);
   };
 
   const markAsNotTaken = (index: number) => {
     setTaken(taken.filter((_, i) => i !== index));
-    addToPastMedication && addToPastMedication(taken[index]);
+    addToToBeTaken(taken[index]);
+  };
+
+  const addToTaken = (med: medicationsType) => {
+    setTaken((prev) => [med, ...prev]);
+  };
+  const addToToBeTaken = (med: medicationsType) => {
+    setToBeTaken((prev) => [med, ...prev]);
   };
 
   return (

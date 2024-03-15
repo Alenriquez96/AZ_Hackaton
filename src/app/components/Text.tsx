@@ -5,10 +5,7 @@ interface TextProps {
 
 function Text({ children, ...props }: TextProps) {
   return (
-    <h1
-      {...props}
-      className="font-bold text-[32px] leading-[76px] text-[#344054] dark:text-white"
-    >
+    <h1 {...props} className="font-bold text-[32px] leading-[76px] ">
       {children}
     </h1>
   );

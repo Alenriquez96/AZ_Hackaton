@@ -5,6 +5,8 @@ interface MedicationSchedulesProps {
   currentMedications: medicationsType[];
 }
 
+const accordionItems: string[] = ["Morning", "Afternoon", "Evening"];
+
 const MedicationSchedules = ({
   currentMedications,
 }: MedicationSchedulesProps) => {
@@ -12,30 +14,16 @@ const MedicationSchedules = ({
     <Card className="p-4 ">
       <CardHeader>Medication Schedules</CardHeader>
       <Accordion>
-        <AccordionItem title="Morning">
-          <div className="flex justify-between bg-[#E0EEE5] rounded-lg p-3">
-            <p>{currentMedications[0].name}</p>
-            <p>
-              {currentMedications[0].dose} {currentMedications[0].frequency}
-            </p>
-          </div>
-        </AccordionItem>
-        <AccordionItem title="Afternoon">
-          <div className="flex justify-between bg-[#E0EEE5] rounded-lg p-3">
-            <p>{currentMedications[0].name}</p>
-            <p>
-              {currentMedications[0].dose} {currentMedications[0].frequency}
-            </p>
-          </div>
-        </AccordionItem>
-        <AccordionItem title="Evening">
-          <div className="flex justify-between bg-[#E0EEE5] rounded-lg p-3">
-            <p>{currentMedications[0].name}</p>
-            <p>
-              {currentMedications[0].dose} {currentMedications[0].frequency}
-            </p>
-          </div>
-        </AccordionItem>
+        {accordionItems.map((item) => (
+          <AccordionItem key={item} title={item}>
+            <div className="flex justify-between bg-[#E0EEE5] dark:text-black rounded-lg p-3">
+              <p>{currentMedications[0].name}</p>
+              <p>
+                {currentMedications[0].dose} {currentMedications[0].frequency}
+              </p>
+            </div>
+          </AccordionItem>
+        ))}
       </Accordion>
     </Card>
   );

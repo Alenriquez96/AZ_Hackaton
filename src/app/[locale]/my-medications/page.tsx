@@ -46,11 +46,6 @@ function MyMedications() {
     setCurrentMedications((prev) => [med, ...prev]);
   };
 
-  //add a medication to past medications
-  const addToPastMedication = (med: medicationsType) => {
-    setPastMedications((prev) => [med, ...prev]);
-  };
-
   const showImg = (type: string) => {
     if (type === "inhaler") {
       return <Image alt="bg" width={500} height={700} src={inhaler} />;
@@ -91,7 +86,7 @@ function MyMedications() {
             {currentMedications.map((med, i) => (
               <Card key={i} isPressable className=" bg-[#F1EFE9] w-full my-4">
                 {showImg(med.type)}
-                <CardBody className=" flex flex-row justify-between items-center">
+                <CardBody className=" flex flex-row justify-between items-center dark:bg-slate-700">
                   <div>
                     <Text>{med.name}</Text>
                     <p>{med.instructions}</p>
@@ -115,7 +110,7 @@ function MyMedications() {
             {pastMedications.map((med, i) => (
               <Card key={i} isPressable className=" bg-[#F1EFE9] w-full my-4">
                 {showImg(med.type)}
-                <CardBody className=" flex flex-row justify-between items-center">
+                <CardBody className=" flex flex-row justify-between items-center dark:bg-slate-700">
                   <div>
                     <Text>{med.name}</Text>
                     <p>Taken</p>
@@ -148,7 +143,7 @@ function MyMedications() {
             + {t("btns.add_medication")}
           </Button>
         </div>
-        <MedicationTracker addToPastMedication={addToPastMedication} />
+        <MedicationTracker />
         {currentMedications.length && (
           <MedicationSchedules currentMedications={currentMedications} />
         )}

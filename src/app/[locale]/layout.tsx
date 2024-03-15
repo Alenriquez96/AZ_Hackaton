@@ -63,7 +63,7 @@ export default async function RootLayout({
           <Providers>
             <Header locale={locale} />
             {children}
-            <Chatbot />
+            {/* <Chatbot /> */}
             <BackToTop />
             <Footer locale={locale} />
             <MobileNavbar locale={locale} />
