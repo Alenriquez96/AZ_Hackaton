@@ -111,9 +111,6 @@ const Accordions = ({
         }
       );
 
-      if (res.status === 401) {
-        router.push("/");
-      }
       const data = await res.json();
     } catch (error) {
       console.log("Error ocurred: " + error);

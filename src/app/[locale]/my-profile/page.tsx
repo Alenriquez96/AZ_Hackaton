@@ -1,12 +1,5 @@
 "use client";
-import {
-  Button,
-  Card,
-  CardBody,
-  Link,
-  Snippet,
-  Avatar,
-} from "@nextui-org/react";
+import { Button, Card, CardBody, Link, Avatar } from "@nextui-org/react";
 import { IconPencil, IconTrash } from "@tabler/icons-react";
 import { useUserContext } from "@/app/context/UserContext";
 import { useTranslations } from "next-intl";
@@ -65,9 +58,6 @@ const MyProfilePage = ({
         }
       );
 
-      if (res.status === 401) {
-        router.push("/");
-      }
       const data = await res.json();
       if (data.result === true) {
         fetchPillPallData();
@@ -90,10 +80,6 @@ const MyProfilePage = ({
           },
         }
       );
-
-      if (res.status === 401) {
-        router.push("/");
-      }
 
       const data = await res.json();
       setPillPallData(data);
@@ -119,10 +105,6 @@ const MyProfilePage = ({
           },
         }
       );
-
-      if (res.status === 401) {
-        router.push("/");
-      }
 
       const data = await res;
       if (data.ok) {

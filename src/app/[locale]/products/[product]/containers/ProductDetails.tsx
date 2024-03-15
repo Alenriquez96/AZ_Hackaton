@@ -84,9 +84,6 @@ const ProductDetails = ({
           },
         }
       );
-      if (res.status === 401) {
-        router.push("/");
-      }
       const notifications = await res.json();
       setNotifications(notifications.notifications);
     } catch (error) {

@@ -12,9 +12,10 @@ const getProducts = async (): Promise<Product[]> => {
         headers: {
           "Access-Control-Allow-Origin": "*",
           authorization:
-            ("Bearer " + typeof window !== "undefined" &&
-              localStorage.getItem("access_token")) ||
-            "",
+            "Bearer " +
+            (typeof window !== "undefined"
+              ? localStorage.getItem("access_token")
+              : ""),
         },
       }
     );

@@ -11,35 +11,6 @@ export default async function Home({
   params: { locale: string };
   searchParams: { access_token: string };
 }) {
-  const router = useRouter();
-
-  if (searchParams.access_token && typeof window !== "undefined") {
-    localStorage.setItem("access_token", searchParams.access_token);
-  }
-
-  const fetchToken = async () => {
-    try {
-      const res = await fetch(
-        "https://mediguide-api-latest.onrender.com/v1/me",
-        {
-          cache: "no-cache",
-          headers: {
-            authorization: `Bearer ${searchParams.access_token}`,
-          },
-        }
-      );
-      if (res.status === 401) {
-        router.push(
-          "https://mediguide-api-latest.onrender.com/v1/login?state=https://mediguide.vercel.app"
-        );
-      }
-    } catch (error) {
-      console.log(error);
-    }
-  };
-
-  fetchToken();
-
   return (
     <main className="flex flex-col items-center bg-[url('../assets/world.svg')]">
       <div className="min-h-[800px] w-full ">

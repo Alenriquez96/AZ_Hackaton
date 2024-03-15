@@ -12,7 +12,12 @@ const UnderConstruction = () => {
     <div className="bg-[url('../assets/world.svg')] w-full h-screen grid place-content-center">
       <Card shadow="lg" className="px-6 py-unit-16">
         <CardBody className="flex flex-col items-center [&>*]:my-2">
-          <Image src={UnderConstructionImage} alt="under construction" />
+          <Image
+            src={UnderConstructionImage}
+            alt="under construction"
+            height={700}
+            width={500}
+          />
           <Title>Uh oh!</Title>
           <Title>This page is under construction</Title>
         </CardBody>

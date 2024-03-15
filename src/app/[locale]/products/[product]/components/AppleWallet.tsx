@@ -25,10 +25,6 @@ const AppleWallet = () => {
         }
       );
 
-      if (res.status === 401) {
-        router.push("/");
-      }
-
       if (res.ok) {
         const data = await res.json();
         router.push(data.linkToPassPage);
