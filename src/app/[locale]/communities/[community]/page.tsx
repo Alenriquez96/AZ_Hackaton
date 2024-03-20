@@ -1,3 +1,4 @@
+"use client";
 import Text from "@/app/components/Text";
 import {
   Avatar,
@@ -11,6 +12,7 @@ import PostCard from "../containers/PostCard";
 import { posts } from "@/data/posts";
 import Image from "next/image";
 import { IconMicrophone, IconCamera } from "@tabler/icons-react";
+import { useUserContext } from "@/app/context/UserContext";
 
 interface CommunityPageProps {
   searchParams: {
@@ -36,6 +38,8 @@ const topSections: { title: string; sections: string[] }[] = [
 ];
 
 const CommunityPage = ({ searchParams: { name } }: CommunityPageProps) => {
+  const { user } = useUserContext();
+
   return (
     <main className="min-h-screen flex flex-row justify-around flex-wrap p-10">
       <section className="flex flex-col [&>*]:my-6 max-w-[900px]">
@@ -57,7 +61,7 @@ const CommunityPage = ({ searchParams: { name } }: CommunityPageProps) => {
         </Card>
         <Card>
           <CardBody className="flex flex-row items-center lg:[&>*]:mx-4 [&>*]:mx-1">
-            <Avatar name="" />
+            <Avatar className="p-6" name={user.name} />
             <Input
               variant="bordered"
               placeholder="Do you want to start a discussion?"

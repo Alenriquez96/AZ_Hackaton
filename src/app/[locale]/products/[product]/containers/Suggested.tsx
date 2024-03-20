@@ -67,12 +67,12 @@ const Suggested = () => {
               key={i}
               className="md:basis-1/2 lg:basis-1/3 grid place-content-center"
             >
-              <Card key={i} className="rounded-[8px]  cursor-pointer">
-                <Image src={card.img} alt="" />
-                <CardHeader className="text-[12px]  font-semibold m-3">
+              <Card key={i} className="rounded-[8px] h-[280px] cursor-pointer">
+                <Image src={card.img} alt={card.title} width={500} />
+                <CardHeader className="text-[12px]  font-semibold mx-3">
                   {card.title}
                 </CardHeader>
-                <CardFooter className="text-[#63A87D] m-3">
+                <CardFooter className="text-[#63A87D] mx-3">
                   {card.footer}
                 </CardFooter>
               </Card>

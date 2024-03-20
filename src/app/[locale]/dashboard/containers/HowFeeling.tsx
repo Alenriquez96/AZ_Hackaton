@@ -23,6 +23,67 @@ const HowFeeling = () => {
           fill="none"
           xmlns="http://www.w3.org/2000/svg"
         >
+          <g clipPath="url(#clip0_479_9110)">
+            <g filter="url(#filter0_d_479_9110)">
+              <path
+                d="M16 28C16 28 19 32 24 32C29 32 32 28 32 28M18 18H18.02M30 18H30.02M44 24C44 35.0457 35.0457 44 24 44C12.9543 44 4 35.0457 4 24C4 12.9543 12.9543 4 24 4C35.0457 4 44 12.9543 44 24Z"
+                stroke="#FC7853"
+                strokeWidth="4"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                shapeRendering="crispEdges"
+              />
+            </g>
+          </g>
+          <defs>
+            <filter
+              id="filter0_d_479_9110"
+              x="1"
+              y="1"
+              width="48"
+              height="48"
+              filterUnits="userSpaceOnUse"
+              colorInterpolationFilters="sRGB"
+            >
+              <feFlood floodOpacity="0" result="BackgroundImageFix" />
+              <feColorMatrix
+                in="SourceAlpha"
+                type="matrix"
+                values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0"
+                result="hardAlpha"
+              />
+              <feOffset dx="1" dy="1" />
+              <feGaussianBlur stdDeviation="1" />
+              <feComposite in2="hardAlpha" operator="out" />
+              <feColorMatrix
+                type="matrix"
+                values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.25 0"
+              />
+              <feBlend
+                mode="normal"
+                in2="BackgroundImageFix"
+                result="effect1_dropShadow_479_9110"
+              />
+              <feBlend
+                mode="normal"
+                in="SourceGraphic"
+                in2="effect1_dropShadow_479_9110"
+                result="shape"
+              />
+            </filter>
+            <clipPath id="clip0_479_9110">
+              <rect width="48" height="48" fill="white" />
+            </clipPath>
+          </defs>
+        </svg>
+
+        <svg
+          width="48"
+          height="48"
+          viewBox="0 0 48 48"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+        >
           <path
             d="M16 28C16 28 19 32 24 32C29 32 32 28 32 28M18 18H18.02M30 18H30.02M44 24C44 35.0457 35.0457 44 24 44C12.9543 44 4 35.0457 4 24C4 12.9543 12.9543 4 24 4C35.0457 4 44 12.9543 44 24Z"
             stroke="#313B72"
