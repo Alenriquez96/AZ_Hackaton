@@ -14,7 +14,7 @@ import { Product, Section } from "@/interfaces";
 import { useTranslations } from "next-intl";
 import Notification from "@/app/components/Notification";
 import MobileOptions from "./MobileOptions";
-import Link from "next/link";
+import { Link } from "@/navigation";
 import { usePathname, useRouter } from "next/navigation";
 
 const ProductDetails = ({
@@ -35,6 +35,7 @@ const ProductDetails = ({
 
   const pathName = usePathname();
   const router = useRouter();
+  console.log(pathName);
 
   const handleSetFontSize = useCallback(
     (size: number) => {
@@ -180,7 +181,10 @@ const ProductDetails = ({
             language={language}
           />
 
-          <Link className="underline" href={pathName + "/sustainability"}>
+          <Link
+            className="underline"
+            href={"./sustainability?product=" + productData.name}
+          >
             See sustainability information
           </Link>
           <Suggested />

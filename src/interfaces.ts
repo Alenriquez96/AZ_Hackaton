@@ -39,8 +39,9 @@ export interface Product {
 export interface Section {
   section: string;
   title: string;
-  starred: boolean;
-  showVideo: boolean;
+  starred?: boolean;
+  showVideo?: boolean;
+  content?: string;
 }
 
 export interface medicationsType {
@@ -50,7 +51,7 @@ export interface medicationsType {
   dosageMeasure?: string;
   frequency?: string;
   times?: string;
-  type: string;
+  type: "inhaler" | "injection" | "tablet" | "pill";
 }
 
 export interface user {
@@ -64,4 +65,16 @@ export interface user {
   profileType: string;
   isLogged: boolean;
   country?: string;
+}
+
+export interface Posts {
+  type: "managing_stress" | "women_over_60" | "health_wellbeing";
+  heading: "Managing Stress" | "Women over 60" | "Health & Wellbeing";
+  postType: "Poll" | "Thread" | "Blog";
+  title: string;
+  author: string;
+  date: string;
+  views: number;
+  likes: number;
+  comments: number;
 }

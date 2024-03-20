@@ -16,6 +16,10 @@ const sectionsToShow: string[] = [
   "sideEffects.possibleSideEffects",
   "storage",
   "disposalAndHandling",
+  "CO2 Production",
+  "H2O Re-use",
+  "% Renewable Energy",
+  "% Packaging Recycled",
 ];
 
 export const JumpToSection = ({

@@ -12,7 +12,7 @@ export default async function Home({
   searchParams: { access_token: string };
 }) {
   return (
-    <main className="flex flex-col items-center bg-[url('../assets/world.svg')]">
+    <main className="flex flex-col min-h-screen items-center bg-[url('../assets/world.svg')]">
       <div className="min-h-[800px] w-full ">
         <div className="flex  sm:flex-row-reverse  flex-col-reverse items-center flex-wrap justify-evenly my-20">
           <InPageSearch locale={locale} />

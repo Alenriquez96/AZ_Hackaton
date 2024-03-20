@@ -1,0 +1,48 @@
+import { Posts } from "@/interfaces";
+
+export const posts: Posts[] = [
+  {
+    type: "health_wellbeing",
+    heading: "Health & Wellbeing",
+    postType: "Thread",
+    title: "Caregiver support, advice and resources",
+    author: "Olivia",
+    date: "3 hours ago",
+    views: 1324,
+    likes: 356,
+    comments: 56,
+  },
+  {
+    type: "managing_stress",
+    postType: "Poll",
+    title: "How ofter do you prioritize self-care?",
+    author: "Tom",
+    date: "1 day ago",
+    views: 2456,
+    likes: 376,
+    comments: 35,
+    heading: "Managing Stress",
+  },
+  //   {
+  //     type: "managing_stress",
+  //     postType: "Blog",
+  //     title: "Diabetes Type 2 support, advice and resources",
+  //     author: "Tom",
+  //     date: "3 hours ago",
+  //     views: 2456,
+  //     likes: 376,
+  //     comments: 35,
+  //     heading: "Managing Stress",
+  //   },
+  {
+    type: "women_over_60",
+    postType: "Thread",
+    title: "Does anybody have any supplement recommendations?",
+    author: "Joan",
+    date: "2 days ago",
+    views: 2456,
+    likes: 376,
+    comments: 35,
+    heading: "Women over 60",
+  },
+];

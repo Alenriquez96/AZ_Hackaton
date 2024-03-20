@@ -20,8 +20,8 @@ const Navbar = ({ locale }: NavigationProps) => {
     { title: t("navigation_btns.my_medications"), path: "/my-medications" },
 
     // { title: t("navigation_btns.calendar"), path: "/calendar" },
-    // { title: "My Stats", path: "/my-stats" },
-    // { title: t("navigation_btns.communities"), path: "/communities" },
+    { title: "My Stats", path: "/my-stats" },
+    { title: t("navigation_btns.communities"), path: "/communities" },
   ];
 
   const pathName = usePathname();
