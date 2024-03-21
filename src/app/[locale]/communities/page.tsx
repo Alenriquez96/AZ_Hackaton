@@ -95,7 +95,7 @@ const Communities = () => {
   ];
 
   return (
-    <main className="min-h-screen flex items-center">
+    <main className="min-h-screen flex flex-col items-center">
       <div className="lg:min-w-[450px] min-w-[300px] text-center">
         <Text>{t("title")}</Text>
         <SearchThisPage placeholder="Search for a condition, medication or community" />
