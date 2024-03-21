@@ -1,6 +1,6 @@
 "use client";
 import Image from "next/image";
-import { Card, CardHeader, CardFooter } from "@nextui-org/react";
+import { Card, CardHeader, CardFooter, CardBody } from "@nextui-org/react";
 import { useTranslations } from "next-intl";
 import suggested1 from "@/app/assets/suggested1.svg";
 import suggested2 from "@/app/assets/suggested2.svg";
@@ -51,38 +51,43 @@ const Suggested = () => {
   ];
 
   return (
-    <div className="  rounded-[8px] shadow-sm flex flex-col items-center ">
-      <div className="w-full p-5">
-        <Title>{t("latestNews.suggested")}</Title>
-      </div>
-      <Carousel
-        opts={{
-          align: "start",
-        }}
-        className="w-[80%]"
-      >
-        <CarouselContent>
-          {cards.map((card, i) => (
-            <CarouselItem
-              key={i}
-              className="md:basis-1/2 lg:basis-1/3 grid place-content-center"
-            >
-              <Card key={i} className="rounded-[8px] h-[280px] cursor-pointer">
-                <Image src={card.img} alt={card.title} width={500} />
-                <CardHeader className="text-[12px]  font-semibold mx-3">
-                  {card.title}
-                </CardHeader>
-                <CardFooter className="text-[#63A87D] mx-3">
-                  {card.footer}
-                </CardFooter>
-              </Card>
-            </CarouselItem>
-          ))}
-        </CarouselContent>
-        <CarouselPrevious />
-        <CarouselNext />
-      </Carousel>
-    </div>
+    <Card shadow="lg" className="  rounded-[8px] shadow-sm ">
+      <CardBody className="flex flex-col items-center ">
+        <div className="w-full p-5">
+          <Title>{t("latestNews.suggested")}</Title>
+        </div>
+        <Carousel
+          opts={{
+            align: "start",
+          }}
+          className="w-[80%]"
+        >
+          <CarouselContent>
+            {cards.map((card, i) => (
+              <CarouselItem
+                key={i}
+                className="md:basis-1/2 lg:basis-1/3 grid place-content-center"
+              >
+                <Card
+                  key={i}
+                  className="rounded-[8px] h-[280px] cursor-pointer"
+                >
+                  <Image src={card.img} alt={card.title} width={500} />
+                  <CardHeader className="text-[12px]  font-semibold mx-3">
+                    {card.title}
+                  </CardHeader>
+                  <CardFooter className="text-[#63A87D] mx-3">
+                    {card.footer}
+                  </CardFooter>
+                </Card>
+              </CarouselItem>
+            ))}
+          </CarouselContent>
+          <CarouselPrevious />
+          <CarouselNext />
+        </Carousel>
+      </CardBody>
+    </Card>
   );
 };
 

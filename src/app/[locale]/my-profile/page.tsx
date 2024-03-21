@@ -12,6 +12,7 @@ import LoadingSpinner from "../products/[product]/components/LoadingSpinner";
 import { useToast } from "@/components/ui/use-toast";
 import MyDetailsContainer from "./containers/MyDetailsContainer";
 import MyConditionsContainer from "./containers/MyConditionsContainer";
+import spotted_footer from "../../assets/spotted_footer.svg";
 
 const pillPalHeaders: { label: string; value: string }[] = [
   { label: "Id", value: "id" },
@@ -221,6 +222,7 @@ const MyProfilePage = ({
             <LoadingSpinner />
           ))}
       </section>
+      <footer className="bg-[url('../assets/spotted_footer.svg')] w-screen h-[500px] fixed z-[-1] bottom-0"></footer>
     </main>
   );
 };

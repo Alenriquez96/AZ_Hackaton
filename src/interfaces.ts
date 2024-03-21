@@ -1,3 +1,5 @@
+import { UUID } from "crypto";
+
 export interface Product {
   id: string;
   name: string;
@@ -68,8 +70,17 @@ export interface user {
 }
 
 export interface Posts {
-  type: "managing_stress" | "women_over_60" | "health_wellbeing";
-  heading: "Managing Stress" | "Women over 60" | "Health & Wellbeing";
+  id: number;
+  type:
+    | "managing_stress"
+    | "women_over_60"
+    | "health_wellbeing"
+    | "diabetes_type_2";
+  heading:
+    | "Managing Stress"
+    | "Women over 60"
+    | "Health & Wellbeing"
+    | "Diabetes Type 2";
   postType: "Poll" | "Thread" | "Blog";
   title: string;
   author: string;

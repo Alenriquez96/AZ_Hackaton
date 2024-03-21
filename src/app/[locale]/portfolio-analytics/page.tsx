@@ -35,6 +35,7 @@ const PortfolioAnalyticsPage = () => {
           </CardBody>
         </Card>
       </section>
+      <footer className="bg-[url('../assets/spotted_footer.svg')] w-screen h-[500px] fixed z-[-1] bottom-0"></footer>
     </main>
   );
 };

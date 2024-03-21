@@ -71,17 +71,7 @@ const Communities = () => {
           </CardHeader>
           <CardBody className="[&>*]:my-1">
             {myCommunities.map((community, i) => (
-              <Link
-                href={{
-                  pathname: community.href,
-                  query: {
-                    name: community.label,
-                  },
-                }}
-                key={i}
-              >
-                {community.label}
-              </Link>
+              <p key={i}>{community.label}</p>
             ))}
           </CardBody>
         </Card>
@@ -91,16 +81,21 @@ const Communities = () => {
             {suggested.map((item, i) => (
               <div className="flex items-center justify-between my-3">
                 <div key={i} className="flex flex-col">
-                  <Link
-                    href={{
-                      pathname: item.href,
-                      query: {
-                        name: item.label,
-                      },
-                    }}
-                  >
-                    {item.label}
-                  </Link>
+                  {item.label === "Diabetes Type 2" ? (
+                    <Link
+                      href={{
+                        pathname: item.href,
+                        query: {
+                          name: item.label,
+                        },
+                      }}
+                    >
+                      {item.label}
+                    </Link>
+                  ) : (
+                    <p>{item.label}</p>
+                  )}
+
                   <p className="text-slate-400">{item.sub}</p>
                 </div>
                 <PlusButton />
@@ -154,6 +149,7 @@ const Communities = () => {
           </CardFooter>
         </Card>
       </section>
+      <footer className="bg-[url('../assets/spotted_footer.svg')] w-screen h-[500px] fixed z-[-1] bottom-0"></footer>
     </main>
   );
 };

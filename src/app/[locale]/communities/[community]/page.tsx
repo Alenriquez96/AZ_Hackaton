@@ -40,6 +40,10 @@ const topSections: { title: string; sections: string[] }[] = [
 const CommunityPage = ({ searchParams: { name } }: CommunityPageProps) => {
   const { user } = useUserContext();
 
+  console.log(
+    posts.filter((post) => post.heading === name).map((post, i) => post)
+  );
+
   return (
     <main className="min-h-screen flex flex-row justify-around flex-wrap p-10">
       <section className="flex flex-col [&>*]:my-6 max-w-[900px]">
@@ -48,14 +52,10 @@ const CommunityPage = ({ searchParams: { name } }: CommunityPageProps) => {
           <CardBody>
             <p className="underline font-bold mb-4">What is {name}</p>
             <p>
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Itaque,
-              ea unde! Architecto dolor deserunt voluptates numquam libero
-              veritatis reiciendis vel. Eius sed doloribus vel itaque illum
-              facilis nihil, vitae fugiat! Ipsam incidunt consequatur adipisci
-              ex dolorem, maiores itaque cupiditate voluptatum, asperiores aut
-              quo, iusto excepturi quibusdam voluptas veniam illo unde enim
-              animi recusandae veritatis nulla atque voluptatibus quas esse.
-              Mollitia.
+              Type 2 diabetes mellitus is characterized by insulin resistance or
+              desensitization and increased blood glucose (sugar) levels. It is
+              a chronic disease that can develop gradually over time and can be
+              linked to both environmental factors and heredity
             </p>
           </CardBody>
         </Card>
@@ -65,6 +65,7 @@ const CommunityPage = ({ searchParams: { name } }: CommunityPageProps) => {
             <Input
               variant="bordered"
               placeholder="Do you want to start a discussion?"
+              endContent={<IconCamera color="gray" />}
             />
             <Button radius="full" color="primary">
               Share Post
@@ -72,9 +73,11 @@ const CommunityPage = ({ searchParams: { name } }: CommunityPageProps) => {
           </CardBody>
         </Card>
 
-        {posts.map((post, i) => (
-          <PostCard key={i} post={post} />
-        ))}
+        {posts
+          .filter((post) => post.heading === name)
+          .map((post) => (
+            <PostCard key={post.id} post={post} />
+          ))}
       </section>
       <section className="flex flex-col [&>*]:my-6">
         <div className="flex items-center [&>*]:mx-2">
@@ -96,6 +99,7 @@ const CommunityPage = ({ searchParams: { name } }: CommunityPageProps) => {
           </Card>
         ))}
       </section>
+      <footer className="bg-[url('../assets/spotted_footer.svg')] w-screen h-[500px] fixed z-[-1] bottom-0"></footer>
     </main>
   );
 };
