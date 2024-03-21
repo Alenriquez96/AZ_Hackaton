@@ -71,6 +71,7 @@ const RegisterPage = ({
     e.preventDefault();
 
     setFirstName(e.target.firstName.value);
+
     if (profileType !== "Proffesional") {
       setAge(e.target.age.value);
       setGender(e.target.gender.value);

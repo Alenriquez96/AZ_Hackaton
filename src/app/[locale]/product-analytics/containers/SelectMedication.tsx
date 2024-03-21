@@ -9,7 +9,6 @@ interface MedicationsType {
 
 const medicationsSample: MedicationsType[] = [
   { label: "Avorstatin", value: "avorstatin" },
-  { label: "Insulin", value: "insulin" },
   { label: "Albuterol", value: "albuterol" },
   { label: "Levothyroxine", value: "levothyroxine" },
 ];
