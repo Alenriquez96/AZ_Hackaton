@@ -87,13 +87,14 @@ const HowFeeling = () => {
             xmlns="http://www.w3.org/2000/svg"
           >
             <path
-              d="M16 28C16 28 19 32 24 32C29 32 32 28 32 28M18 18H18.02M30 18H30.02M44 24C44 35.0457 35.0457 44 24 44C12.9543 44 4 35.0457 4 24C4 12.9543 12.9543 4 24 4C35.0457 4 44 12.9543 44 24Z"
+              d="M32.5 28C32.5 28 29 28 24 28C19 28 15.5 28 15.5 28M18 18H18.02M30 18H30.02M44 24C44 35.0457 35.0457 44 24 44C12.9543 44 4 35.0457 4 24C4 12.9543 12.9543 4 24 4C35.0457 4 44 12.9543 44 24Z"
               stroke="#313B72"
               strokeWidth="4"
               strokeLinecap="round"
               strokeLinejoin="round"
             />
           </svg>
+
           <svg
             width="48"
             height="48"
@@ -125,6 +126,7 @@ const HowFeeling = () => {
             </Button>
           ))}
         </div>
+        <p className="text-secondary cursor-pointer">See more</p>
       </CardBody>
     </Card>
   );

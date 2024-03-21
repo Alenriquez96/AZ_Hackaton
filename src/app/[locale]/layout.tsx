@@ -74,7 +74,7 @@ export default async function RootLayout({
               {children}
               {/* <Chatbot /> */}
               <BackToTop />
-              <Footer locale={locale} />
+              {/* <Footer locale={locale} /> */}
               <MobileNavbar locale={locale} />
               <Toaster />
               <AuthComponent />

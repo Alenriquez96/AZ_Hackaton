@@ -20,6 +20,7 @@ type PersonalInfoProps = {
     conditions: string[],
     meds: string[]
   ) => void;
+  profileType: string;
 };
 
 const healthConditions: string[] = [
@@ -194,10 +195,12 @@ const medications: string[] = [
   "Cefdinir",
 ];
 
-const PersonalInfo = ({ handleSubmit }: PersonalInfoProps) => {
+const PersonalInfo = ({ handleSubmit, profileType }: PersonalInfoProps) => {
   const t = useTranslations("register");
   const [conditions, setConditions] = useState<string[]>([]);
   const [meds, setMeds] = useState<string[]>([]);
+
+  console.log(profileType);
 
   const genders: string[] = [
     t("about.form.gender.female"),
@@ -224,60 +227,64 @@ const PersonalInfo = ({ handleSubmit }: PersonalInfoProps) => {
           }
         >
           <Input label="First Name" name="firstName" isRequired />
-          <Input label="Age" name="age" isRequired />
-          <Select
-            aria-label="Gender"
-            variant="flat"
-            name="gender"
-            items={genders}
-            placeholder={"Gender"}
-          >
-            {genders.map((gender, i) => (
-              <SelectItem
-                showDivider={i !== genders.length - 1}
-                key={gender}
-                value={gender}
+          {profileType !== "Proffesional" && (
+            <>
+              <Input label="Age" name="age" isRequired />
+              <Select
+                aria-label="Gender"
+                variant="flat"
+                name="gender"
+                items={genders}
+                placeholder={"Gender"}
               >
-                {gender}
-              </SelectItem>
-            ))}
-          </Select>
-          <Autocomplete
-            name="existingHealthConditions"
-            label={t("about.form.existingConditions.label")}
-            placeholder={t("about.form.existingConditions.placeholder")}
-            endContent={<IconSearch />}
-            onInputChange={(e) => {
-              setConditions((prev) => [...prev, e]);
-            }}
-          >
-            {healthConditions.map((condition, i) => (
-              <AutocompleteItem key={i}>{condition}</AutocompleteItem>
-            ))}
-          </Autocomplete>
-          <div className="flex items-center flex-wrap ">
-            {conditions.length > 0 &&
-              conditions.map((con, i) => (
-                <Button
-                  className="flex justify-between mr-2 my-1"
-                  variant="ghost"
-                  endContent={<IconX onClick={() => deleteCondition(i)} />}
-                >
-                  {con}
-                </Button>
-              ))}
-          </div>
-          <Autocomplete
-            name="existingMedications"
-            label={t("about.form.existingMedications.label")}
-            placeholder={t("about.form.existingMedications.placeholder")}
-            endContent={<IconSearch />}
-            onInputChange={(e) => setMeds((prev) => [...prev, e])}
-          >
-            {medications.map((medication, i) => (
-              <AutocompleteItem key={i}>{medication}</AutocompleteItem>
-            ))}
-          </Autocomplete>
+                {genders.map((gender, i) => (
+                  <SelectItem
+                    showDivider={i !== genders.length - 1}
+                    key={gender}
+                    value={gender}
+                  >
+                    {gender}
+                  </SelectItem>
+                ))}
+              </Select>
+              <Autocomplete
+                name="existingHealthConditions"
+                label={t("about.form.existingConditions.label")}
+                placeholder={t("about.form.existingConditions.placeholder")}
+                endContent={<IconSearch />}
+                onInputChange={(e) => {
+                  setConditions((prev) => [...prev, e]);
+                }}
+              >
+                {healthConditions.map((condition, i) => (
+                  <AutocompleteItem key={i}>{condition}</AutocompleteItem>
+                ))}
+              </Autocomplete>
+              <div className="flex items-center flex-wrap ">
+                {conditions.length > 0 &&
+                  conditions.map((con, i) => (
+                    <Button
+                      className="flex justify-between mr-2 my-1"
+                      variant="ghost"
+                      endContent={<IconX onClick={() => deleteCondition(i)} />}
+                    >
+                      {con}
+                    </Button>
+                  ))}
+              </div>
+              <Autocomplete
+                name="existingMedications"
+                label={t("about.form.existingMedications.label")}
+                placeholder={t("about.form.existingMedications.placeholder")}
+                endContent={<IconSearch />}
+                onInputChange={(e) => setMeds((prev) => [...prev, e])}
+              >
+                {medications.map((medication, i) => (
+                  <AutocompleteItem key={i}>{medication}</AutocompleteItem>
+                ))}
+              </Autocomplete>
+            </>
+          )}
           <div className="flex items-center flex-wrap ">
             {meds.length > 0 &&
               meds.map((med, i) => (

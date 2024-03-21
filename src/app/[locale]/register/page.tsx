@@ -71,10 +71,12 @@ const RegisterPage = ({
     e.preventDefault();
 
     setFirstName(e.target.firstName.value);
-    setAge(e.target.age.value);
-    setGender(e.target.gender.value);
-    setExistingMedications(meds);
-    setHealthCondition(cons);
+    if (profileType !== "Proffesional") {
+      setAge(e.target.age.value);
+      setGender(e.target.gender.value);
+      setExistingMedications(meds);
+      setHealthCondition(cons);
+    }
 
     setRegisterCompleted(true);
   };
@@ -122,7 +124,7 @@ const RegisterPage = ({
       ) : email && password && !profileType ? (
         <ProfileType handleProfileType={handleProfileType} />
       ) : (
-        <PersonalInfo handleSubmit={handleSubmit} />
+        <PersonalInfo handleSubmit={handleSubmit} profileType={profileType} />
       )}
       <footer className="bg-[url('../assets/spotted_footer.svg')] w-screen h-[500px] fixed z-[-1] bottom-0"></footer>
     </main>
