@@ -48,7 +48,7 @@ const ProductDetails = ({
     try {
       setLoading(true);
       const singleProduct = await fetch(
-        `https://mediguide-api-latest.onrender.com/v1/products/search?name=${product}`,
+        `http://ec2-18-134-96-73.eu-west-2.compute.amazonaws.com:8080/v1/products/search?name=${product}`,
         {
           headers: {
             Language: language || "en",
@@ -75,7 +75,7 @@ const ProductDetails = ({
   const getNotifications = async (id: string) => {
     try {
       const res = await fetch(
-        `https://mediguide-api-latest.onrender.com/v1/notifications?productId=${id}`,
+        `http://ec2-18-134-96-73.eu-west-2.compute.amazonaws.com:8080/v1/notifications?productId=${id}`,
         {
           headers: {
             Language: language || "en",
@@ -96,7 +96,7 @@ const ProductDetails = ({
     try {
       setLoading(true);
       const sections = await fetch(
-        `https://mediguide-api-latest.onrender.com/v1/users/labels?productId=${id}`,
+        `http://ec2-18-134-96-73.eu-west-2.compute.amazonaws.com:8080/v1/users/labels?productId=${id}`,
         {
           headers: {
             Language: language || "en",
