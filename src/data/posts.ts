@@ -1,10 +1,9 @@
 import { Posts } from "@/interfaces";
-import { randomUUID } from "crypto";
 
 export const posts: Posts[] = [
   {
     id: 1,
-    type: "health_wellbeing",
+    community: "health_wellbeing",
     heading: "Health & Wellbeing",
     postType: "Thread",
     title: "Caregiver support, advice and resources",
@@ -16,7 +15,7 @@ export const posts: Posts[] = [
   },
   {
     id: 2,
-    type: "managing_stress",
+    community: "managing_stress",
     postType: "Poll",
     title: "How ofter do you prioritize self-care?",
     author: "Tom",
@@ -28,7 +27,7 @@ export const posts: Posts[] = [
   },
   {
     id: 3,
-    type: "diabetes_type_2",
+    community: "diabetes_type_2",
     postType: "Blog",
     title: "Diabetes Type 2 support, advice and resources",
     author: "Olivia",
@@ -40,7 +39,7 @@ export const posts: Posts[] = [
   },
   {
     id: 4,
-    type: "diabetes_type_2",
+    community: "diabetes_type_2",
     postType: "Poll",
     title: "How happy are people with their treatment?",
     author: "John",
@@ -52,19 +51,7 @@ export const posts: Posts[] = [
   },
   {
     id: 5,
-    type: "women_over_60",
-    postType: "Thread",
-    title: "Does anybody have any supplement recommendations?",
-    author: "Joan",
-    date: "2 days ago",
-    views: 2888,
-    likes: 255,
-    comments: 17,
-    heading: "Women over 60",
-  },
-  {
-    id: 6,
-    type: "women_over_60",
+    community: "women_over_60",
     postType: "Thread",
     title: "Does anybody have any supplement recommendations?",
     author: "Joan",

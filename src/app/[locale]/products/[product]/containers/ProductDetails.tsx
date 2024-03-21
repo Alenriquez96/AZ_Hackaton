@@ -35,7 +35,6 @@ const ProductDetails = ({
 
   const pathName = usePathname();
   const router = useRouter();
-  console.log(pathName);
 
   const handleSetFontSize = useCallback(
     (size: number) => {
@@ -150,7 +149,7 @@ const ProductDetails = ({
       {!loading ? (
         <div className="flex flex-col [&>*]:p-4 max-w-[900px]">
           <div className="hidden sm:flex items-center justify-between">
-            <SearchThisPage />
+            <SearchThisPage placeholder={t("search")} />
           </div>
 
           <div className="flex items-center justify-between flex-row [&>*]:mx-4 ">

@@ -1,5 +1,3 @@
-import { UUID } from "crypto";
-
 export interface Product {
   id: string;
   name: string;
@@ -69,18 +67,23 @@ export interface user {
   country?: string;
 }
 
+export type communities =
+  | "managing_stress"
+  | "women_over_60"
+  | "health_wellbeing"
+  | "diabetes_type_2"
+  | "hyperthyroidism";
+
 export interface Posts {
   id: number;
-  type:
-    | "managing_stress"
-    | "women_over_60"
-    | "health_wellbeing"
-    | "diabetes_type_2";
+  graphic?: string;
+  community: communities;
   heading:
     | "Managing Stress"
     | "Women over 60"
     | "Health & Wellbeing"
-    | "Diabetes Type 2";
+    | "Diabetes Type 2"
+    | "Hyperthyroidism";
   postType: "Poll" | "Thread" | "Blog";
   title: string;
   author: string;
