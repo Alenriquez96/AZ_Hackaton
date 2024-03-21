@@ -6,7 +6,7 @@ import { redirect } from "next/navigation";
 const getProducts = async (): Promise<Product[] | any> => {
   try {
     const res = await fetch(
-      `http://ec2-18-134-96-73.eu-west-2.compute.amazonaws.com:8080/v1/products`,
+      `https://ec2-18-134-96-73.eu-west-2.compute.amazonaws.com/v1/products`,
       {
         cache: "no-cache",
         headers: {

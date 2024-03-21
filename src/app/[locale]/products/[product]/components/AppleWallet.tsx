@@ -14,7 +14,7 @@ const AppleWallet = () => {
   const appleWalletCall = async () => {
     try {
       const res: any = await fetch(
-        `http://ec2-18-134-96-73.eu-west-2.compute.amazonaws.com:8080/v1/wallet?product=${product}`,
+        `https://ec2-18-134-96-73.eu-west-2.compute.amazonaws.com/v1/wallet?product=${product}`,
         {
           method: "POST",
           headers: {

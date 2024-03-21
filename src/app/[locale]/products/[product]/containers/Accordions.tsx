@@ -94,7 +94,7 @@ const Accordions = ({
 
     try {
       const res = await fetch(
-        "http://ec2-18-134-96-73.eu-west-2.compute.amazonaws.com:8080/v1/notifications/sms",
+        "https://ec2-18-134-96-73.eu-west-2.compute.amazonaws.com/v1/notifications/sms",
         {
           method: "POST",
           body: JSON.stringify({

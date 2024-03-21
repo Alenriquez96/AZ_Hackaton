@@ -23,7 +23,7 @@ const AuthComponent = () => {
   const fetchToken = async () => {
     try {
       const res = await fetch(
-        "http://ec2-18-134-96-73.eu-west-2.compute.amazonaws.com:8080/v1/me",
+        "https://ec2-18-134-96-73.eu-west-2.compute.amazonaws.com/v1/me",
         {
           cache: "no-cache",
           headers: {
@@ -33,7 +33,7 @@ const AuthComponent = () => {
       );
       if (res.status === 401) {
         router.push(
-          "http://ec2-18-134-96-73.eu-west-2.compute.amazonaws.com:8080/v1/login?state=" +
+          "https://ec2-18-134-96-73.eu-west-2.compute.amazonaws.com/v1/login?state=" +
             location.href
         );
       }

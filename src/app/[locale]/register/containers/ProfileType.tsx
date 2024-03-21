@@ -74,6 +74,7 @@ const ProfileType = ({ handleProfileType }: ProfileTypeProps) => {
                 profileType.tooltip.title,
                 profileType.tooltip.description
               )}
+              isOpen={true}
               key={i}
             >
               <Image
