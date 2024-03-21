@@ -78,3 +78,9 @@ export interface Posts {
   likes: number;
   comments: number;
 }
+
+export interface NotificationType {
+  time?: string;
+  action: string;
+  type: "reminder" | "info";
+}
