@@ -32,7 +32,7 @@ const MobileOptions = () => {
     <div className="flex flex-col items-center">
       <div className="sm:hidden flex items-center mb-4">
         <div className="hidden ">
-          <SearchThisPage />
+          <SearchThisPage placeholder="Search" />
         </div>
         <Dropdown>
           <DropdownTrigger className="cursor-pointer">
