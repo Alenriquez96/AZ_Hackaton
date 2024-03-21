@@ -4,8 +4,10 @@ import UnderConstruction from "@/app/containers/UnderConstruction";
 import { Tabs, Tab, Card, CardBody } from "@nextui-org/react";
 import Text from "@/app/components/Text";
 import symptom_insights_graph from "@/app/assets/symptom_insights_graph.svg";
+import symptom_trackig from "@/app/assets/symptom_tracking.svg";
 import overall_graph from "@/app/assets/overall_graph.svg";
 import medication_insights_graph from "@/app/assets/medication_insights_graph.svg";
+import weekly_overtracking from "@/app/assets/weekly_overtracking.svg";
 import Image from "next/image";
 
 interface Tab {
@@ -31,8 +33,9 @@ let tabs: Tab[] = [
     label: "Symptom Insights",
     content: (
       <Card>
-        <CardBody className="grid place-content-center">
+        <CardBody className="flex flex-row flex-wrap items-start justify-center">
           <Image src={symptom_insights_graph} alt="Symptom Insights" />
+          <Image src={symptom_trackig} alt="Symptom Tracking" />
         </CardBody>
       </Card>
     ),
@@ -42,8 +45,9 @@ let tabs: Tab[] = [
     label: "Medication Insights",
     content: (
       <Card>
-        <CardBody className="grid place-content-center">
+        <CardBody className="flex flex-row flex-wrap items-start justify-center">
           <Image src={medication_insights_graph} alt="Medication Insights" />
+          <Image src={weekly_overtracking} alt="Weekly Overtracking" />
         </CardBody>
       </Card>
     ),

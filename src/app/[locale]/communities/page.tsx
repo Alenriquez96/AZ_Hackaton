@@ -123,8 +123,8 @@ const Communities = () => {
             <CardHeader>Suggested for you</CardHeader>
             <CardBody>
               {suggested.map((item, i) => (
-                <div className="flex items-center justify-between my-3">
-                  <div key={i} className="flex flex-col">
+                <div key={i} className="flex items-center justify-between my-3">
+                  <div className="flex flex-col">
                     {item.label === "Diabetes Type 2" ? (
                       <Link
                         href={{
