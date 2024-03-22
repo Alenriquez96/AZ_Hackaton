@@ -171,7 +171,9 @@ const Communities = () => {
               ))}
             </CardBody>
             <CardFooter>
-              <Link href={""}>Browse conditions</Link>
+              <Link className="underline underline-offset-4" href={""}>
+                Browse medications
+              </Link>
             </CardFooter>
           </Card>
           <Card className="p-6">
