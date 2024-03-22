@@ -1,6 +1,6 @@
 import { useEffect } from "react";
 
-export const useFillRandomly = (arr: any[], set: any) => {
+export const useFillRandomly = (arr: any[], set: any, updater?: any) => {
   useEffect(() => {
     const shuffledSample = [...arr];
 
@@ -17,5 +17,5 @@ export const useFillRandomly = (arr: any[], set: any) => {
     const uniqueElements = shuffledSample.slice(0, randomCount);
 
     set(uniqueElements);
-  }, [arr, set]);
+  }, [arr, set, updater]);
 };

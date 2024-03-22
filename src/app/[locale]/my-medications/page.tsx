@@ -22,6 +22,10 @@ import MedicationTracker from "./containers/MedicationTracker";
 import { medicationsType } from "@/interfaces";
 import { useFillRandomly } from "@/app/hooks";
 import { medicationsSample } from "../../../data/medications";
+import Appointments from "../calendar/components/Appointments";
+import { AppointmentsType } from "@/interfaces";
+import mockedAppointments from "@/data/appointments";
+import Reminders from "../calendar/components/Reminders";
 
 const slicedCurrentMedications = medicationsSample.slice(0, 4);
 const slicedPastMedications = medicationsSample
@@ -32,18 +36,29 @@ function MyMedications() {
   const t = useTranslations("My_medications");
   const { isOpen, onOpen, onOpenChange, onClose } = useDisclosure();
   const [date, setDate] = useState<Date | undefined>(new Date());
+  const [month, setMonth] = useState<number | undefined>(date?.getMonth());
   const [currentMedications, setCurrentMedications] = useState<
     medicationsType[]
   >([]);
   const [pastMedications, setPastMedications] = useState<medicationsType[]>([]);
+  const [appointments, setAppointments] = useState<AppointmentsType[]>();
 
   //fills randomly the current and past medications
   useFillRandomly(slicedCurrentMedications, setCurrentMedications);
   useFillRandomly(slicedPastMedications, setPastMedications);
+  useFillRandomly(mockedAppointments, setAppointments, date);
 
   //add a medication to current medications
   const addAMedication = (med: medicationsType) => {
     setCurrentMedications((prev) => [med, ...prev]);
+  };
+
+  const addAnAppointment = (appointment: AppointmentsType) => {
+    setAppointments((prev) => (prev ? [...prev, appointment] : [appointment]));
+  };
+
+  const deleteAppointment = (index: number) => {
+    setAppointments((prev) => prev?.filter((_, i) => i !== index));
   };
 
   const showImg = (type: string) => {
@@ -148,13 +163,33 @@ function MyMedications() {
           <MedicationSchedules currentMedications={currentMedications} />
         )}
         <Card>
-          <CardBody className="grid place-content-center">
+          <CardBody className="flex flex-col items-center [&>*]:my-1 ">
             <Calendar
               selected={date}
               onSelect={setDate}
               mode="single"
               className="cursor-pointer"
             />
+            {appointments
+              ?.slice(0, 3)
+              .map((appointment, i) =>
+                appointment.type === "appointment" ? (
+                  <Appointments
+                    key={i}
+                    title={appointment.title}
+                    date={date || new Date()}
+                    deleteAppointment={() => deleteAppointment(i)}
+                    range={appointment.range ? appointment.range : ""}
+                  />
+                ) : (
+                  <Reminders
+                    key={i}
+                    title={appointment.title}
+                    date={date || new Date()}
+                    deleteReminder={() => deleteAppointment(i)}
+                  />
+                )
+              )}
           </CardBody>
         </Card>
       </section>

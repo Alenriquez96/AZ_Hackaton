@@ -98,3 +98,10 @@ export interface NotificationType {
   action: string;
   type: "reminder" | "info";
 }
+
+export interface AppointmentsType {
+  id: number;
+  type: "reminder" | "appointment";
+  title: string;
+  range?: string;
+}
