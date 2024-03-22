@@ -11,7 +11,7 @@ import { Title } from "@/app/components/Title";
 
 const ProductAnalyticsPage = () => {
   return (
-    <main className="min-h-screen flex justify-evenly flex-wrap m-12">
+    <main className="min-h-screen flex justify-evenly flex-wrap m-12 ">
       <section className="flex flex-col items-start [&>*]:my-2 [&>*]:w-full">
         <Text>Drug Analytics</Text>
         <SelectMedication />
@@ -19,13 +19,17 @@ const ProductAnalyticsPage = () => {
         <p>Top 5 Locations</p>
         <Card>
           <CardBody>
-            <Image src={DistributionTable} alt="Global Distribution" />
+            <Image
+              width={700}
+              src={DistributionTable}
+              alt="Global Distribution"
+            />
           </CardBody>
         </Card>
         <Title>Drug Adherence</Title>
         <Card>
           <CardBody>
-            <Image src={DrugAdherenceTable} alt="Drug adherence" />
+            <Image width={700} src={DrugAdherenceTable} alt="Drug adherence" />
           </CardBody>
         </Card>
       </section>
@@ -34,13 +38,17 @@ const ProductAnalyticsPage = () => {
         <Title>Product Searches</Title>
         <Card>
           <CardBody>
-            <Image src={ProductSearches} alt="Product Searches" />
+            <Image width={700} src={ProductSearches} alt="Product Searches" />
           </CardBody>
         </Card>
         <Title>Health Literacy</Title>
         <Card>
           <CardBody>
-            <Image src={HealthLiteracyTable} alt="Health Literacy" />
+            <Image
+              width={700}
+              src={HealthLiteracyTable}
+              alt="Health Literacy"
+            />
           </CardBody>
         </Card>
       </section>
