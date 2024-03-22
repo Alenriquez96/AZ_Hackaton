@@ -15,6 +15,8 @@ import AuthComponent from "../containers/AuthComponent";
 import { Suspense } from "react";
 import LoadingSpinner from "./products/[product]/components/LoadingSpinner";
 import { CircularProgress } from "@nextui-org/react";
+import FirebaseComponent from "../containers/FirebaseComponent";
+import GoogleAnalytics from "../components/GoogleAnalytics";
 
 const dm_sans = DM_Sans({
   subsets: ["latin"],
@@ -78,6 +80,8 @@ export default async function RootLayout({
               <MobileNavbar locale={locale} />
               <Toaster />
               <AuthComponent />
+              <FirebaseComponent />
+              <GoogleAnalytics />
             </Suspense>
           </Providers>
         </NextIntlClientProvider>

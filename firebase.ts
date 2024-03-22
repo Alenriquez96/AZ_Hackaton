@@ -12,11 +12,7 @@ let app: any =
 // Initialize Analytics and get a reference to the service
 let analytics: any;
 isSupported()
-  .then((_) => {
-    typeof window !== "undefined"
-      ? (analytics = getAnalytics(app))
-      : new Error("window undefined");
-  })
+  .then((_) => (analytics = getAnalytics(app)))
   .catch((e) =>
     console.warn("Analytics is not supported in this environment.", e.message)
   );
