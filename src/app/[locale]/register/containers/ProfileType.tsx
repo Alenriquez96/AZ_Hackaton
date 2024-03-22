@@ -1,9 +1,9 @@
 import Text from "@/app/components/Text";
 import { Card, CardBody, Tooltip } from "@nextui-org/react";
 import Image from "next/image";
-import { default as patientIcon } from "@/app/assets/patientIcon.svg";
+import { default as employeeIcon } from "@/app/assets/patientIcon.svg";
 import { default as carerIcon } from "@/app/assets/carerIcon.svg";
-import { default as professionalsIcon } from "@/app/assets/proffesionalsIcon.svg";
+import { default as newPatientIcon } from "@/app/assets/newpatienticon.svg";
 import CardFooterComponent from "./CardFooterComponent";
 import { useTranslations } from "next-intl";
 
@@ -30,7 +30,7 @@ const ProfileType = ({ handleProfileType }: ProfileTypeProps) => {
         description: t("profileType.proffesional.description"),
         value: "Proffesional",
       },
-      icon: professionalsIcon,
+      icon: employeeIcon,
     },
     {
       tooltip: {
@@ -38,7 +38,7 @@ const ProfileType = ({ handleProfileType }: ProfileTypeProps) => {
         description: t("profileType.patient.description"),
         value: "Patient",
       },
-      icon: patientIcon,
+      icon: newPatientIcon,
     },
     {
       tooltip: {
