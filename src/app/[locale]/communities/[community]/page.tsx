@@ -40,10 +40,6 @@ const topSections: { title: string; sections: string[] }[] = [
 const CommunityPage = ({ searchParams: { name } }: CommunityPageProps) => {
   const { user } = useUserContext();
 
-  console.log(
-    posts.filter((post) => post.heading === name).map((post, i) => post)
-  );
-
   return (
     <main className="min-h-screen flex flex-row justify-around flex-wrap p-10">
       <section className="flex flex-col [&>*]:my-6 max-w-[900px]">

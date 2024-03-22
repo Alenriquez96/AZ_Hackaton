@@ -9,6 +9,7 @@ import {
 } from "@nextui-org/react";
 import Image from "next/image";
 import poll from "../../../assets/poll.svg";
+import diabetes_poll from "@/app/assets/diabetes_poll.svg";
 import { Posts } from "@/interfaces";
 
 import {
@@ -37,7 +38,11 @@ const PostCard = ({ post }: { post: Posts }) => {
           </p>
         </CardHeader>
         <CardBody>
-          <Image alt="poll" src={poll} />
+          {post.community === "diabetes_type_2" ? (
+            <Image alt="poll" src={diabetes_poll} />
+          ) : (
+            <Image alt="poll" src={poll} />
+          )}
           <div className="flex items-center [&>*]:mx-2 [&>*]:mt-2">
             <Avatar name={post.author} />
             <div className="flex flex-col">
