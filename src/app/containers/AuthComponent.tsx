@@ -1,4 +1,5 @@
 "use client";
+
 import { useRouter, useSearchParams } from "next/navigation";
 import { useEffect } from "react";
 
@@ -8,8 +9,6 @@ const AuthComponent = () => {
 
   useEffect(() => {
     if (typeof window !== "undefined") {
-      const localStorageToken = localStorage.getItem("access_token");
-
       if (searchParams.get("access_token")) {
         localStorage.setItem(
           "access_token",
