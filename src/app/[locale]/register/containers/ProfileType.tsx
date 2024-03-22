@@ -66,7 +66,7 @@ const ProfileType = ({ handleProfileType }: ProfileTypeProps) => {
         <p>{t("profileType.subtitle")}</p>
       </div>
       <Card className="m-4" shadow="lg">
-        <CardBody className="flex flex-row flex-wrap justify-center my-10">
+        <CardBody className="flex flex-row flex-wrap justify-center sm:[&>*]:my-0 [&>*]:my-14 my-10">
           {profileTypes.map((profileType, i) => (
             <Tooltip
               showArrow
