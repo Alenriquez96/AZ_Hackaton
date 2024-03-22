@@ -17,13 +17,17 @@ const PortfolioAnalyticsPage = () => {
         <Title>Global Sessions</Title>
         <Card>
           <CardBody>
-            <Image src={DistributionTable} alt="Global Distribution" />
+            <Image
+              width={700}
+              src={DistributionTable}
+              alt="Global Distribution"
+            />
           </CardBody>
         </Card>
         <Title>Therapeutic Area</Title>
         <Card>
           <CardBody>
-            <Image src={TherapeuticGraph} alt="Therapeutic Graph" />
+            <Image width={700} src={TherapeuticGraph} alt="Therapeutic Graph" />
           </CardBody>
         </Card>
       </section>
@@ -31,7 +35,7 @@ const PortfolioAnalyticsPage = () => {
         <Title>User Adoption</Title>
         <Card>
           <CardBody>
-            <Image src={UserAdoption} alt="User Adoption" />
+            <Image width={700} src={UserAdoption} alt="User Adoption" />
           </CardBody>
         </Card>
       </section>
